@@ -1,0 +1,59 @@
+name: portfolio
+description: plotsklapps portfolio
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.1 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  flex_color_scheme: ^7.1.2
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.1.1+1
+  flutter_email_sender: ^5.2.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.0
+  flutter_riverpod: ^2.3.6
+  font_awesome_flutter: ^10.4.0
+  google_fonts: ^4.0.4
+  url_launcher: ^6.1.11
+  very_good_analysis: ^5.0.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+
+flutter_native_splash:
+  color: "#dedede"
+  image: assets/stackedlogo.png
+  fullscreen: true
+  android_12:
+    icon_background_color: "#dedede"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/plotsklappsicon.png"
+  min_sdk_android: 24
+  web:
+    generate: true
+    image_path: "assets/plotsklappsicon.png"
+    background_color: "#dedede"
+    theme_color: "#dedede"
+  windows:
+    generate: true
+    image_path: "assets/plotsklappsicon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/plotsklappsicon.png"
