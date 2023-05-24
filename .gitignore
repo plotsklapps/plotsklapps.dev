@@ -46,3 +46,10 @@ app.*.map.json
 # adding fvm settings'
 .fvm
 .vscode
+
+# IOS related
+ios
+macos
+ios/Flutter
+ios/Flutter/Debug.xcconfig
+macos/Flutter/Flutter-Debug.xcconfig
