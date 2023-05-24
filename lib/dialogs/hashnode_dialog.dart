@@ -29,7 +29,11 @@ void showHashnodeDialog(BuildContext context) {
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.hashnode, size: 300)
-                .animate()
+                .animate(
+                  onPlay: (controller) => controller.repeat(
+                    reverse: true,
+                  ),
+                )
                 .flip(
                   duration: const Duration(milliseconds: 1000),
                 )
