@@ -93,6 +93,34 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                     ),
                   ],
                 ),
+                const Divider(),
+                Card(
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      children: [
+                        Text(
+                          'About Me',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ).animate().flip(
+                              delay: const Duration(milliseconds: 1500),
+                              duration: const Duration(milliseconds: 1000),
+                              curve: Curves.easeInOut,
+                            ),
+                        SizedBox(height: 16),
+                        Text(
+                          '''
+I am Jeremy, a Flutter Developer, from the Netherlands.\nI have completed different Flutter and Dart courses and am currently learning more about Figma.\nI am a tech enthusiast and love to learn new technologies. I am a tech blogger and write articles on Hashnode and love sharing about my learning progress on Github and Twitter.''',
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

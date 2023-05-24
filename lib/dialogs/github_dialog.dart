@@ -25,7 +25,11 @@ void showGithubDialog(BuildContext context) {
                   );
                 }
               },
-              child: const Text('Check out @plotsklapps repositories'),
+              child: const ListTile(
+                title: Text('Github'),
+                subtitle: Text('Check out @plotsklapps repositories'),
+                trailing: Icon(FontAwesomeIcons.github),
+              ),
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.github, size: 300)

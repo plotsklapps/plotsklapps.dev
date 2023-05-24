@@ -25,7 +25,11 @@ void showHashnodeDialog(BuildContext context) {
                   );
                 }
               },
-              child: const Text('Read @plotsklapps blog posts'),
+              child: const ListTile(
+                title: Text('Hashnode'),
+                subtitle: Text('Read @plotsklapps articles'),
+                trailing: Icon(FontAwesomeIcons.hashnode),
+              ),
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.hashnode, size: 300)

@@ -25,7 +25,11 @@ void showTwitterDialog(BuildContext context) {
                   );
                 }
               },
-              child: const Text('Follow @plotsklapps on Twitter'),
+              child: const ListTile(
+                title: Text('Twitter'),
+                subtitle: Text('Reach out to @plotsklapps'),
+                trailing: Icon(FontAwesomeIcons.twitter),
+              ),
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.twitter, size: 300)

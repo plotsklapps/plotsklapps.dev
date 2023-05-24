@@ -16,7 +16,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_animate: ^4.1.1+1
-  flutter_email_sender: ^5.2.0
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.0
   flutter_riverpod: ^2.3.6
