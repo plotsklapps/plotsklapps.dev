@@ -36,7 +36,7 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                     FlipCard(
                       front: Card(
                         child: SizedBox(
-                          //TODO: or Use the responsive constructor this way
+                          //TODO: or Use the responsive constructor this way. 
                           width: Responsive.isMobile(context)
                               ? size.width * 0.8
                               : size.width * 0.4,
