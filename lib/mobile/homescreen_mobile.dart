@@ -1,6 +1,9 @@
 import 'package:portfolio/all_imports.dart';
 import 'package:portfolio/dialogs/hashnode_dialog.dart';
 
+/// Boksklapps URL.
+final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
+
 /// Home screen of the app.
 class HomeScreenMobile extends ConsumerStatefulWidget {
   /// Creates a new instance of [HomeScreenMobile].
@@ -94,31 +97,173 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                   ],
                 ),
                 const Divider(),
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Column(
+                const ExpansionTile(
+                  title: Text('About plotsklapps'),
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          'About Me',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ).animate().flip(
-                              delay: const Duration(milliseconds: 1500),
-                              duration: const Duration(milliseconds: 1000),
-                              curve: Curves.easeInOut,
-                            ),
-                        SizedBox(height: 16),
-                        Text(
-                          '''
-I am Jeremy, a Flutter Developer, from the Netherlands.\nI have completed different Flutter and Dart courses and am currently learning more about Figma.\nI am a tech enthusiast and love to learn new technologies. I am a tech blogger and write articles on Hashnode and love sharing about my learning progress on Github and Twitter.''',
-                          style: TextStyle(fontSize: 16),
-                          textAlign: TextAlign.center,
-                        ),
+                        FlutterLogo(),
+                        SizedBox(width: 16),
+                        Text('I am Jeremy, a Flutter Developer'),
+                        SizedBox(width: 16),
+                        FlutterLogo(),
                       ],
                     ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [Text('from the Netherlands.')],
+                    ),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('I have completed various courses on'),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Dart & Flutter and I am currently'),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('learning about UI/UX design with Figma.'),
+                      ],
+                    ),
+                    SizedBox(height: 16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Please reach out to me on Twitter if you'),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('want to know more about me.'),
+                      ],
+                    ),
+                  ],
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 1500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 1500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    ),
+                Card(
+                  child: ListTile(
+                    title: const Text('Education'),
+                    subtitle: const Text('Courses I have completed'),
+                    leading: const Icon(FontAwesomeIcons.graduationCap),
+                    onTap: () {
+                      // TODO(plotsklapps): create education page
+                    },
+                  ),
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 2000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 2000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    ),
+                Card(
+                  child: ListTile(
+                    title: const Text('Portfolio'),
+                    subtitle: const Text('Collection of my Flutter projects'),
+                    leading: const Icon(FontAwesomeIcons.suitcase),
+                    onTap: () {
+                      // TODO(plotsklapps): create portfolio page
+                    },
+                  ),
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 2500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 2500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    ),
+                Card(
+                  child: ListTile(
+                    title: const Text('Contact'),
+                    subtitle: const Text('How to reach out to me'),
+                    leading: const Icon(FontAwesomeIcons.solidEnvelope),
+                    onTap: () {
+                      // TODO(plotsklapps): create contact page
+                    },
+                  ),
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 3000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 3000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    ),
+                const SizedBox(height: 16),
+                const Divider(),
+                const SizedBox(height: 16),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Current project I'm working on is a",
+                    ),
+                  ],
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'boxing cardio workout application that works',
+                    ),
+                  ],
+                ),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'on ANY device on ANY platform:',
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () async {
+                    try {
+                      await launchUrl(boksklappsURL);
+                    } catch (error) {
+                      showCustomSnack(context, 'Error opening URL: $error');
+                    }
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text('Boksklapps'),
+                      Icon(FontAwesomeIcons.handFist),
+                    ],
                   ),
                 ),
               ],
