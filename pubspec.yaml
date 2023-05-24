@@ -13,6 +13,7 @@ dependencies:
   firebase_analytics: ^10.4.1
   firebase_core: ^2.13.0
   flex_color_scheme: ^7.1.2
+  flip_card: ^0.7.0
   flutter:
     sdk: flutter
   flutter_animate: ^4.1.1+1

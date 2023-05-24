@@ -1,4 +1,5 @@
 export 'package:flex_color_scheme/flex_color_scheme.dart';
+export 'package:flip_card/flip_card.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter_animate/flutter_animate.dart';
 export 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -8,6 +9,7 @@ export 'package:google_fonts/google_fonts.dart';
 export 'package:portfolio/dialogs/custom_snackbar.dart';
 export 'package:portfolio/dialogs/github_dialog.dart';
 export 'package:portfolio/dialogs/twitter_dialog.dart';
+export 'package:portfolio/mobile/educationscreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
 export 'package:portfolio/routes/named_routes.dart';
 export 'package:portfolio/theme/flex_scheme.dart';

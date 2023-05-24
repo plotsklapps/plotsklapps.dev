@@ -11,11 +11,13 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<HomeScreenMobile> createState() {
-    return _HomeScreenMobileState();
+    return HomeScreenMobileState();
   }
 }
 
-class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
+/// State for [HomeScreenMobile].
+class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
+  /// Whether the app is in light mode.
   bool isLightMode = true;
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
         appBar: AppBar(
           title: Image.asset(
             'assets/textlogo.png',
+            fit: BoxFit.contain,
           ),
           centerTitle: true,
           actions: [
@@ -165,7 +168,7 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                     subtitle: const Text('Courses I have completed'),
                     leading: const Icon(FontAwesomeIcons.graduationCap),
                     onTap: () {
-                      // TODO(plotsklapps): create education page
+                      Navigator.pushNamed(context, '/education');
                     },
                   ),
                 )
