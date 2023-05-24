@@ -225,30 +225,45 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                 const SizedBox(height: 16),
                 const Divider(),
                 const SizedBox(height: 16),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                const Column(
                   children: [
-                    Text(
-                      "Current project I'm working on is a",
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Current project I'm working on is a",
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'boxing cardio workout application that works',
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'on ANY device on ANY platform:',
+                        ),
+                      ],
                     ),
                   ],
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'boxing cardio workout application that works',
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 3500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 3500),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
                     ),
-                  ],
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'on ANY device on ANY platform:',
-                    ),
-                  ],
-                ),
                 const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () async {
@@ -258,14 +273,31 @@ class _HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                       showCustomSnack(context, 'Error opening URL: $error');
                     }
                   },
-                  child: const Row(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Boksklapps'),
-                      Icon(FontAwesomeIcons.handFist),
+                      Image.asset('assets/littleboxer.gif'),
+                      const Text(
+                        'BOKSKLAPPS',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ],
                   ),
-                ),
+                )
+                    .animate()
+                    .fade(
+                      delay: const Duration(milliseconds: 4000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    )
+                    .slide(
+                      delay: const Duration(milliseconds: 4000),
+                      duration: const Duration(milliseconds: 1000),
+                      curve: Curves.easeInOut,
+                    ),
               ],
             ),
           ),
