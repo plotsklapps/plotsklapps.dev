@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:portfolio/all_imports.dart';
 
 class Responsive extends StatelessWidget {
   const Responsive({
@@ -7,13 +7,12 @@ class Responsive extends StatelessWidget {
     this.tablet,
     this.desktop,
   });
+
   final Widget? mobile;
   final Widget? tablet;
   final Widget? desktop;
 
-// This size work fine on my design,
-
-  // This isMobile, isTablet, isDesktop helep us later
+  // These booleans will come in handy later when creating our UI
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 680;
 
@@ -32,7 +31,7 @@ class Responsive extends StatelessWidget {
         if (constraints.maxWidth >= 980) {
           return desktop!;
         }
-        // If width it less then 980 and more then 680 we consider it as tablet
+        // If width it less then 980 and more then 680 we consider it a tablet
         else if (constraints.maxWidth >= 680) {
           return tablet!;
         }

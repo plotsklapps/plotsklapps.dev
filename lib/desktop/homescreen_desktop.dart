@@ -1,6 +1,4 @@
 import 'package:portfolio/all_imports.dart';
-import 'package:portfolio/dialogs/hashnode_dialog.dart';
-import 'package:portfolio/utils/responsive.dart';
 
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
@@ -15,16 +13,16 @@ class HomeScreenDesktop extends ConsumerStatefulWidget {
 
 class HomeScreenMobileState extends ConsumerState<HomeScreenDesktop> {
   bool isLightMode = true;
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: Image.asset(
             'assets/textlogo.png',
             fit: BoxFit.contain,
-            scale: Responsive.isMobile(context) ? 1.0 : 3.9,
+            scale: Responsive.isMobile(context) ? 1.0 : 3.0,
           ),
           centerTitle: true,
           actions: [
@@ -44,12 +42,11 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenDesktop> {
         ),
         drawer: const Drawer(),
         body: Padding(
-          // TODO(CapturedHeart): INSTANCES OF THE RESPONSIVE CONSTRUCTOR USED
           padding: Responsive.isMobile(context)
               ? const EdgeInsets.all(16)
               : EdgeInsets.symmetric(
-                  horizontal: size.width * 0.2,
-                  vertical: 30,
+                  horizontal: MediaQuery.of(context).size.width * 0.2,
+                  vertical: 16,
                 ),
           child: SingleChildScrollView(
             child: Column(

@@ -1,5 +1,4 @@
 import 'package:portfolio/all_imports.dart';
-import 'package:portfolio/utils/responsive.dart';
 
 class EducationScreenMobile extends StatefulWidget {
   const EducationScreenMobile({super.key});

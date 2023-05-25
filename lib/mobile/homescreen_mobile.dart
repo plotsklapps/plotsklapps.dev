@@ -1,5 +1,4 @@
 import 'package:portfolio/all_imports.dart';
-import 'package:portfolio/dialogs/hashnode_dialog.dart';
 
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
@@ -14,6 +13,7 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
 
 class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   bool isLightMode = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
