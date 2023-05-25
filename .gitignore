@@ -42,3 +42,20 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+<<<<<<< HEAD
+# adding fvm settings'
+.fvm
+.vscode
+
+# IOS related
+=======
+# IOS related
+.fvm
+vscode
+>>>>>>> 7762b26 (refactored)
+ios
+macos
+ios/Flutter
+ios/Flutter/Debug.xcconfig
+macos/Flutter/Flutter-Debug.xcconfig
