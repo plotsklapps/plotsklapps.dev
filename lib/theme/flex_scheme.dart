@@ -1,12 +1,10 @@
 import 'package:portfolio/all_imports.dart';
 
-///
 final StateProvider<ThemeMode> themeModeProvider =
     StateProvider<ThemeMode>((StateProviderRef<ThemeMode> ref) {
   return ThemeMode.light;
 });
 
-/// FlexColorSchemeProvider used in the app for light mode.
 final StateProvider<ThemeData> flexSchemeLightProvider =
     StateProvider<ThemeData>((ref) {
   return FlexThemeData.light(
@@ -34,7 +32,6 @@ final StateProvider<ThemeData> flexSchemeLightProvider =
   );
 });
 
-/// FlexColorSchemeProvider used in the app for dark mode.
 final StateProvider<ThemeData> flexSchemeDarkProvider =
     StateProvider<ThemeData>((ref) {
   return FlexThemeData.dark(

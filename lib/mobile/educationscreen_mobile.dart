@@ -1,9 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 import 'package:portfolio/utils/responsive.dart';
 
-/// Education screen of the app.
 class EducationScreenMobile extends StatefulWidget {
-  /// Creates a new instance of [EducationScreenMobile].
   const EducationScreenMobile({super.key});
 
   @override
@@ -12,7 +10,6 @@ class EducationScreenMobile extends StatefulWidget {
   }
 }
 
-/// State for [EducationScreenMobile].
 class EducationScreenMobileState extends State<EducationScreenMobile> {
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                     FlipCard(
                       front: Card(
                         child: SizedBox(
-                          //TODO: or Use the responsive constructor this way. 
+                          // TODO(CapturedHeart): or Use the responsive
+                          //  constructor this way.
                           width: Responsive.isMobile(context)
                               ? size.width * 0.8
                               : size.width * 0.4,
@@ -50,7 +48,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                       ),
                       back: Card(
                         child: SizedBox(
-                          //TODO: or Use the responsive constructor this way
+                          // TODO(CapturedHeart): or Use the responsive
+                          //  constructor this way
 
                           width: Responsive.isMobile(context)
                               ? size.width * 0.8

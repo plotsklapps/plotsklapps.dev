@@ -1,12 +1,9 @@
 import 'package:portfolio/all_imports.dart';
 import 'package:portfolio/dialogs/hashnode_dialog.dart';
 
-/// Boksklapps URL.
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
-/// Home screen of the app.
 class HomeScreenMobile extends ConsumerStatefulWidget {
-  /// Creates a new instance of [HomeScreenMobile].
   const HomeScreenMobile({super.key});
 
   @override
@@ -15,9 +12,7 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
   }
 }
 
-/// State for [HomeScreenMobile].
 class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
-  /// Whether the app is in light mode.
   bool isLightMode = true;
   @override
   Widget build(BuildContext context) {

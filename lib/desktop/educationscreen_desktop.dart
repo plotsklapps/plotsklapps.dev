@@ -1,8 +1,6 @@
 import 'package:portfolio/all_imports.dart';
 
-/// Education screen of the app.
 class EducationScreenDesktop extends StatefulWidget {
-  /// Creates a new instance of [EducationScreenDesktop].
   const EducationScreenDesktop({super.key});
 
   @override
@@ -11,7 +9,6 @@ class EducationScreenDesktop extends StatefulWidget {
   }
 }
 
-/// State for [EducationScreenDesktop].
 class EducationScreenMobileState extends State<EducationScreenDesktop> {
   @override
   Widget build(BuildContext context) {

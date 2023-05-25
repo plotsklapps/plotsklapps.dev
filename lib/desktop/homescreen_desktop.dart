@@ -1,15 +1,10 @@
-import 'dart:developer';
-
 import 'package:portfolio/all_imports.dart';
 import 'package:portfolio/dialogs/hashnode_dialog.dart';
 import 'package:portfolio/utils/responsive.dart';
 
-/// Boksklapps URL.
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
-/// Home screen of the app.
 class HomeScreenDesktop extends ConsumerStatefulWidget {
-  /// Creates a new instance of [HomeScreenDesktop].
   const HomeScreenDesktop({super.key});
 
   @override
@@ -18,9 +13,7 @@ class HomeScreenDesktop extends ConsumerStatefulWidget {
   }
 }
 
-/// State for [HomeScreenDesktop].
 class HomeScreenMobileState extends ConsumerState<HomeScreenDesktop> {
-  /// Whether the app is in light mode.
   bool isLightMode = true;
   @override
   Widget build(BuildContext context) {
@@ -51,10 +44,13 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenDesktop> {
         ),
         drawer: const Drawer(),
         body: Padding(
-          //TODO: INSTANCES OF THE RESPONSIVE CONSTRUCTOR USED
+          // TODO(CapturedHeart): INSTANCES OF THE RESPONSIVE CONSTRUCTOR USED
           padding: Responsive.isMobile(context)
               ? const EdgeInsets.all(16)
-              : EdgeInsets.symmetric(horizontal: size.width * 0.2, vertical: 30),
+              : EdgeInsets.symmetric(
+                  horizontal: size.width * 0.2,
+                  vertical: 30,
+                ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

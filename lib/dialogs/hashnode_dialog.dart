@@ -1,9 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-/// Hashnode URL.
 final Uri hashnodeURL = Uri.parse('https://hashnode.com/@plotsklapps');
 
-/// Github dialog.
 void showHashnodeDialog(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,

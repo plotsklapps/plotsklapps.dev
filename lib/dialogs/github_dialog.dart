@@ -1,9 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-/// Github URL.
 final Uri githubURL = Uri.parse('https://github.com/plotsklapps');
 
-/// Github dialog.
 void showGithubDialog(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,

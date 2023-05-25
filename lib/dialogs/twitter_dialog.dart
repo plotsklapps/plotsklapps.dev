@@ -1,9 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-/// Twitter URL.
 final Uri twitterURL = Uri.parse('https://twitter.com/plotsklapps');
 
-/// Twitter dialog.
 void showTwitterDialog(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,

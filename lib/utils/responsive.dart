@@ -1,16 +1,12 @@
-// ignore_for_file: public_member_api_docs
-
 import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
-
-  // ignore: use_super_parameters
   const Responsive({
-    Key? key,
+    super.key,
     this.mobile,
     this.tablet,
     this.desktop,
-  }) : super(key: key);
+  });
   final Widget? mobile;
   final Widget? tablet;
   final Widget? desktop;
