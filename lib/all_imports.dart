@@ -14,6 +14,5 @@ export 'package:portfolio/mobile/educationscreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
 export 'package:portfolio/routes/named_routes.dart';
 export 'package:portfolio/theme/flex_scheme.dart';
-export 'package:portfolio/utils/responsive_layout.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:very_good_analysis/very_good_analysis.dart';
