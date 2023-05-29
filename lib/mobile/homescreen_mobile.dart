@@ -3,6 +3,16 @@ import 'package:portfolio/all_imports.dart';
 // URL that leads to the BOKSklapps webapp.
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
+// Method to launch the user's email app to send an email to the developer.
+Future<void> launchEmail() async {
+  final emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: 'plotsklapps@gmail.com',
+    queryParameters: {'subject': 'Subject', 'body': 'Message'},
+  );
+  await launchUrl(emailLaunchUri);
+}
+
 class HomeScreenMobile extends ConsumerStatefulWidget {
   const HomeScreenMobile({super.key});
 
@@ -160,18 +170,15 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 duration: const Duration(milliseconds: 1000),
                                 curve: Curves.easeInOut,
                               ),
-                          Card(
+                          const Card(
                             child: ListTile(
-                              title: const Text(
+                              title: Text(
                                 'Contact',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: const Text('How to reach out to me'),
-                              trailing:
-                                  const Icon(FontAwesomeIcons.solidEnvelope),
-                              onTap: () {
-                                // TODO(plotsklapps): create contact page
-                              },
+                              subtitle: Text('Email me directly'),
+                              trailing: Icon(FontAwesomeIcons.solidEnvelope),
+                              onTap: launchEmail,
                             ),
                           )
                               .animate()
@@ -209,7 +216,11 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                           ),
                         ],
                       ),
-                    ),
+                    ).animate().fadeIn(
+                          delay: const Duration(milliseconds: 1500),
+                          duration: const Duration(milliseconds: 3000),
+                          curve: Curves.easeInOut,
+                        ),
                   ],
                 ),
                 const SizedBox(height: 16),
