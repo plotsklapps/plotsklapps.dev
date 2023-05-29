@@ -8,7 +8,6 @@ Future<void> launchEmail() async {
   final emailLaunchUri = Uri(
     scheme: 'mailto',
     path: 'plotsklapps@gmail.com',
-    queryParameters: {'subject': 'Subject', 'body': 'Message'},
   );
   await launchUrl(emailLaunchUri);
 }
