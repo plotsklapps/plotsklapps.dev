@@ -22,37 +22,44 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
 }
 
 class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
-  // Boolean that determines if the user is in light mode or dark mode.
-  bool isLightMode = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
           'assets/textlogo.png',
-          fit: BoxFit.contain,
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {
-              setState(() {
-                isLightMode = !isLightMode;
-              });
-              // Change the theme mode based on the boolean.
-              isLightMode
-                  ? ref.read(themeModeProvider.notifier).state = ThemeMode.light
-                  : ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
-            },
-            // Change the icon based on the boolean.
-            icon: isLightMode
-                ? const Icon(FontAwesomeIcons.moon)
-                : const Icon(FontAwesomeIcons.sun),
-          ),
-        ],
       ),
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Image.asset('assets/stackedlogo.png'),
+              const Divider(),
+              ListTile(
+                title: const Text('Current theme mode:'),
+                // Icon always displays the current theme mode.
+                trailing: ref.watch(isLightModeProvider)
+                    ? const Icon(FontAwesomeIcons.sun)
+                    : const Icon(FontAwesomeIcons.moon),
+                onTap: () {
+                  // Tapping the icon will change the boolean back and forth.
+                  ref.read(isLightModeProvider.notifier).state =
+                      !ref.read(isLightModeProvider.notifier).state;
+                  // Change the theme mode based on the boolean.
+                  ref.watch(isLightModeProvider)
+                      ? ref.read(themeModeProvider.notifier).state =
+                          ThemeMode.light
+                      : ref.read(themeModeProvider.notifier).state =
+                          ThemeMode.dark;
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16),

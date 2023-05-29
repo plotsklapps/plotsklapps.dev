@@ -1,5 +1,9 @@
 import 'package:portfolio/all_imports.dart';
 
+final StateProvider<bool> isLightModeProvider = StateProvider<bool>((_) {
+  return true;
+});
+
 final StateProvider<ThemeMode> themeModeProvider =
     StateProvider<ThemeMode>((StateProviderRef<ThemeMode> ref) {
   return ThemeMode.light;

@@ -46,7 +46,7 @@ void showTwitterDialog(BuildContext context) {
                 )
                 .shimmer(
                   delay: const Duration(milliseconds: 2000),
-                  duration: const Duration(milliseconds: 2000),
+                  duration: const Duration(milliseconds: 5000),
                   curve: Curves.easeInOut,
                 ),
           ],
