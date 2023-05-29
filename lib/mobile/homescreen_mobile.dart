@@ -1,5 +1,6 @@
 import 'package:portfolio/all_imports.dart';
 
+// URL that leads to the BOKSklapps webapp.
 final Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
 
 class HomeScreenMobile extends ConsumerStatefulWidget {
@@ -12,35 +13,39 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
 }
 
 class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
+  // Boolean that determines if the user is in light mode or dark mode.
   bool isLightMode = true;
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Image.asset(
-            'assets/textlogo.png',
-            fit: BoxFit.contain,
-          ),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              onPressed: () {
-                setState(() {
-                  isLightMode = !isLightMode;
-                });
-                ref.read(themeModeProvider.notifier).state =
-                    isLightMode ? ThemeMode.light : ThemeMode.dark;
-              },
-              icon: Icon(
-                isLightMode ? FontAwesomeIcons.moon : FontAwesomeIcons.sun,
-              ),
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Image.asset(
+          'assets/textlogo.png',
+          fit: BoxFit.contain,
         ),
-        drawer: const Drawer(),
-        body: Padding(
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isLightMode = !isLightMode;
+              });
+              // Change the theme mode based on the boolean.
+              isLightMode
+                  ? ref.read(themeModeProvider.notifier).state = ThemeMode.light
+                  : ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
+            },
+            // Change the icon based on the boolean.
+            icon: isLightMode
+                ? const Icon(FontAwesomeIcons.moon)
+                : const Icon(FontAwesomeIcons.sun),
+          ),
+        ],
+      ),
+      drawer: const Drawer(),
+      body: SafeArea(
+        child: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
@@ -57,6 +62,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                         icon: const Icon(
                           FontAwesomeIcons.twitter,
                         ).animate().flip(
+                              delay: Duration.zero,
                               duration: const Duration(milliseconds: 1000),
                               curve: Curves.easeInOut,
                             ),
@@ -95,159 +101,128 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                   ],
                 ),
                 const Divider(),
-                const ExpansionTile(
-                  title: Text('About plotsklapps'),
+                const SizedBox(height: 16),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FlutterLogo(),
-                        SizedBox(width: 16),
-                        Text('I am Jeremy, a Flutter Developer'),
-                        SizedBox(width: 16),
-                        FlutterLogo(),
-                      ],
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Card(
+                            child: ListTile(
+                              title: const Text(
+                                'Education',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: const Text('Courses I have completed'),
+                              trailing:
+                                  const Icon(FontAwesomeIcons.graduationCap),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/education');
+                              },
+                            ),
+                          )
+                              .animate()
+                              .fade(
+                                delay: const Duration(milliseconds: 2000),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              )
+                              .slide(
+                                delay: const Duration(milliseconds: 2000),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              ),
+                          Card(
+                            child: ListTile(
+                              title: const Text(
+                                'Portfolio',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: const Text(
+                                'Collection of my Flutter projects',
+                              ),
+                              trailing: const Icon(FontAwesomeIcons.suitcase),
+                              onTap: () {
+                                // TODO(plotsklapps): create portfolio page
+                              },
+                            ),
+                          )
+                              .animate()
+                              .fade(
+                                delay: const Duration(milliseconds: 2500),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              )
+                              .slide(
+                                delay: const Duration(milliseconds: 2500),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              ),
+                          Card(
+                            child: ListTile(
+                              title: const Text(
+                                'Contact',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: const Text('How to reach out to me'),
+                              trailing:
+                                  const Icon(FontAwesomeIcons.solidEnvelope),
+                              onTap: () {
+                                // TODO(plotsklapps): create contact page
+                              },
+                            ),
+                          )
+                              .animate()
+                              .fade(
+                                delay: const Duration(milliseconds: 3000),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              )
+                              .slide(
+                                delay: const Duration(milliseconds: 3000),
+                                duration: const Duration(milliseconds: 1000),
+                                curve: Curves.easeInOut,
+                              ),
+                        ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [Text('from the Netherlands.')],
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('I have completed various courses on'),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Dart & Flutter and I am currently'),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('learning about UI/UX design with Figma.'),
-                      ],
-                    ),
-                    SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Please reach out to me on Twitter if you'),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('want to know more about me.'),
-                      ],
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const FlutterLogo(size: 100).animate(
+                            onPlay: (controller) {
+                              controller.repeat();
+                            },
+                          ).shimmer(duration: const Duration(seconds: 5)),
+                          const SizedBox(height: 16),
+                          const Text(
+                            'I am Jeremy, a Flutter developer from the '
+                            'Netherlands. I have completed various courses '
+                            'on Dart & Flutter and I am currently learning '
+                            'more about UI/UX design with Figma. Reach out '
+                            "to me if you'd like to know more!",
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
-                )
-                    .animate()
-                    .fade(
-                      delay: const Duration(milliseconds: 1500),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    )
-                    .slide(
-                      delay: const Duration(milliseconds: 1500),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    ),
-                Card(
-                  child: ListTile(
-                    title: const Text('Education'),
-                    subtitle: const Text('Courses I have completed'),
-                    leading: const Icon(FontAwesomeIcons.graduationCap),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/education');
-                    },
-                  ),
-                )
-                    .animate()
-                    .fade(
-                      delay: const Duration(milliseconds: 2000),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    )
-                    .slide(
-                      delay: const Duration(milliseconds: 2000),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    ),
-                Card(
-                  child: ListTile(
-                    title: const Text('Portfolio'),
-                    subtitle: const Text('Collection of my Flutter projects'),
-                    leading: const Icon(FontAwesomeIcons.suitcase),
-                    onTap: () {
-                      // TODO(plotsklapps): create portfolio page
-                    },
-                  ),
-                )
-                    .animate()
-                    .fade(
-                      delay: const Duration(milliseconds: 2500),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    )
-                    .slide(
-                      delay: const Duration(milliseconds: 2500),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    ),
-                Card(
-                  child: ListTile(
-                    title: const Text('Contact'),
-                    subtitle: const Text('How to reach out to me'),
-                    leading: const Icon(FontAwesomeIcons.solidEnvelope),
-                    onTap: () {
-                      // TODO(plotsklapps): create contact page
-                    },
-                  ),
-                )
-                    .animate()
-                    .fade(
-                      delay: const Duration(milliseconds: 3000),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    )
-                    .slide(
-                      delay: const Duration(milliseconds: 3000),
-                      duration: const Duration(milliseconds: 1000),
-                      curve: Curves.easeInOut,
-                    ),
+                ),
                 const SizedBox(height: 16),
                 const Divider(),
                 const SizedBox(height: 16),
                 const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Current project I'm working on is a",
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'boxing cardio workout application that works',
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'on ANY device on ANY platform:',
-                        ),
-                      ],
+                    Text(
+                      "Current project I'm working on is a boxing cardio "
+                      'workout application that works on ANY device on '
+                      'ANY platform:',
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 )
