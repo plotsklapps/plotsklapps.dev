@@ -32,9 +32,9 @@ void showTwitterDialog(BuildContext context) {
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.twitter, size: 300)
                 .animate(
-                  onPlay: (controller) => controller.repeat(
-                    reverse: true,
-                  ),
+                  onPlay: (controller) {
+                    controller.repeat(reverse: true);
+                  },
                 )
                 .flip(
                   duration: const Duration(milliseconds: 1000),
@@ -46,7 +46,7 @@ void showTwitterDialog(BuildContext context) {
                 )
                 .shimmer(
                   delay: const Duration(milliseconds: 2000),
-                  duration: const Duration(milliseconds: 1000),
+                  duration: const Duration(milliseconds: 2000),
                   curve: Curves.easeInOut,
                 ),
           ],

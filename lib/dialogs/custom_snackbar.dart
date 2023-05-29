@@ -5,6 +5,7 @@ void showCustomSnack(BuildContext context, String message) {
     content: Text(message),
     duration: const Duration(seconds: 3),
     showCloseIcon: true,
+    behavior: SnackBarBehavior.floating,
   );
   ScaffoldMessenger.of(context).showSnackBar(snackBar);
 }
