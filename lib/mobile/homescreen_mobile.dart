@@ -214,7 +214,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 },
                               ).shimmer(
                                 delay: Duration.zero,
-                                duration: const Duration(seconds: 5),
+                                duration: const Duration(seconds: 4),
                               ),
                               Image.asset(
                                 'assets/images/ioniclogo.png',
@@ -225,7 +225,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 },
                               ).shimmer(
                                 delay: const Duration(seconds: 2),
-                                duration: const Duration(seconds: 5),
+                                duration: const Duration(seconds: 4),
                               ),
                             ],
                           ),
