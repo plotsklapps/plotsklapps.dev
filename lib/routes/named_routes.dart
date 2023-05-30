@@ -7,4 +7,7 @@ Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/education': (BuildContext context) {
     return const EducationScreenMobile();
   },
+  '/portfolio': (BuildContext context) {
+    return const PortfolioScreenMobile();
+  },
 };

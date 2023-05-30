@@ -19,6 +19,7 @@ export 'package:portfolio/dialogs/socials/hashnode_dialog.dart';
 export 'package:portfolio/dialogs/socials/twitter_dialog.dart';
 export 'package:portfolio/mobile/educationscreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
+export 'package:portfolio/mobile/portfolioscreen_mobile.dart';
 export 'package:portfolio/routes/named_routes.dart';
 export 'package:portfolio/theme/flex_scheme.dart';
 export 'package:url_launcher/url_launcher.dart';

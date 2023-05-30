@@ -161,7 +161,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                               ),
                               trailing: const Icon(FontAwesomeIcons.suitcase),
                               onTap: () {
-                                // TODO(plotsklapps): create portfolio page
+                                Navigator.pushNamed(context, '/portfolio');
                               },
                             ),
                           )
