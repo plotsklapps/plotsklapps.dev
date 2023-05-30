@@ -27,7 +27,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset(
-          'assets/textlogo.png',
+          'assets/images/textlogo.png',
         ),
         centerTitle: true,
       ),
@@ -36,7 +36,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Image.asset('assets/stackedlogo.png'),
+              Image.asset('assets/images/stackedlogo.png'),
               const Divider(),
               ListTile(
                 title: const Text('Current theme mode:'),
@@ -206,18 +206,37 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const FlutterLogo(size: 100).animate(
-                            onPlay: (controller) {
-                              controller.repeat();
-                            },
-                          ).shimmer(duration: const Duration(seconds: 5)),
+                          Row(
+                            children: [
+                              const FlutterLogo(size: 75).animate(
+                                onPlay: (controller) {
+                                  controller.repeat();
+                                },
+                              ).shimmer(
+                                delay: Duration.zero,
+                                duration: const Duration(seconds: 5),
+                              ),
+                              Image.asset(
+                                'assets/images/ioniclogo.png',
+                                height: 75,
+                              ).animate(
+                                onPlay: (controller) {
+                                  controller.repeat();
+                                },
+                              ).shimmer(
+                                delay: const Duration(seconds: 2),
+                                duration: const Duration(seconds: 5),
+                              ),
+                            ],
+                          ),
                           const SizedBox(height: 16),
                           const Text(
-                            'I am Jeremy, a Flutter developer from the '
-                            'Netherlands. I have completed various courses '
-                            'on Dart & Flutter and I am currently learning '
-                            'more about UI/UX design with Figma. Reach out '
-                            "to me if you'd like to know more!",
+                            "I'm Jeremy, a Flutter and Ionic developer from "
+                            'the Netherlands. I have completed various '
+                            'courses on Ionic, Dart & Flutter and I am '
+                            'currently learning more about UI/UX design '
+                            "with Figma. Reach out to me if you'd like "
+                            'to know more!',
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -237,8 +256,8 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                   children: [
                     Text(
                       "Current project I'm working on is a boxing cardio "
-                      'workout application that works on ANY device on '
-                      'ANY platform:',
+                      'workout application that works on ANY device on ANY '
+                      'platform:',
                       textAlign: TextAlign.center,
                     ),
                   ],

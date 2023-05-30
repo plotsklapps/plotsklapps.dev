@@ -23,60 +23,96 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlipCard(
-                      front: Card(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: const ListTile(
-                            leading: Icon(FontAwesomeIcons.graduationCap),
-                            title: Text('Flutter Bootcamp 2021'),
-                            subtitle: Text('Udemy - Angela Yu'),
-                          ),
-                        ),
-                      ),
-                      back: Card(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: Image.asset('assets/flutterbootcamp2021.jpg'),
-                        ),
-                      ),
-                    ),
-                  ],
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Programming apps with Ionic',
+                  subtitleFront: '2021 - NHA',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Diploma and Grades',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showIonicNHADialog(context);
+                  },
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlipCard(
-                      front: Card(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: const ListTile(
-                            leading: Icon(FontAwesomeIcons.graduationCap),
-                            title: Text('Dart from Novice to Expert 2022'),
-                            subtitle: Text('Udemy - Tiberiu Potec'),
-                          ),
-                        ),
-                      ),
-                      back: Card(
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child:
-                              Image.asset('assets/dartnovicetoexpert2022.jpg'),
-                        ),
-                      ),
-                    ),
-                  ],
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Flutter Bootcamp',
+                  subtitleFront: '2021 - Udemy - Angela Yu',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showFlutterBootcamp2021Dialog(context);
+                  },
+                ),
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Dart from Novice to Expert',
+                  subtitleFront: '2021 - Udemy - Tiberiu Potec',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showDartNoviceToExpertDialog(context);
+                  },
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class FlipCardCertificate extends StatelessWidget {
+  const FlipCardCertificate({
+    required this.iconFront,
+    required this.iconBack,
+    required this.titleFront,
+    required this.subtitleFront,
+    required this.titleBack,
+    required this.onPressed,
+    required this.context,
+    super.key,
+  });
+
+  final BuildContext context;
+  final IconData iconFront;
+  final IconData iconBack;
+  final String titleFront;
+  final String subtitleFront;
+  final String titleBack;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return FlipCard(
+      direction: FlipDirection.VERTICAL,
+      front: Card(
+        child: ListTile(
+          trailing: Icon(iconFront),
+          title: Text(
+            titleFront,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text(subtitleFront),
+        ),
+      ),
+      back: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                titleBack,
+              ),
+              IconButton(
+                onPressed: onPressed,
+                icon: Icon(iconBack),
+              ),
+            ],
           ),
         ),
       ),
