@@ -45,10 +45,11 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                     ? const Icon(FontAwesomeIcons.sun)
                     : const Icon(FontAwesomeIcons.moon),
                 onTap: () {
-                  // Tapping the icon will change the boolean back and forth.
+                  // Tapping the icon will change the boolean back and forth
+                  // and change the icon.
                   ref.read(isLightModeProvider.notifier).state =
                       !ref.read(isLightModeProvider.notifier).state;
-                  // Change the theme mode based on the boolean.
+                  // Change the actual theme mode based on the boolean.
                   ref.watch(isLightModeProvider)
                       ? ref.read(themeModeProvider.notifier).state =
                           ThemeMode.light
@@ -67,6 +68,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Row of social media icons.
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -118,7 +120,8 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                 ),
                 const Divider(),
                 const SizedBox(height: 16),
-                const SizedBox(height: 16),
+                // Row with two columns. One holds the Education/Portfolio/
+                // Contact cards, the other holds the profile text.
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -131,7 +134,6 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 'Education',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: const Text('Courses I have completed'),
                               trailing:
                                   const Icon(FontAwesomeIcons.graduationCap),
                               onTap: () {
@@ -156,9 +158,6 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 'Portfolio',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: const Text(
-                                'Collection of my Flutter projects',
-                              ),
                               trailing: const Icon(FontAwesomeIcons.suitcase),
                               onTap: () {
                                 Navigator.pushNamed(context, '/portfolio');
@@ -182,7 +181,6 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                                 'Contact',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              subtitle: Text('Email me directly'),
                               trailing: Icon(FontAwesomeIcons.solidEnvelope),
                               onTap: launchEmail,
                             ),
@@ -251,6 +249,8 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                 const SizedBox(height: 16),
                 const Divider(),
                 const SizedBox(height: 16),
+                // Last column with the current project and a button to
+                // open it.
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
