@@ -18,15 +18,15 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
           title: const Icon(FontAwesomeIcons.graduationCap),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 FlipCardCertificate(
                   context: context,
                   titleFront: 'Programming apps with Ionic',
-                  subtitleFront: '2021 - NHA',
+                  subtitleFront: 'May 2021 - NHA',
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Diploma and Grades',
                   iconBack: FontAwesomeIcons.certificate,
@@ -37,7 +37,7 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                 FlipCardCertificate(
                   context: context,
                   titleFront: 'Flutter Bootcamp',
-                  subtitleFront: '2021 - Udemy - Angela Yu',
+                  subtitleFront: 'Sep 2021 - Udemy - Angela Yu',
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
@@ -48,12 +48,56 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                 FlipCardCertificate(
                   context: context,
                   titleFront: 'Dart from Novice to Expert',
-                  subtitleFront: '2021 - Udemy - Tiberiu Potec',
+                  subtitleFront: 'Nov 2021 - Udemy - Tiberiu Potec',
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
                   onPressed: () {
                     showDartNoviceToExpertDialog(context);
+                  },
+                ),
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Dart Beginners',
+                  subtitleFront: 'Nov 2021 - Udemy - Bryan Cairns',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showDartBeginnersDialog(context);
+                  },
+                ),
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Flutter Beginners',
+                  subtitleFront: 'Dec 2021 - Udemy - Bryan Cairns',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showFlutterBeginnersDialog(context);
+                  },
+                ),
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Dart Intermediate',
+                  subtitleFront: 'Jan 2022 - Udemy - Bryan Cairns',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showDartIntermediateDialog(context);
+                  },
+                ),
+                FlipCardCertificate(
+                  context: context,
+                  titleFront: 'Flutter Intermediate',
+                  subtitleFront: 'Sep 2022 - Udemy - Bryan Cairns',
+                  iconFront: FontAwesomeIcons.solidCircleCheck,
+                  titleBack: 'See Certificate',
+                  iconBack: FontAwesomeIcons.certificate,
+                  onPressed: () {
+                    showFlutterIntermediateDialog(context);
                   },
                 ),
               ],
