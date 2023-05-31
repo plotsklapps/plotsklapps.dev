@@ -1,15 +1,15 @@
 import 'package:portfolio/all_imports.dart';
 
-class HomeScreenMobile extends ConsumerStatefulWidget {
-  const HomeScreenMobile({super.key});
+class HomeScreenDesktop extends ConsumerStatefulWidget {
+  const HomeScreenDesktop({super.key});
 
   @override
-  ConsumerState<HomeScreenMobile> createState() {
-    return HomeScreenMobileState();
+  ConsumerState<HomeScreenDesktop> createState() {
+    return HomeScreenDesktopState();
   }
 }
 
-class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
+class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
