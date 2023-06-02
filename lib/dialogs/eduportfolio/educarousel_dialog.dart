@@ -29,7 +29,13 @@ void showEduCarouselDialog(BuildContext context) {
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (currentEduPortfolioImageIndex == 0) {
+                        Navigator.pushNamed(context, '/dicee');
+                      } else {
+                        return;
+                      }
+                    },
                     child: const Text('Open App'),
                   ),
                   ElevatedButton(

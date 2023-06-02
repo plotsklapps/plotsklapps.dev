@@ -1,3 +1,5 @@
+export 'dart:math';
+
 export 'package:flex_color_scheme/flex_color_scheme.dart';
 export 'package:flip_card/flip_card.dart';
 export 'package:flutter/material.dart';
@@ -19,6 +21,7 @@ export 'package:portfolio/dialogs/eduportfolio/educarousel_dialog.dart';
 export 'package:portfolio/dialogs/socials/github_dialog.dart';
 export 'package:portfolio/dialogs/socials/hashnode_dialog.dart';
 export 'package:portfolio/dialogs/socials/twitter_dialog.dart';
+export 'package:portfolio/mobile/diceescreen_mobile.dart';
 export 'package:portfolio/mobile/educationscreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
 export 'package:portfolio/mobile/portfolioscreen_mobile.dart';
