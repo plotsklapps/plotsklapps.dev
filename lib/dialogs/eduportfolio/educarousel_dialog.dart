@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:portfolio/all_imports.dart';
 
 final eduPortfolioImages = <String>[
@@ -44,17 +46,26 @@ void showEduCarouselDialog(BuildContext context) {
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.5,
-                    child: PageView.builder(
-                      itemCount: eduPortfolioImages.length,
-                      onPageChanged: (int index) {
-                        currentEduPortfolioImageIndex = index;
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return Image.asset(
-                          eduPortfolioImages[index],
-                          fit: BoxFit.contain,
-                        );
-                      },
+                    child: ScrollConfiguration(
+                      behavior: const ScrollBehavior().copyWith(
+                        dragDevices: {
+                          PointerDeviceKind.mouse,
+                          PointerDeviceKind.touch,
+                          PointerDeviceKind.trackpad,
+                        },
+                      ),
+                      child: PageView.builder(
+                        itemCount: eduPortfolioImages.length,
+                        onPageChanged: (int index) {
+                          currentEduPortfolioImageIndex = index;
+                        },
+                        itemBuilder: (BuildContext context, int index) {
+                          return Image.asset(
+                            eduPortfolioImages[index],
+                            fit: BoxFit.contain,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
