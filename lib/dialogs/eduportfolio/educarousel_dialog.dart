@@ -1,5 +1,13 @@
 import 'package:portfolio/all_imports.dart';
 
+final eduPortfolioImages = <String>[
+  'assets/images/eduportfolio_dicee.png',
+  'assets/images/eduportfolio_xylophone.png',
+  'assets/images/eduportfolio_bmicalc.png',
+  'assets/images/eduportfolio_weather.png',
+];
+int currentEduPortfolioImageIndex = 0;
+
 void showEduCarouselDialog(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,
@@ -9,15 +17,6 @@ void showEduCarouselDialog(BuildContext context) {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Placeholder(),
-                ],
-              ),
-            ),
-            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,6 +33,29 @@ void showEduCarouselDialog(BuildContext context) {
                   ElevatedButton(
                     onPressed: () {},
                     child: const Text('Show Source Code'),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: PageView.builder(
+                      itemCount: eduPortfolioImages.length,
+                      onPageChanged: (int index) {
+                        currentEduPortfolioImageIndex = index;
+                      },
+                      itemBuilder: (BuildContext context, int index) {
+                        return Image.asset(
+                          eduPortfolioImages[index],
+                          fit: BoxFit.contain,
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
