@@ -6,10 +6,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth < 800) {
-      return HomeScreenMobile();
+    if (screenWidth < 768) {
+      return const HomeScreenMobile();
+    } else if (screenWidth >= 768 && screenWidth < 1199) {
+      return const HomeScreenMobile();
     } else {
-      return HomeScreenDesktop();
+      return const HomeScreenMobile();
     }
   }
 }
