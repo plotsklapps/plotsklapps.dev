@@ -25,6 +25,7 @@ export 'package:portfolio/mobile/diceescreen_mobile.dart';
 export 'package:portfolio/mobile/educationscreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
 export 'package:portfolio/mobile/portfolioscreen_mobile.dart';
+export 'package:portfolio/providers/eduportfoliocarousel_provider.dart';
 export 'package:portfolio/routes/named_routes.dart';
 export 'package:portfolio/theme/flex_scheme.dart';
 export 'package:portfolio/utils/utils.dart';
