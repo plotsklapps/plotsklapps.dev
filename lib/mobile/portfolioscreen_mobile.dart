@@ -10,30 +10,33 @@ class PortfolioScreenMobile extends StatelessWidget {
         title: const Icon(FontAwesomeIcons.suitcase),
         centerTitle: true,
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Text(
+              const Text(
                 "I've been developing apps since 2021, and I've created a few apps during my courses that are worthwile to show off. Every finished project has a short description and a link to the source code so my coding style can be reviewed/evaluated.",
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Card(
                 child: ListTile(
-                  trailing: Icon(FontAwesomeIcons.graduationCap),
-                  title: Text(
+                  onTap: () {
+                    showEduCarouselDialog(context);
+                  },
+                  trailing: const Icon(FontAwesomeIcons.graduationCap),
+                  title: const Text(
                     'Educational Portfolio',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: Text('Apps created during courses'),
+                  subtitle: const Text('Apps created during courses'),
                 ),
               ),
-              SizedBox(height: 16),
-              Divider(),
-              SizedBox(height: 16),
-              Card(
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 16),
+              const Card(
                 child: ListTile(
                   trailing: Icon(FontAwesomeIcons.store),
                   title: Text(

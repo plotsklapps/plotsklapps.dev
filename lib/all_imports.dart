@@ -15,6 +15,7 @@ export 'package:portfolio/dialogs/certificates/flutterbootcamp2021_dialog.dart';
 export 'package:portfolio/dialogs/certificates/flutterintermediate_dialog.dart';
 export 'package:portfolio/dialogs/certificates/ionicnha_dialog.dart';
 export 'package:portfolio/dialogs/custom_snackbar.dart';
+export 'package:portfolio/dialogs/eduportfolio/educarousel_dialog.dart';
 export 'package:portfolio/dialogs/socials/github_dialog.dart';
 export 'package:portfolio/dialogs/socials/hashnode_dialog.dart';
 export 'package:portfolio/dialogs/socials/twitter_dialog.dart';
