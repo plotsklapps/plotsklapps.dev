@@ -23,26 +23,43 @@ class EduPortfolioCarouselNotifier extends StateNotifier<int> {
     'assets/images/eduportfolio_weather.png',
   ];
 
+  // Method to set the current INDEX of the carousel
+  // Usage: ref.read(eduPortfolioCarouselProvider.notifier)
+  // .setCurrentEduPortfolioIndex(index);
   int setCurrentEduPortfolioIndex(int index) {
     return state = index;
   }
 
+  // Method to get the current INDEX of the carousel
+  // Usage: ref.watch(eduPortfolioCarouselProvider);
   int getCurrentEduPortfolioIndex() {
     return state;
   }
 
+  // Method to set the current TEXT of the carousel
+  // Usage: ref.read(eduPortfolioCarouselProvider.notifier)
+  // .setCurrentEduPortfolioText(index);
   String setCurrentEduPortfolioText(int index) {
     return eduPortfolioTexts[index];
   }
 
+  // Method to get the current TEXT of the carousel
+  // Usage: ref.watch(eduPortfolioCarouselProvider.notifier)
+  // .getCurrentEduPortfolioText();
   String getCurrentEduPortfolioText(int index) {
     return eduPortfolioTexts[index];
   }
 
+  // Method to set the current IMAGE of the carousel
+  // Usage: ref.read(eduPortfolioCarouselProvider.notifier)
+  // .setCurrentEduPortfolioImage(index);
   String setCurrentEduPortfolioImage(int index) {
     return eduPortfolioImages[index];
   }
 
+  // Method to get the current IMAGE of the carousel
+  // Usage: ref.watch(eduPortfolioCarouselProvider.notifier)
+  // .getCurrentEduPortfolioImage();
   String getCurrentEduPortfolioImage() {
     return eduPortfolioImages[state];
   }

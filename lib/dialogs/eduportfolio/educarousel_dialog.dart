@@ -50,6 +50,7 @@ void showEduCarouselDialog(BuildContext context) {
                             launchUrl(Utils.xylophoneURL);
                           } else if (currentIndex == 2) {
                             launchUrl(Utils.bmicalcURL);
+                          } else {
                             return;
                           }
                         },

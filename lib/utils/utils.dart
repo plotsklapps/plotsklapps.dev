@@ -16,7 +16,7 @@ class Utils {
 
   //URL to the BMI Calculator app source code.
   static Uri bmicalcURL = Uri.parse(
-    '',
+    'https://github.com/plotsklapps/plotsklapps.dev/tree/master/lib/mobile/eduprojects/bmicalc',
   );
 
   // Method to launch the user's email app to send an email to the developer.
