@@ -57,6 +57,10 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('BMI Calculator'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
