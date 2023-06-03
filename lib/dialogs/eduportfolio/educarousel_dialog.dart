@@ -33,6 +33,8 @@ void showEduCarouselDialog(BuildContext context) {
                             Navigator.pushNamed(context, '/dicee');
                           } else if (currentIndex == 1) {
                             Navigator.pushNamed(context, '/xylophone');
+                          } else if (currentIndex == 2) {
+                            Navigator.pushNamed(context, '/bmicalc');
                           } else {
                             return;
                           }
@@ -46,7 +48,8 @@ void showEduCarouselDialog(BuildContext context) {
                             launchUrl(Utils.diceeURL);
                           } else if (currentIndex == 1) {
                             launchUrl(Utils.xylophoneURL);
-                          } else {
+                          } else if (currentIndex == 2) {
+                            launchUrl(Utils.bmicalcURL);
                             return;
                           }
                         },

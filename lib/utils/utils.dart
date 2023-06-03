@@ -14,6 +14,11 @@ class Utils {
     'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/xylophonescreen_mobile.dart',
   );
 
+  //URL to the BMI Calculator app source code.
+  static Uri bmicalcURL = Uri.parse(
+    '',
+  );
+
   // Method to launch the user's email app to send an email to the developer.
   static Future<void> launchEmail() async {
     final emailLaunchUri = Uri(

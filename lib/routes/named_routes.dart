@@ -16,4 +16,7 @@ Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/xylophone': (BuildContext context) {
     return const XylophoneScreenMobile();
   },
+  '/bmicalc': (BuildContext context) {
+    return const BMICalcScreenMobile();
+  },
 };
