@@ -193,6 +193,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const FlutterLogo(size: 75).animate(
                                 onPlay: (controller) {

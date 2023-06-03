@@ -17,10 +17,10 @@ class ReusableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onPress,
       child: Container(
-        margin: const EdgeInsets.all(15),
+        margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(24),
         ),
         child: cardChild,
       ),
@@ -32,17 +32,20 @@ class RoundIconButton extends StatelessWidget {
   const RoundIconButton({
     required this.icon,
     required this.onPressed,
+    required this.onLongPressed,
     super.key,
   });
 
   final IconData icon;
   final VoidCallback onPressed;
+  final VoidCallback onLongPressed;
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
       elevation: 0,
       onPressed: onPressed,
+      onLongPress: onLongPressed,
       constraints: const BoxConstraints.tightFor(
         width: 56,
         height: 56,
@@ -76,7 +79,7 @@ class IconContent extends StatelessWidget {
           color: color,
         ),
         const SizedBox(
-          height: 15,
+          height: 8,
         ),
         Text(
           label,
@@ -102,9 +105,15 @@ class BottomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        color: kOrangeFlame,
         margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          color: kOrangeFlame,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
+          ),
+        ),
         width: double.infinity,
         height: kBottomContainerHeight,
         child: Center(

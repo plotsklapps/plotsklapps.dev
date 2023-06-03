@@ -56,9 +56,9 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
@@ -108,55 +108,55 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
             Expanded(
               child: ReusableCard(
                 color: kActiveCardColour,
-                cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'HEIGHT',
-                      style: kLabelTextStyle,
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      textBaseline: TextBaseline.alphabetic,
-                      children: <Widget>[
-                        Text(
-                          height.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Text(
-                          'cm',
-                          style: kLabelTextStyle,
-                        ),
-                      ],
-                    ),
-                    SliderTheme(
-                      data: SliderTheme.of(context).copyWith(
-                        inactiveTrackColor: kGreyCharcoal,
-                        activeTrackColor: kBackGroundGrey,
-                        thumbColor: kOrangeFlame,
-                        overlayColor: kBackGroundGrey,
-                        thumbShape: const RoundSliderThumbShape(
-                          enabledThumbRadius: 15,
-                        ),
-                        overlayShape:
-                            const RoundSliderOverlayShape(overlayRadius: 30),
+                cardChild: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'HEIGHT',
+                        style: kLabelTextStyle,
                       ),
-                      child: Slider(
-                        value: height.toDouble(),
-                        min: 120,
-                        max: 220,
-                        onChanged: (double newValue) {
-                          setState(() {
-                            height = newValue.round();
-                          });
-                        },
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        textBaseline: TextBaseline.alphabetic,
+                        children: <Widget>[
+                          Text(
+                            height.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Text(
+                            'cm',
+                            style: kLabelTextStyle,
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          inactiveTrackColor: kGreyCharcoal,
+                          activeTrackColor: kBackGroundGrey,
+                          thumbColor: kOrangeFlame,
+                          overlayColor: kBackGroundGrey,
+                          thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 15,
+                          ),
+                          overlayShape:
+                              const RoundSliderOverlayShape(overlayRadius: 30),
+                        ),
+                        child: Slider(
+                          value: height.toDouble(),
+                          min: 120,
+                          max: 220,
+                          onChanged: (double newValue) {
+                            setState(() {
+                              height = newValue.round();
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 onPress: () {},
               ),
@@ -174,9 +174,6 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             'WEIGHT',
                             style: kLabelTextStyle,
                           ),
-                          const SizedBox(
-                            height: 8,
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -192,9 +189,6 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 8,
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -203,6 +197,11 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                                 onPressed: () {
                                   setState(() {
                                     weight--;
+                                  });
+                                },
+                                onLongPressed: () {
+                                  setState(() {
+                                    weight -= 10;
                                   });
                                 },
                               ),
@@ -214,6 +213,11 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                                 onPressed: () {
                                   setState(() {
                                     weight++;
+                                  });
+                                },
+                                onLongPressed: () {
+                                  setState(() {
+                                    weight += 10;
                                   });
                                 },
                               ),
@@ -234,9 +238,6 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             'AGE',
                             style: kLabelTextStyle,
                           ),
-                          const SizedBox(
-                            height: 8,
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -252,9 +253,6 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 8,
-                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -267,6 +265,11 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                                     },
                                   );
                                 },
+                                onLongPressed: () {
+                                  setState(() {
+                                    age -= 10;
+                                  });
+                                },
                               ),
                               const SizedBox(
                                 width: 10,
@@ -276,6 +279,11 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                                 onPressed: () {
                                   setState(() {
                                     age++;
+                                  });
+                                },
+                                onLongPressed: () {
+                                  setState(() {
+                                    age += 10;
                                   });
                                 },
                               )
