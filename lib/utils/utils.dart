@@ -11,7 +11,7 @@ class Utils {
 
   // URL to the Xylophone app source code.
   static Uri xylophoneURL = Uri.parse(
-    'https://github.com/plotsklapps/plotsklapps.dev',
+    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/xylophonescreen_mobile.dart',
   );
 
   // Method to launch the user's email app to send an email to the developer.
