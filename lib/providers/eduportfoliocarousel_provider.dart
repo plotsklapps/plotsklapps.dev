@@ -9,11 +9,10 @@ class EduPortfolioCarouselNotifier extends StateNotifier<int> {
   EduPortfolioCarouselNotifier() : super(0);
 
   final eduPortfolioTexts = <String>[
-    'Dicee is a simple dice rolling app. It uses the Random class to generate random numbers.',
-    'Xylophone is a simple app that plays sounds when you tap on the buttons. It uses the audioplayers package to play sounds.',
-    'BMI Calculator is a simple app that calculates your BMI. It uses the math package to calculate the BMI.',
-    'Weather is a simple app that shows the weather of a city. It uses the http package to fetch data from the OpenWeatherMap API.',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Dicee is a dice rolling app. It uses the Random class to generate random numbers everytime the dices are pressed.',
+    'Xylophone is an app that plays sounds when you tap on the colors. It uses the audioplayers package to play sounds.',
+    'BMI Calculator is an app that calculates your Body Mass Index. It uses the math package to calculate the BMI.',
+    'Weather app shows the weather of a city. It uses the http package to fetch data from the OpenWeatherMap API.',
   ];
 
   // List of images to display in the carousel

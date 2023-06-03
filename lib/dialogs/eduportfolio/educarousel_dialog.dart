@@ -2,17 +2,13 @@ import 'dart:ui';
 
 import 'package:portfolio/all_imports.dart';
 
-// URL to the Dicee app source code
-final Uri diceeURL = Uri.parse(
-  'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/diceescreen_mobile.dart',
-);
-
 void showEduCarouselDialog(BuildContext context) {
   showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Consumer(
         builder: (context, ref, child) {
+          // Set the current index to the eduPortfolioCarouselProvider int.
           final currentIndex = ref.watch(eduPortfolioCarouselProvider);
           return Container(
             padding: const EdgeInsets.all(16),
@@ -23,8 +19,7 @@ void showEduCarouselDialog(BuildContext context) {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Text that shows a description of the app, depending on
-                      // the current image index
+                      // Set the text to currentIndex.
                       Text(
                         ref
                             .watch(eduPortfolioCarouselProvider.notifier)
@@ -45,7 +40,7 @@ void showEduCarouselDialog(BuildContext context) {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          launchUrl(diceeURL);
+                          launchUrl(Utils.diceeURL);
                         },
                         child: const Text('Show Source Code'),
                       ),
@@ -59,6 +54,7 @@ void showEduCarouselDialog(BuildContext context) {
                     children: [
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.5,
+                        // ScrollConfiguration to allow for scrolling on web.
                         child: ScrollConfiguration(
                           behavior: const ScrollBehavior().copyWith(
                             dragDevices: {
@@ -69,7 +65,8 @@ void showEduCarouselDialog(BuildContext context) {
                           ),
                           child: PageView.builder(
                             itemCount:
-                                // Get the length of the eduPortfolioImages list
+                                // Get the length of the eduPortfolioImages
+                                // list.
                                 ref
                                     .watch(
                                       eduPortfolioCarouselProvider.notifier,
@@ -77,22 +74,23 @@ void showEduCarouselDialog(BuildContext context) {
                                     .eduPortfolioImages
                                     .length,
                             onPageChanged: (int index) {
-                              // Update the eduPortfolioCarouselProvider int
+                              // Update the eduPortfolioCarouselProvider int.
                               ref
                                   .read(eduPortfolioCarouselProvider.notifier)
                                   .setCurrentEduPortfolioIndex(index);
-                              // Update the eduPortfolioCarouselProvider image
+                              // Update the eduPortfolioCarouselProvider image.
                               ref
                                   .read(eduPortfolioCarouselProvider.notifier)
                                   .setCurrentEduPortfolioImage(index);
-                              // Update the eduPortfolioCarouselProvider text
+                              // Update the eduPortfolioCarouselProvider text.
                               ref
                                   .read(eduPortfolioCarouselProvider.notifier)
                                   .setCurrentEduPortfolioText(index);
                             },
                             itemBuilder: (BuildContext context, int index) {
                               return Image.asset(
-                                // Set the image to the current index
+                                // Set the image to the current index from the
+                                // onPageChanged.
                                 ref
                                     .watch(
                                       eduPortfolioCarouselProvider.notifier,
