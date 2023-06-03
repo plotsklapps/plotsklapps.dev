@@ -31,6 +31,8 @@ void showEduCarouselDialog(BuildContext context) {
                         onPressed: () {
                           if (currentIndex == 0) {
                             Navigator.pushNamed(context, '/dicee');
+                          } else if (currentIndex == 1) {
+                            Navigator.pushNamed(context, '/xylophone');
                           } else {
                             return;
                           }
@@ -40,7 +42,13 @@ void showEduCarouselDialog(BuildContext context) {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          launchUrl(Utils.diceeURL);
+                          if (currentIndex == 0) {
+                            launchUrl(Utils.diceeURL);
+                          } else if (currentIndex == 1) {
+                            launchUrl(Utils.xylophoneURL);
+                          } else {
+                            return;
+                          }
                         },
                         child: const Text('Show Source Code'),
                       ),
