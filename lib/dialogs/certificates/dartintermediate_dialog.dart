@@ -1,7 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-void showDartIntermediateDialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showDartIntermediateDialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(

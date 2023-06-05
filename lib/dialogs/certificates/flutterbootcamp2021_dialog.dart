@@ -1,7 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-void showFlutterBootcamp2021Dialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showFlutterBootcamp2021Dialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(

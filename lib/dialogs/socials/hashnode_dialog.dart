@@ -2,8 +2,8 @@ import 'package:portfolio/all_imports.dart';
 
 final Uri hashnodeURL = Uri.parse('https://hashnode.com/@plotsklapps');
 
-void showHashnodeDialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showHashnodeDialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -32,7 +32,7 @@ void showHashnodeDialog(BuildContext context) {
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.hashnode, size: 300)
                 .animate(
-                  onPlay: (controller) {
+                  onPlay: (AnimationController controller) {
                     controller.repeat(
                       reverse: true,
                     );

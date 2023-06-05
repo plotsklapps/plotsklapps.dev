@@ -22,7 +22,7 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Column(
-              children: [
+              children: <Widget>[
                 FlipCardCertificate(
                   context: context,
                   titleFront: 'Programming apps with Ionic',
@@ -30,8 +30,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Diploma and Grades',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showIonicNHADialog(context);
+                  onPressed: () async {
+                    await showIonicNHADialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -41,8 +41,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showFlutterBootcamp2021Dialog(context);
+                  onPressed: () async {
+                    await showFlutterBootcamp2021Dialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -52,8 +52,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showDartNoviceToExpertDialog(context);
+                  onPressed: () async {
+                    await showDartNoviceToExpertDialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -63,8 +63,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showDartBeginnersDialog(context);
+                  onPressed: () async {
+                    await showDartBeginnersDialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -74,8 +74,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showFlutterBeginnersDialog(context);
+                  onPressed: () async {
+                    await showFlutterBeginnersDialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -85,8 +85,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showDartIntermediateDialog(context);
+                  onPressed: () async {
+                    await showDartIntermediateDialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -96,8 +96,8 @@ class EducationScreenMobileState extends State<EducationScreenMobile> {
                   iconFront: FontAwesomeIcons.solidCircleCheck,
                   titleBack: 'See Certificate',
                   iconBack: FontAwesomeIcons.certificate,
-                  onPressed: () {
-                    showFlutterIntermediateDialog(context);
+                  onPressed: () async {
+                    await showFlutterIntermediateDialog(context);
                   },
                 ),
                 FlipCardCertificate(
@@ -166,7 +166,7 @@ class FlipCardCertificate extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: <Widget>[
               Text(
                 titleBack,
               ),

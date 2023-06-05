@@ -25,11 +25,13 @@ class CalculatorBrain {
 
   String getInterpretation() {
     if (_bmi >= 25) {
-      return 'You have a higher than normal body weight. Are you THAT muscular?.';
+      return 'You have a higher than normal body weight. '
+          'Are you THAT muscular?.';
     } else if (_bmi >= 18.5) {
       return 'You have a normal body weight. You must look really good!';
     } else {
-      return 'You have a lower than normal body weight. Try to eat more and work out more often :)';
+      return 'You have a lower than normal body weight. Try to eat more and '
+          'work out more often :)';
     }
   }
 }
@@ -182,7 +184,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.baseline,
                             textBaseline: TextBaseline.alphabetic,
-                            children: [
+                            children: <Text>[
                               Text(
                                 weight.toString(),
                                 style: kNumberTextStyle,
@@ -246,7 +248,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.baseline,
                             textBaseline: TextBaseline.alphabetic,
-                            children: [
+                            children: <Text>[
                               Text(
                                 age.toString(),
                                 style: kNumberTextStyle,
@@ -303,12 +305,16 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
             ),
             BottomButton(
               buttonTitle: 'CALCULATE',
-              onTap: () {
-                final calc = CalculatorBrain(height: height, weight: weight);
-                Navigator.push(
+              onTap: () async {
+                final CalculatorBrain calc = CalculatorBrain(
+                  height: height,
+                  weight: weight,
+                );
+                await Navigator.push(
                   context,
                   MaterialPageRoute<Widget>(
-                    builder: (context) => BMICalcOutputScreenMobile(
+                    builder: (BuildContext context) =>
+                        BMICalcOutputScreenMobile(
                       bmiResult: calc.calculateBMI(),
                       resultText: calc.getResult(),
                       interpretation: calc.getInterpretation(),

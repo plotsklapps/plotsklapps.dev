@@ -6,7 +6,7 @@ Color kGreyCharcoal = const Color(0xff32434f);
 Color kGreyElectricBlue = const Color(0xff526e7f);
 Color kBackGroundGrey = const Color(0xffdedede);
 
-const kBottomContainerHeight = 80.0;
+const double kBottomContainerHeight = 80.0;
 
 Color kActiveCardColour = kGreyElectricBlue;
 Color kInactiveCardColour = kGreyGunmetal;
@@ -28,7 +28,7 @@ TextStyle kLargeButtonTextStyle = TextStyle(
   color: kGreyGunmetal,
 );
 
-const kTitleTextStyle = TextStyle(
+const TextStyle kTitleTextStyle = TextStyle(
   fontSize: 50,
   fontWeight: FontWeight.bold,
 );
@@ -39,7 +39,7 @@ TextStyle kResultTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kBMITextStyle = TextStyle(
+const TextStyle kBMITextStyle = TextStyle(
   fontSize: 100,
   fontWeight: FontWeight.bold,
 );

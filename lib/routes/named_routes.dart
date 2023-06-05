@@ -19,4 +19,7 @@ Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/bmicalc': (BuildContext context) {
     return const BMICalcScreenMobile();
   },
+  '/weather': (BuildContext context) {
+    return const WeatherLoadingScreenMobile();
+  },
 };

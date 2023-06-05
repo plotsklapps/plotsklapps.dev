@@ -2,8 +2,8 @@ import 'package:portfolio/all_imports.dart';
 
 final Uri githubURL = Uri.parse('https://github.com/plotsklapps');
 
-void showGithubDialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showGithubDialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -32,7 +32,7 @@ void showGithubDialog(BuildContext context) {
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.github, size: 300)
                 .animate(
-                  onPlay: (controller) {
+                  onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);
                   },
                 )

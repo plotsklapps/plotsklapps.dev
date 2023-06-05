@@ -21,7 +21,7 @@ class Utils {
 
   // Method to launch the user's email app to send an email to the developer.
   static Future<void> launchEmail() async {
-    final emailLaunchUri = Uri(
+    final Uri emailLaunchUri = Uri(
       scheme: 'mailto',
       path: 'plotsklapps@gmail.com',
     );

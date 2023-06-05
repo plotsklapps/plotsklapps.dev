@@ -2,23 +2,27 @@ import 'dart:ui';
 
 import 'package:portfolio/all_imports.dart';
 
-void showEduCarouselDialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showEduCarouselDialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Consumer(
-        builder: (context, ref, child) {
+        builder: (
+          BuildContext context,
+          WidgetRef ref,
+          Widget? child,
+        ) {
           // Set the current index to the eduPortfolioCarouselProvider int.
-          final currentIndex = ref.watch(eduPortfolioCarouselProvider);
+          final int currentIndex = ref.watch(eduPortfolioCarouselProvider);
           return Container(
             padding: const EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       // Set the text to currentIndex.
                       Text(
                         ref
@@ -35,6 +39,8 @@ void showEduCarouselDialog(BuildContext context) {
                             Navigator.pushNamed(context, '/xylophone');
                           } else if (currentIndex == 2) {
                             Navigator.pushNamed(context, '/bmicalc');
+                          } else if (currentIndex == 3) {
+                            Navigator.pushNamed(context, '/weather');
                           } else {
                             return;
                           }
@@ -63,13 +69,13 @@ void showEduCarouselDialog(BuildContext context) {
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.5,
                         // ScrollConfiguration to allow for scrolling on web.
                         child: ScrollConfiguration(
                           behavior: const ScrollBehavior().copyWith(
-                            dragDevices: {
+                            dragDevices: <PointerDeviceKind>{
                               PointerDeviceKind.mouse,
                               PointerDeviceKind.touch,
                               PointerDeviceKind.trackpad,

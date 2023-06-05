@@ -23,7 +23,7 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            children: [
+            children: <Widget>[
               Image.asset('assets/images/stackedlogo.png'),
               const Divider(),
               ListTile(
@@ -55,15 +55,15 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 // Row of social media icons.
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: <Widget>[
                     Expanded(
                       child: IconButton(
-                        onPressed: () {
-                          showTwitterDialog(context);
+                        onPressed: () async {
+                          await showTwitterDialog(context);
                         },
                         icon: const Icon(
                           FontAwesomeIcons.twitter,
@@ -77,8 +77,8 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                     const SizedBox(width: 16),
                     Expanded(
                       child: IconButton(
-                        onPressed: () {
-                          showGithubDialog(context);
+                        onPressed: () async {
+                          await showGithubDialog(context);
                         },
                         icon: const Icon(
                           FontAwesomeIcons.github,
@@ -92,8 +92,8 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                     const SizedBox(width: 16),
                     Expanded(
                       child: IconButton(
-                        onPressed: () {
-                          showHashnodeDialog(context);
+                        onPressed: () async {
+                          await showHashnodeDialog(context);
                         },
                         icon: const Icon(
                           FontAwesomeIcons.hashnode,
@@ -112,10 +112,10 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                 // Contact cards, the other holds the profile text.
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Expanded(
                       child: Column(
-                        children: [
+                        children: <Widget>[
                           Card(
                             child: ListTile(
                               title: const Text(
@@ -124,8 +124,9 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                               ),
                               trailing:
                                   const Icon(FontAwesomeIcons.graduationCap),
-                              onTap: () {
-                                Navigator.pushNamed(context, '/education');
+                              onTap: () async {
+                                await Navigator.pushNamed(
+                                    context, '/education');
                               },
                             ),
                           )
@@ -147,8 +148,9 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                               trailing: const Icon(FontAwesomeIcons.suitcase),
-                              onTap: () {
-                                Navigator.pushNamed(context, '/portfolio');
+                              onTap: () async {
+                                await Navigator.pushNamed(
+                                    context, '/portfolio');
                               },
                             ),
                           )
@@ -191,11 +193,11 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                        children: <Widget>[
                           Row(
-                            children: [
+                            children: <Widget>[
                               const FlutterLogo(size: 75).animate(
-                                onPlay: (controller) {
+                                onPlay: (AnimationController controller) {
                                   controller.repeat();
                                 },
                               ).shimmer(
@@ -206,7 +208,7 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                                 'assets/images/ioniclogo.png',
                                 height: 75,
                               ).animate(
-                                onPlay: (controller) {
+                                onPlay: (AnimationController controller) {
                                   controller.repeat();
                                 },
                               ).shimmer(
@@ -241,7 +243,7 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                 // open it.
                 const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Text(
                       "Current project I'm working on is a boxing cardio "
                       'workout application that works on ANY device on ANY '
@@ -272,7 +274,7 @@ class HomeScreenDesktopState extends ConsumerState<HomeScreenDesktop> {
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
+                    children: <Widget>[
                       Image.asset('assets/littleboxer.gif'),
                       const Text(
                         'BOKSKLAPPS',

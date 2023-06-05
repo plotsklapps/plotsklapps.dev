@@ -1,13 +1,15 @@
+import 'dart:async';
+
 import 'package:portfolio/all_imports.dart';
 
 class XylophoneScreenMobile extends StatelessWidget {
   const XylophoneScreenMobile({super.key});
 
-  void playSound(int soundNumber) {
+  Future<void> playSound(int soundNumber) async {
     // Use the just_audio package to first load the sound and then play it.
-    AudioPlayer()
-      ..setAsset('assets/sounds/xylophone_note$soundNumber.wav')
-      ..play();
+    final AudioPlayer audioPlayer = AudioPlayer();
+    await audioPlayer.setAsset('assets/sounds/xylophone_note$soundNumber.wav');
+    await audioPlayer.play();
   }
 
   Expanded buildNotekey({required Color color, required int soundNumber}) {
@@ -16,8 +18,8 @@ class XylophoneScreenMobile extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: MaterialButton(
           color: color,
-          onPressed: () {
-            playSound(soundNumber);
+          onPressed: () async {
+            await playSound(soundNumber);
           },
         ),
       ),

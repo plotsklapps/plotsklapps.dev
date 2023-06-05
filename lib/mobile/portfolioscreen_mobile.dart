@@ -14,7 +14,7 @@ class PortfolioScreenMobile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            children: [
+            children: <Widget>[
               const Text(
                 "I've been developing apps since 2021, and I've created a few apps during my courses that are worthwile to show off. Every finished project has a short description and a link to the source code so my coding style can be reviewed/evaluated.",
                 textAlign: TextAlign.center,
@@ -22,8 +22,8 @@ class PortfolioScreenMobile extends StatelessWidget {
               const SizedBox(height: 16),
               Card(
                 child: ListTile(
-                  onTap: () {
-                    showEduCarouselDialog(context);
+                  onTap: () async {
+                    await showEduCarouselDialog(context);
                   },
                   trailing: const Icon(FontAwesomeIcons.graduationCap),
                   title: const Text(

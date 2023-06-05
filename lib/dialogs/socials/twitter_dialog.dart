@@ -2,8 +2,8 @@ import 'package:portfolio/all_imports.dart';
 
 final Uri twitterURL = Uri.parse('https://twitter.com/plotsklapps');
 
-void showTwitterDialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showTwitterDialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -32,7 +32,7 @@ void showTwitterDialog(BuildContext context) {
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.twitter, size: 300)
                 .animate(
-                  onPlay: (controller) {
+                  onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);
                   },
                 )

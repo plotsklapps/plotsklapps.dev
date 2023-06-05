@@ -1,7 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-void showIonicNHADialog(BuildContext context) {
-  showModalBottomSheet<void>(
+Future<void> showIonicNHADialog(BuildContext context) async {
+  await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
       return Container(

@@ -10,7 +10,7 @@ final StateProvider<ThemeMode> themeModeProvider =
 });
 
 final StateProvider<ThemeData> flexSchemeLightProvider =
-    StateProvider<ThemeData>((ref) {
+    StateProvider<ThemeData>((StateProviderRef<ThemeData> ref) {
   return FlexThemeData.light(
     scheme: FlexScheme.outerSpace,
     surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
@@ -37,7 +37,7 @@ final StateProvider<ThemeData> flexSchemeLightProvider =
 });
 
 final StateProvider<ThemeData> flexSchemeDarkProvider =
-    StateProvider<ThemeData>((ref) {
+    StateProvider<ThemeData>((StateProviderRef<ThemeData> ref) {
   return FlexThemeData.dark(
     scheme: FlexScheme.outerSpace,
     surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
