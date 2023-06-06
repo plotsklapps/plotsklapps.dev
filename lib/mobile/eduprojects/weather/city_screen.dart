@@ -14,31 +14,46 @@ class WeatherCityScreenMobileState extends State<WeatherCityScreenMobile> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('City Screen'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: TextField(
-                onChanged: (String value) {
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_outlined,
+                      size: 50.0,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24.0),
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Enter City Name',
+                ),
+                onChanged: (value) {
                   cityName = value;
                 },
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context, cityName);
-              },
-              child: const Text(
-                'Get Weather',
+              const SizedBox(height: 24.0),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, cityName);
+                },
+                child: const Text(
+                  'Get Current Weather',
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

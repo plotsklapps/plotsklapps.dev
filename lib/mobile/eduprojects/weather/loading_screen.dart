@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:portfolio/all_imports.dart';
 
 class WeatherLoadingScreenMobile extends StatefulWidget {
@@ -13,19 +11,16 @@ class WeatherLoadingScreenMobile extends StatefulWidget {
 
 class WeatherLoadingScreenMobileState
     extends State<WeatherLoadingScreenMobile> {
-  // Fetch the location data as soon as the app launches
   @override
-  void initState() {
+  Future<void> initState() async {
     super.initState();
-    unawaited(getLocationData());
+    await getLocationData();
   }
 
   Future<void> getLocationData() async {
-    // Get the weather for the current location
     final dynamic weatherData = await WeatherModel().getLocationWeather();
 
     if (mounted) {
-      // Navigate to the location screen and pass the weather data
       await Navigator.of(context).pushReplacement(
         MaterialPageRoute<Widget>(
           builder: (BuildContext context) {
@@ -40,7 +35,6 @@ class WeatherLoadingScreenMobileState
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        // While waiting for data, show a loading spinner.
         child: CircularProgressIndicator(),
       ),
     );

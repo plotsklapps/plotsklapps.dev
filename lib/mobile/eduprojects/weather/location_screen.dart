@@ -1,13 +1,14 @@
 import 'package:portfolio/all_imports.dart';
 
 class WeatherLocationScreenMobile extends StatefulWidget {
-  const WeatherLocationScreenMobile({this.locationWeather, super.key});
+  const WeatherLocationScreenMobile({super.key, this.locationWeather});
 
   final dynamic locationWeather;
 
   @override
-  WeatherLocationScreenMobileState createState() =>
-      WeatherLocationScreenMobileState();
+  WeatherLocationScreenMobileState createState() {
+    return WeatherLocationScreenMobileState();
+  }
 }
 
 class WeatherLocationScreenMobileState
@@ -33,8 +34,8 @@ class WeatherLocationScreenMobileState
         cityName = '';
         return;
       }
-      final double temp = double.parse(weatherData['main']['temp'].toString());
-      temperature = temp.toInt();
+      final dynamic temp = weatherData['main']['temp'];
+      temperature = int.parse(temp.toString());
       final int condition =
           int.parse(weatherData['weather'][0]['id'].toString());
       weatherIcon = weather.getWeatherIcon(condition);
@@ -45,14 +46,10 @@ class WeatherLocationScreenMobileState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Weather'),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -62,18 +59,17 @@ class WeatherLocationScreenMobileState
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () async {
-                      final dynamic weatherData =
-                          await weather.getLocationWeather();
+                      var weatherData = await weather.getLocationWeather();
                       updateUI(weatherData);
                     },
                     child: const Icon(
-                      FontAwesomeIcons.locationArrow,
-                      size: 50,
+                      Icons.location_on,
+                      size: 50.0,
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      final Widget? typedName = await Navigator.push(
+                      final typedName = await Navigator.push(
                         context,
                         MaterialPageRoute<Widget>(
                           builder: (BuildContext context) {
@@ -82,38 +78,62 @@ class WeatherLocationScreenMobileState
                         ),
                       );
                       if (typedName != null) {
-                        final dynamic weatherData =
-                            await weather.getCityWeather('$typedName');
+                        var weatherData =
+                            await weather.getCityWeather(cityName);
                         updateUI(weatherData);
                       }
                     },
                     child: const Icon(
-                      FontAwesomeIcons.locationCrosshairs,
-                      size: 50,
+                      Icons.location_searching,
+                      size: 50.0,
                     ),
                   ),
                 ],
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  const SizedBox(width: 25.0),
                   Text(
                     '$temperature°',
                     style: const TextStyle(
-                      fontSize: 100,
+                      fontSize: 100.0,
                     ),
                   ),
                   Text(
                     weatherIcon,
+                    style: const TextStyle(
+                      fontSize: 75.0,
+                    ),
                   ),
                 ],
               ),
-              Text(
-                '$weatherMessage in $cityName',
-                textAlign: TextAlign.right,
-                style: const TextStyle(
-                  fontSize: 36,
-                ),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        weatherMessage,
+                        style: const TextStyle(
+                          fontSize: 24.0,
+                        ),
+                      ),
+                      const SizedBox(width: 25.0),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'in $cityName',
+                        style: const TextStyle(
+                          fontSize: 28.0,
+                        ),
+                      ),
+                      const SizedBox(width: 25.0),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),

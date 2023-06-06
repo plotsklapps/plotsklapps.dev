@@ -4,9 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio/all_imports.dart';
 
-// Determine the current position of the device.
-// When the location services are not enabled or permissions
-// are denied the `Future` will return an error.
+/// Determine the current position of the device.
+///
+/// When the location services are not enabled or permissions
+/// are denied the `Future` will return an error.
 Future<Position> determinePosition() async {
   bool serviceEnabled;
   LocationPermission permission;
@@ -36,8 +37,7 @@ Future<Position> determinePosition() async {
   if (permission == LocationPermission.deniedForever) {
     // Permissions are denied forever, handle appropriately.
     return Future<Position>.error(
-      'Location permissions are permanently denied, '
-      'we cannot request permissions.',
+      'Location permissions are permanently denied, we cannot request permissions.',
     );
   }
 
@@ -72,7 +72,7 @@ class NetworkHelper {
 
   final String url;
 
-  Future<dynamic> getData() async {
+  Future<void> getData() async {
     final http.Response response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -97,7 +97,7 @@ class WeatherModel {
       '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric',
     );
 
-    final dynamic weatherData = await networkHelper.getData();
+    var weatherData = await networkHelper.getData();
     return weatherData;
   }
 
@@ -106,16 +106,14 @@ class WeatherModel {
     await location.getCurrentLocation();
 
     final NetworkHelper networkHelper = NetworkHelper(
-      '$openWeatherMapURL?lat=${location.latitude}&lon='
-      '${location.longitude}&appid=$apiKey&units=metric',
+      '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric',
     );
 
-    final dynamic weatherData = await networkHelper.getData();
+    var weatherData = await networkHelper.getData();
     return weatherData;
   }
 
-  // TODO(plotsklapps): Return better icons via
-  //  https://openweathermap.org/weather-conditions
+  // TODO(plotsklapps): Return better icons via https://openweathermap.org/weather-conditions
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';
