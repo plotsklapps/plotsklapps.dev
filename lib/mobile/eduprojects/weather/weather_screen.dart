@@ -110,7 +110,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                 child: Row(
                   children: <Widget>[
                     Text(
-                      '$temperature°',
+                      '${temperature.toStringAsFixed(1)} °C',
                       style: const TextStyle(
                         fontSize: 64,
                         fontWeight: FontWeight.bold,
