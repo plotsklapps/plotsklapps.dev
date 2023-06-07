@@ -24,7 +24,7 @@ class WeatherLoadingScreenMobileState
     final dynamic weatherData = await weatherModel.getLocationWeather();
 
     if (mounted) {
-      await Navigator.push(
+      await Navigator.pushReplacement(
         context,
         MaterialPageRoute<Widget>(
           builder: (BuildContext context) {
