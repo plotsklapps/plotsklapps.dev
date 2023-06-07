@@ -4,10 +4,9 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:portfolio/all_imports.dart';
 
-/// Determine the current position of the device.
-///
-/// When the location services are not enabled or permissions
-/// are denied the `Future` will return an error.
+// Determine the current position of the device.
+// When the location services are not enabled or permissions
+// are denied the Future will return an error.
 Future<Position> determinePosition() async {
   bool serviceEnabled;
   LocationPermission permission;
@@ -54,9 +53,12 @@ class Location {
 
   Future<void> getCurrentLocation() async {
     try {
+      // Use Geolocator package and permission sequence to fetch
+      // Position of user.
       await determinePosition();
       final Position position = await determinePosition();
 
+      // Use the position of user to retrieve latitude/longitude Position.
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
@@ -72,7 +74,7 @@ class NetworkHelper {
 
   final String url;
 
-  Future<void> getData() async {
+  Future<dynamic> getData() async {
     final http.Response response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
@@ -87,17 +89,17 @@ class NetworkHelper {
   }
 }
 
-const String apiKey = 'fa5c9b4de78bd4575fb68f2ec0e78b19';
-const String openWeatherMapURL =
-    'https://api.openweathermap.org/data/2.5/weather';
-
 class WeatherModel {
+  final String apiKey = 'fa5c9b4de78bd4575fb68f2ec0e78b19';
+  final String openWeatherMapURL =
+      'https://api.openweathermap.org/data/2.5/weather';
+
   Future<dynamic> getCityWeather(String cityName) async {
     final NetworkHelper networkHelper = NetworkHelper(
       '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric',
     );
 
-    var weatherData = await networkHelper.getData();
+    final dynamic weatherData = await networkHelper.getData();
     return weatherData;
   }
 
@@ -109,32 +111,58 @@ class WeatherModel {
       '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric',
     );
 
-    var weatherData = await networkHelper.getData();
+    final dynamic weatherData = await networkHelper.getData();
     return weatherData;
   }
 
-  // TODO(plotsklapps): Return better icons via https://openweathermap.org/weather-conditions
+  String getOpenWeatherIcon(String iconID) {
+    final String icon = iconID;
+    final String openWeatherIconURL =
+        'https://openweathermap.org/img/wn/$icon@2x.png';
+
+    return openWeatherIconURL;
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
-      return '🌩';
+      final String thunderstormIcon = getOpenWeatherIcon('11d');
+      return thunderstormIcon;
     } else if (condition < 400) {
-      return '🌧';
-    } else if (condition < 600) {
-      return '☔️';
+      final String drizzleIcon = getOpenWeatherIcon('09d');
+      return drizzleIcon;
+    } else if (condition >= 500 && condition < 511) {
+      final String rainIcon = getOpenWeatherIcon('10d');
+      return rainIcon;
+    } else if (condition == 511) {
+      final String freezingRain = getOpenWeatherIcon('13d');
+      return freezingRain;
+    } else if (condition > 511 && condition <= 531) {
+      final String showerRain = getOpenWeatherIcon('09d');
+      return showerRain;
     } else if (condition < 700) {
-      return '☃️';
+      final String snowIcon = getOpenWeatherIcon('10d');
+      return snowIcon;
     } else if (condition < 800) {
-      return '🌫';
+      final String mistIcon = getOpenWeatherIcon('50d');
+      return mistIcon;
     } else if (condition == 800) {
-      return '☀️';
+      final String clearIcon = getOpenWeatherIcon('01d');
+      return clearIcon;
+    } else if (condition == 801) {
+      final String fewCloudsIcon = getOpenWeatherIcon('02d');
+      return fewCloudsIcon;
+    } else if (condition == 802) {
+      final String scatteredCloudsIcon = getOpenWeatherIcon('03d');
+      return scatteredCloudsIcon;
     } else if (condition <= 804) {
-      return '☁️';
+      final String brokenClouds = getOpenWeatherIcon('04d');
+      return brokenClouds;
     } else {
       return '🤷‍';
     }
   }
 
-  String getMessage(int temp) {
+  String getMessage(double temp) {
     if (temp > 25) {
       return "It's 🍦 time";
     } else if (temp > 20) {

@@ -1,4 +1,5 @@
 import 'package:portfolio/all_imports.dart';
+import 'package:portfolio/mobile/eduprojects/weather/weatherloading_screen.dart';
 
 Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/': (BuildContext context) {
