@@ -17,7 +17,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
   double temperature = 0;
   int condition = 0;
   String cityName = '';
-  String weatherIcon = '';
+  Icon weatherIcon = const Icon(FontAwesomeIcons.solidCircleQuestion);
   String tempIcon = '';
   WeatherModel weatherModel = WeatherModel();
 
@@ -39,7 +39,6 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget openWeatherIcon = Image.network(weatherIcon);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Weather App'),
@@ -106,17 +105,26 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      '${temperature.toStringAsFixed(1)} °C',
-                      style: const TextStyle(
-                        fontSize: 64,
-                        fontWeight: FontWeight.bold,
-                      ),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: <Row>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Icon>[
+                        weatherIcon,
+                      ],
                     ),
-                    openWeatherIcon,
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          '${temperature.toStringAsFixed(1)} °C',
+                          style: const TextStyle(
+                            fontSize: 64,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

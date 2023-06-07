@@ -42,7 +42,9 @@ class WeatherLoadingScreenMobileState
     return const Scaffold(
       body: Center(
         child: Column(
-          children: [
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
             Text('Fetching your location and requesting permissions...'),
             SizedBox(height: 16),
             CircularProgressIndicator(),

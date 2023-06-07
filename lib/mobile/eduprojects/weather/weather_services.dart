@@ -115,50 +115,35 @@ class WeatherModel {
     return weatherData;
   }
 
-  String getOpenWeatherIcon(String iconID) {
-    final String icon = iconID;
-    final String openWeatherIconURL =
-        'https://openweathermap.org/img/wn/$icon@2x.png';
-
-    return openWeatherIconURL;
-  }
-
-  String getWeatherIcon(int condition) {
+  Icon getWeatherIcon(int condition) {
     if (condition < 300) {
-      final String thunderstormIcon = getOpenWeatherIcon('11d');
-      return thunderstormIcon;
+      return const Icon(FontAwesomeIcons.cloudBolt);
     } else if (condition < 400) {
-      final String drizzleIcon = getOpenWeatherIcon('09d');
-      return drizzleIcon;
+      return const Icon(FontAwesomeIcons.cloudRain);
     } else if (condition >= 500 && condition < 511) {
-      final String rainIcon = getOpenWeatherIcon('10d');
-      return rainIcon;
+      return const Icon(FontAwesomeIcons.cloudShowersHeavy);
     } else if (condition == 511) {
-      final String freezingRain = getOpenWeatherIcon('13d');
-      return freezingRain;
+      return const Icon(FontAwesomeIcons.snowflake);
     } else if (condition > 511 && condition <= 531) {
-      final String showerRain = getOpenWeatherIcon('09d');
-      return showerRain;
+      return const Icon(FontAwesomeIcons.cloudShowersWater);
     } else if (condition < 700) {
-      final String snowIcon = getOpenWeatherIcon('10d');
-      return snowIcon;
+      return const Icon(FontAwesomeIcons.snowman);
     } else if (condition < 800) {
-      final String mistIcon = getOpenWeatherIcon('50d');
-      return mistIcon;
+      return const Icon(FontAwesomeIcons.smog);
     } else if (condition == 800) {
-      final String clearIcon = getOpenWeatherIcon('01d');
-      return clearIcon;
+      return const Icon(
+        FontAwesomeIcons.sun,
+        size: 100,
+        color: Colors.deepOrange,
+      );
     } else if (condition == 801) {
-      final String fewCloudsIcon = getOpenWeatherIcon('02d');
-      return fewCloudsIcon;
+      return const Icon(FontAwesomeIcons.cloud);
     } else if (condition == 802) {
-      final String scatteredCloudsIcon = getOpenWeatherIcon('03d');
-      return scatteredCloudsIcon;
+      return const Icon(FontAwesomeIcons.cloudSun);
     } else if (condition <= 804) {
-      final String brokenClouds = getOpenWeatherIcon('04d');
-      return brokenClouds;
+      return const Icon(FontAwesomeIcons.cloudSun);
     } else {
-      return '🤷‍';
+      return const Icon(FontAwesomeIcons.solidCircleQuestion);
     }
   }
 
