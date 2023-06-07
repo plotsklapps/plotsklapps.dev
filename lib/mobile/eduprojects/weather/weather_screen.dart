@@ -106,25 +106,17 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: <Row>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Icon>[
-                        weatherIcon,
-                      ],
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '${temperature.toStringAsFixed(1)} °C',
+                      style: const TextStyle(
+                        fontSize: 64,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          '${temperature.toStringAsFixed(1)} °C',
-                          style: const TextStyle(
-                            fontSize: 64,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const SizedBox(width: 16),
+                    weatherIcon,
                   ],
                 ),
               ),
