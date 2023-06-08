@@ -179,10 +179,7 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                           children: <Widget>[
                             Text(
                               // Directly display the contents of the provider.
-                              // Ignoring linter rule, because Android Studio
-                              // is pissing me off.
-                              // ignore: lines_longer_than_80_chars
-                              '${ref.watch(weatherTempProvider).toStringAsFixed(1)} °C',
+                              '''${ref.watch(weatherTempProvider).toStringAsFixed(1)} °C''',
                               style: const TextStyle(
                                 fontSize: 80,
                                 fontWeight: FontWeight.bold,
@@ -192,18 +189,12 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                         ),
                         Text(
                           // Directly display the contents of the provider.
-                          // Ignoring linter rule, because Android Studio
-                          // is pissing me off.
-                          // ignore: lines_longer_than_80_chars
-                          'Current minimum: ${ref.watch(weatherTempMinProvider).toStringAsFixed(1)} °C',
+                          '''Current minimum: ${ref.watch(weatherTempMinProvider).toStringAsFixed(1)} °C''',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           // Directly display the contents of the provider.
-                          // Ignoring linter rule, because Android Studio
-                          // is pissing me off.
-                          // ignore: lines_longer_than_80_chars
-                          'Current maximum: ${ref.watch(weatherTempMaxProvider).toStringAsFixed(1)} °C',
+                          '''Current maximum: ${ref.watch(weatherTempMaxProvider).toStringAsFixed(1)} °C''',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
