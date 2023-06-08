@@ -44,22 +44,6 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: Builder(builder: (BuildContext context) {
-          return Padding(
-            padding: const EdgeInsets.all(8),
-            child: GestureDetector(
-              onTap: () {
-                Scaffold.of(context).openDrawer();
-              },
-              child: const CircleAvatar(
-                backgroundImage: AssetImage(
-                  'assets/icons/plotsklappsicon.png',
-                ),
-              ),
-            ),
-          );
-        }),
         title: Image.asset('assets/images/textlogo.png'),
         centerTitle: true,
       ),

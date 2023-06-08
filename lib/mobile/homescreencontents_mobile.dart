@@ -18,7 +18,6 @@ class HomeScreenContentsMobileState
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               // Row of social media icons.
               Row(
@@ -75,54 +74,90 @@ class HomeScreenContentsMobileState
               ),
               const Divider(),
               const SizedBox(height: 16),
-              // Row with two columns. One holds the Education/Portfolio/
-              // Contact cards, the other holds the profile text.
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      const FlutterLogo(
-                        size: 75,
-                        style: FlutterLogoStyle.markOnly,
-                      ).animate(
-                        onPlay: (AnimationController controller) {
-                          controller.repeat();
-                        },
-                      ).shimmer(
-                        delay: Duration.zero,
-                        duration: const Duration(seconds: 4),
+                  FlipCard(
+                    speed: 1500,
+                    front: SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      child: Card(
+                        color: Utils.kGunMetal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            const FlutterLogo(
+                              size: 75,
+                              style: FlutterLogoStyle.markOnly,
+                            ).animate(
+                              onPlay: (AnimationController controller) {
+                                controller.repeat();
+                              },
+                            ).shimmer(
+                              delay: Duration.zero,
+                              duration: const Duration(seconds: 4),
+                            ),
+                            Image.asset(
+                              'assets/images/ioniclogo.png',
+                              height: 75,
+                            ).animate(
+                              onPlay: (AnimationController controller) {
+                                controller.repeat();
+                              },
+                            ).shimmer(
+                              delay: const Duration(seconds: 2),
+                              duration: const Duration(seconds: 4),
+                            ),
+                          ],
+                        ),
                       ),
-                      Image.asset(
-                        'assets/images/ioniclogo.png',
-                        height: 75,
-                      ).animate(
-                        onPlay: (AnimationController controller) {
-                          controller.repeat();
-                        },
-                      ).shimmer(
-                        delay: const Duration(seconds: 2),
-                        duration: const Duration(seconds: 4),
-                      ),
-                    ],
+                    ),
+                    back: SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      child: Card(
+                        color: Utils.kLightGrey,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              bottom: 10,
+                              left: 180,
+                              child: Opacity(
+                                opacity: 0.3,
+                                child: Image.asset(
+                                  'assets/icons/plotsklappsicon.png',
+                                  height: 150,
+                                ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                child: Text(
+                                  "I'm Jeremy, a Flutter and Ionic developer from "
+                                  'the Netherlands. I have completed various '
+                                  'courses on Ionic, Dart & Flutter and I am '
+                                  'currently learning more about UI/UX design '
+                                  "with Figma. Reach out to me if you'd like "
+                                  'to know more!',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ).animate().fadeIn(
+                            delay: const Duration(milliseconds: 1500),
+                            duration: const Duration(milliseconds: 3000),
+                            curve: Curves.easeInOut,
+                          ),
+                    ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    "I'm Jeremy, a Flutter and Ionic developer from "
-                    'the Netherlands. I have completed various '
-                    'courses on Ionic, Dart & Flutter and I am '
-                    'currently learning more about UI/UX design '
-                    "with Figma. Reach out to me if you'd like "
-                    'to know more!',
-                    textAlign: TextAlign.center,
-                  ),
+                  const Divider(),
                 ],
-              ).animate().fadeIn(
-                    delay: const Duration(milliseconds: 1500),
-                    duration: const Duration(milliseconds: 3000),
-                    curve: Curves.easeInOut,
-                  ),
+              ),
             ],
           ),
         ),
