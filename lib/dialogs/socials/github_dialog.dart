@@ -26,11 +26,15 @@ Future<void> showGithubDialog(BuildContext context) async {
               child: const ListTile(
                 title: Text('Github'),
                 subtitle: Text('Check out @plotsklapps repositories'),
-                trailing: Icon(FontAwesomeIcons.github),
+                trailing: Icon(
+                  FontAwesomeIcons.github,
+                  color: Color(0xFF6E5494),
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            const Icon(FontAwesomeIcons.github, size: 300)
+            const Icon(FontAwesomeIcons.github,
+                    size: 300, color: Color(0xFF6E5494))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);

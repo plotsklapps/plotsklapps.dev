@@ -26,11 +26,15 @@ Future<void> showHashnodeDialog(BuildContext context) async {
               child: const ListTile(
                 title: Text('Hashnode'),
                 subtitle: Text('Read @plotsklapps articles'),
-                trailing: Icon(FontAwesomeIcons.hashnode),
+                trailing: Icon(
+                  FontAwesomeIcons.hashnode,
+                  color: Color(0xFF2962FF),
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            const Icon(FontAwesomeIcons.hashnode, size: 300)
+            const Icon(FontAwesomeIcons.hashnode,
+                    size: 300, color: Color(0xFF2962FF))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(

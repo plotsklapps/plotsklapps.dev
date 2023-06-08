@@ -26,11 +26,15 @@ Future<void> showTwitterDialog(BuildContext context) async {
               child: const ListTile(
                 title: Text('Twitter'),
                 subtitle: Text('Reach out to @plotsklapps'),
-                trailing: Icon(FontAwesomeIcons.twitter),
+                trailing: Icon(
+                  FontAwesomeIcons.twitter,
+                  color: Color(0xFF00ACEE),
+                ),
               ),
             ),
             const SizedBox(height: 16),
-            const Icon(FontAwesomeIcons.twitter, size: 300)
+            const Icon(FontAwesomeIcons.twitter,
+                    size: 300, color: Color(0xFF00ACEE))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);
