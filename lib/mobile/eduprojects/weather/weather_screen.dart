@@ -2,7 +2,7 @@
 
 import 'package:portfolio/all_imports.dart';
 
-class WeatherScreenMobile extends StatefulWidget {
+class WeatherScreenMobile extends ConsumerStatefulWidget {
   final dynamic locationWeather;
   const WeatherScreenMobile({
     super.key,
@@ -15,30 +15,42 @@ class WeatherScreenMobile extends StatefulWidget {
   }
 }
 
-class WeatherScreenMobileState extends State<WeatherScreenMobile> {
-  double temperature = 0;
-  int condition = 0;
-  IconData weatherIcon = FontAwesomeIcons.solidCircleQuestion;
-  double tempMin = 0.0;
-  double tempMax = 0.0;
-  String cityName = 'Not able to fetch data';
+class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
+  late double temperature;
+  late int condition;
+  late IconData weatherIcon;
+  late double tempMin;
+  late double tempMax;
+  late String cityName;
   WeatherModel weatherModel = WeatherModel();
 
   @override
   void initState() {
     super.initState();
-    updateUI(widget.locationWeather);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      temperature = ref.watch(weatherTempProvider);
+      condition = ref.watch(weatherConditionProvider);
+      weatherIcon = ref.watch(weatherIconDataProvider);
+      tempMin = ref.watch(weatherTempMinProvider);
+      tempMax = ref.watch(weatherTempMaxProvider);
+      cityName = ref.watch(weatherCityNameProvider);
+      updateUI(widget.locationWeather);
+    });
   }
 
   void updateUI(dynamic weather) {
-    setState(() {
-      temperature = weather['main']['temp'] as double;
-      condition = weather['weather'][0]['id'] as int;
-      weatherIcon = weatherModel.getWeatherIcon(condition);
-      tempMin = weather['main']['temp_min'] as double;
-      tempMax = weather['main']['temp_max'] as double;
-      cityName = weather['name'] as String;
-    });
+    ref.read(weatherTempProvider.notifier).state =
+        weather['main']['temp'] as double;
+    ref.read(weatherConditionProvider.notifier).state =
+        weather['weather'][0]['id'] as int;
+    ref.read(weatherIconDataProvider.notifier).state =
+        weatherModel.getWeatherIcon(ref.watch(weatherConditionProvider));
+    ref.read(weatherTempMinProvider.notifier).state =
+        weather['main']['temp_min'] as double;
+    ref.read(weatherTempMaxProvider.notifier).state =
+        weather['main']['temp_max'] as double;
+    ref.read(weatherCityNameProvider.notifier).state =
+        weather['name'] as String;
   }
 
   @override
@@ -55,7 +67,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
               bottom: 50,
               left: 100,
               child: Icon(
-                weatherIcon,
+                ref.watch(weatherIconDataProvider),
                 size: 300,
                 color: Utils.kFlame,
               ),
@@ -112,7 +124,10 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                       ElevatedButton(
                         onPressed: () async {
                           final dynamic weatherData =
-                              await weatherModel.getCityWeather(cityName);
+                              await weatherModel.getCityWeather(
+                            ref,
+                            cityName,
+                          );
                           updateUI(weatherData);
                         },
                         child: const Text(
@@ -129,7 +144,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                         Row(
                           children: <Widget>[
                             Text(
-                              '${temperature.toStringAsFixed(1)} °C',
+                              '${ref.watch(weatherTempProvider).toStringAsFixed(1)} °C',
                               style: const TextStyle(
                                 fontSize: 80,
                                 fontWeight: FontWeight.bold,
@@ -138,11 +153,11 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                           ],
                         ),
                         Text(
-                          'Current minimum: ${tempMin.toStringAsFixed(1)} °C',
+                          'Current minimum: ${ref.watch(weatherTempMinProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          'Current maximum: ${tempMax.toStringAsFixed(1)} °C',
+                          'Current maximum: ${ref.watch(weatherTempMaxProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -152,7 +167,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        cityName,
+                        ref.watch(weatherCityNameProvider),
                         style: const TextStyle(
                           fontSize: 36,
                         ),

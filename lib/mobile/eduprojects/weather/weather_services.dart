@@ -94,10 +94,12 @@ class WeatherModel {
   final String openWeatherMapURL =
       'https://api.openweathermap.org/data/2.5/weather';
 
-  Future<dynamic> getCityWeather(String cityName) async {
+  Future<dynamic> getCityWeather(WidgetRef ref, String cityName) async {
     final NetworkHelper networkHelper = NetworkHelper(
       '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric',
     );
+
+    ref.read(weatherCityNameProvider.notifier).state = cityName;
 
     final dynamic weatherData = await networkHelper.getData();
     return weatherData;
