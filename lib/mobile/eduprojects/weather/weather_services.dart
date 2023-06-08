@@ -115,35 +115,31 @@ class WeatherModel {
     return weatherData;
   }
 
-  Icon getWeatherIcon(int condition) {
+  IconData getWeatherIcon(int condition) {
     if (condition < 300) {
-      return const Icon(FontAwesomeIcons.cloudBolt);
+      return FontAwesomeIcons.cloudBolt;
     } else if (condition < 400) {
-      return const Icon(FontAwesomeIcons.cloudRain);
+      return FontAwesomeIcons.cloudRain;
     } else if (condition >= 500 && condition < 511) {
-      return const Icon(FontAwesomeIcons.cloudShowersHeavy);
+      return FontAwesomeIcons.cloudShowersHeavy;
     } else if (condition == 511) {
-      return const Icon(FontAwesomeIcons.snowflake);
+      return FontAwesomeIcons.snowflake;
     } else if (condition > 511 && condition <= 531) {
-      return const Icon(FontAwesomeIcons.cloudShowersWater);
+      return FontAwesomeIcons.cloudShowersWater;
     } else if (condition < 700) {
-      return const Icon(FontAwesomeIcons.snowman);
+      return FontAwesomeIcons.snowman;
     } else if (condition < 800) {
-      return const Icon(FontAwesomeIcons.smog);
+      return FontAwesomeIcons.smog;
     } else if (condition == 800) {
-      return const Icon(
-        FontAwesomeIcons.sun,
-        size: 100,
-        color: Colors.deepOrange,
-      );
+      return FontAwesomeIcons.sun;
     } else if (condition == 801) {
-      return const Icon(FontAwesomeIcons.cloud);
+      return FontAwesomeIcons.cloud;
     } else if (condition == 802) {
-      return const Icon(FontAwesomeIcons.cloudSun);
+      return FontAwesomeIcons.cloudSun;
     } else if (condition <= 804) {
-      return const Icon(FontAwesomeIcons.cloudSun);
+      return FontAwesomeIcons.cloudSun;
     } else {
-      return const Icon(FontAwesomeIcons.solidCircleQuestion);
+      return FontAwesomeIcons.solidCircleQuestion;
     }
   }
 
