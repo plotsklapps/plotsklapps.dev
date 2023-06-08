@@ -31,7 +31,7 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.twitter,
-                        color: Utils.kCharcoal,
+                        color: Utils.kGunMetal,
                       ).animate().flip(
                             delay: Duration.zero,
                             duration: const Duration(milliseconds: 1000),
@@ -47,7 +47,7 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.github,
-                        color: Utils.kCharcoal,
+                        color: Utils.kGunMetal,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 500),
                             duration: const Duration(milliseconds: 1000),
@@ -63,7 +63,7 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.hashnode,
-                        color: Utils.kCharcoal,
+                        color: Utils.kGunMetal,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 1000),
                             duration: const Duration(milliseconds: 1000),
