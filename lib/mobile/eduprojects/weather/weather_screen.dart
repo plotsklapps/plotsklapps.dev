@@ -1,7 +1,11 @@
+// Ignoring a linter rule because I'm working with JSON and I find
+// a dynamic call on a JSON file more readable.
 // ignore_for_file: avoid_dynamic_calls
 
 import 'package:portfolio/all_imports.dart';
 
+// It's a CONSUMERStatefulWidget because I want to use Riverpod for my
+// state management.
 class WeatherScreenMobile extends ConsumerStatefulWidget {
   final dynamic locationWeather;
   const WeatherScreenMobile({
@@ -16,6 +20,8 @@ class WeatherScreenMobile extends ConsumerStatefulWidget {
 }
 
 class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
+  // Set up some variables. Make them 'late', because I will initialize them
+  // in the initState().
   late double temperature;
   late int condition;
   late IconData weatherIcon;
@@ -27,30 +33,37 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
   @override
   void initState() {
     super.initState();
+    // Use WidgetsBinding.blabla to avoid changing state while building the UI
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      // The variables created are being filled with their respective
+      // providers.
       temperature = ref.watch(weatherTempProvider);
       condition = ref.watch(weatherConditionProvider);
       weatherIcon = ref.watch(weatherIconDataProvider);
       tempMin = ref.watch(weatherTempMinProvider);
       tempMax = ref.watch(weatherTempMaxProvider);
       cityName = ref.watch(weatherCityNameProvider);
+      // Call the updateUI method, see below.
       updateUI(widget.locationWeather);
     });
   }
 
-  void updateUI(dynamic weather) {
+  // UpdateUI method fetches the latest weatherData for the current location
+  // or cityName provided by the user. Each JSON data piece is stored in
+  // their respective provider.
+  void updateUI(dynamic weatherData) {
     ref.read(weatherTempProvider.notifier).state =
-        weather['main']['temp'] as double;
+        weatherData['main']['temp'] as double;
     ref.read(weatherConditionProvider.notifier).state =
-        weather['weather'][0]['id'] as int;
+        weatherData['weather'][0]['id'] as int;
     ref.read(weatherIconDataProvider.notifier).state =
         weatherModel.getWeatherIcon(ref.watch(weatherConditionProvider));
     ref.read(weatherTempMinProvider.notifier).state =
-        weather['main']['temp_min'] as double;
+        weatherData['main']['temp_min'] as double;
     ref.read(weatherTempMaxProvider.notifier).state =
-        weather['main']['temp_max'] as double;
+        weatherData['main']['temp_max'] as double;
     ref.read(weatherCityNameProvider.notifier).state =
-        weather['name'] as String;
+        weatherData['name'] as String;
   }
 
   @override
@@ -88,6 +101,9 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                           const Text('Use current location'),
                           IconButton(
                             onPressed: () async {
+                              // Asynchronous method, FIRST store the new
+                              // weather data in variable weatherData, then
+                              // call updateUI with the new data.
                               final dynamic weatherData =
                                   await weatherModel.getLocationWeather();
                               updateUI(weatherData);
@@ -108,6 +124,9 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                       const SizedBox(height: 16),
                       TextField(
                         onChanged: (String value) {
+                          // Purposely NOT updating the Riverpod provider here
+                          // since that will change the UI on the fly, instead
+                          // of after the button press
                           cityName = value;
                         },
                         decoration: const InputDecoration(
@@ -123,6 +142,9 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () async {
+                          // Asynchronous method, FIRST store the new
+                          // weather data in variable weatherData, then call
+                          // updateUI with the new data.
                           final dynamic weatherData =
                               await weatherModel.getCityWeather(
                             ref,
@@ -144,6 +166,7 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                         Row(
                           children: <Widget>[
                             Text(
+                              // Directly display the contents of the provider.
                               '${ref.watch(weatherTempProvider).toStringAsFixed(1)} °C',
                               style: const TextStyle(
                                 fontSize: 80,
@@ -153,10 +176,12 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                           ],
                         ),
                         Text(
+                          // Directly display the contents of the provider.
                           'Current minimum: ${ref.watch(weatherTempMinProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
+                          // Directly display the contents of the provider.
                           'Current maximum: ${ref.watch(weatherTempMaxProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
@@ -167,6 +192,7 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
+                        // Directly display the contents of the provider.
                         ref.watch(weatherCityNameProvider),
                         style: const TextStyle(
                           fontSize: 36,
