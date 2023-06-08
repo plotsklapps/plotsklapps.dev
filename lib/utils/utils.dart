@@ -27,4 +27,11 @@ class Utils {
     );
     await launchUrl(emailLaunchUri);
   }
+
+  // plotsklapps brand colors.
+  static Color kGunMetal = const Color(0xFF172734);
+  static Color kCharcoal = const Color(0xFF32434F);
+  static Color kElectricBlue = const Color(0xFF526E7F);
+  static Color kFlame = const Color(0xFFD35A27);
+  static Color kLightGrey = const Color(0xFFDEDEDE);
 }

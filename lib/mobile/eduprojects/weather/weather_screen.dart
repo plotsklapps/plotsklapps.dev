@@ -18,9 +18,10 @@ class WeatherScreenMobile extends StatefulWidget {
 class WeatherScreenMobileState extends State<WeatherScreenMobile> {
   double temperature = 0;
   int condition = 0;
-  String cityName = 'Not able to fetch data';
   IconData weatherIcon = FontAwesomeIcons.solidCircleQuestion;
-  String tempIcon = 'Error';
+  double tempMin = 0.0;
+  double tempMax = 0.0;
+  String cityName = 'Not able to fetch data';
   WeatherModel weatherModel = WeatherModel();
 
   @override
@@ -31,10 +32,11 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
 
   void updateUI(dynamic weather) {
     setState(() {
+      temperature = weather['main']['temp'] as double;
       condition = weather['weather'][0]['id'] as int;
       weatherIcon = weatherModel.getWeatherIcon(condition);
-      temperature = weather['main']['temp'] as double;
-      tempIcon = weatherModel.getMessage(temperature);
+      tempMin = weather['main']['temp_min'] as double;
+      tempMax = weather['main']['temp_max'] as double;
       cityName = weather['name'] as String;
     });
   }
@@ -55,7 +57,7 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
               child: Icon(
                 weatherIcon,
                 size: 300,
-                color: Colors.deepOrange,
+                color: Utils.kFlame,
               ),
             ).animate().fadeIn(
                   duration: const Duration(milliseconds: 2000),
@@ -121,23 +123,39 @@ class WeatherScreenMobileState extends State<WeatherScreenMobile> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Row(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            Text(
+                              '${temperature.toStringAsFixed(1)} °C',
+                              style: const TextStyle(
+                                fontSize: 80,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                         Text(
-                          '${temperature.toStringAsFixed(1)} °C',
-                          style: const TextStyle(
-                            fontSize: 80,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          'Current minimum: ${tempMin.toStringAsFixed(1)} °C',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Current maximum: ${tempMax.toStringAsFixed(1)} °C',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
                   ),
                   Flexible(
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 15),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
-                        '$tempIcon in $cityName',
+                        cityName,
+                        style: const TextStyle(
+                          fontSize: 36,
+                        ),
                       ),
                     ),
                   ),
