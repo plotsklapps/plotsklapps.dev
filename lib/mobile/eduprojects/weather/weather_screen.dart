@@ -1,4 +1,4 @@
-// Ignoring a linter rule because I'm working with JSON and I find
+// Ignoring a linter rule because I'm working with JSON data and I find
 // a dynamic call on a JSON file more readable.
 // ignore_for_file: avoid_dynamic_calls
 
@@ -8,6 +8,7 @@ import 'package:portfolio/all_imports.dart';
 // state management.
 class WeatherScreenMobile extends ConsumerStatefulWidget {
   final dynamic locationWeather;
+
   const WeatherScreenMobile({
     super.key,
     this.locationWeather,
@@ -122,21 +123,32 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                     children: <Widget>[
                       const Text('Check the weather in another city'),
                       const SizedBox(height: 16),
-                      TextField(
-                        onChanged: (String value) {
-                          // Purposely NOT updating the Riverpod provider here
-                          // since that will change the UI on the fly, instead
-                          // of after the button press
-                          cityName = value;
-                        },
-                        decoration: const InputDecoration(
-                          label: Text(
-                            'Enter city name',
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          onChanged: (String value) {
+                            // Purposely NOT updating the Riverpod provider here
+                            // since that will change the UI on the fly, instead
+                            // of after the button press
+                            cityName = value;
+                          },
+                          decoration: const InputDecoration(
+                            label: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Text>[
+                                Text(
+                                  'Enter city name',
+                                ),
+                              ],
+                            ),
+                            icon: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              child: Icon(FontAwesomeIcons.city),
+                            ),
                           ),
-                          icon: Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            child: Icon(FontAwesomeIcons.city),
-                          ),
+                          keyboardType: TextInputType.text,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -167,6 +179,9 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                           children: <Widget>[
                             Text(
                               // Directly display the contents of the provider.
+                              // Ignoring linter rule, because Android Studio
+                              // is pissing me off.
+                              // ignore: lines_longer_than_80_chars
                               '${ref.watch(weatherTempProvider).toStringAsFixed(1)} °C',
                               style: const TextStyle(
                                 fontSize: 80,
@@ -177,11 +192,17 @@ class WeatherScreenMobileState extends ConsumerState<WeatherScreenMobile> {
                         ),
                         Text(
                           // Directly display the contents of the provider.
+                          // Ignoring linter rule, because Android Studio
+                          // is pissing me off.
+                          // ignore: lines_longer_than_80_chars
                           'Current minimum: ${ref.watch(weatherTempMinProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
                           // Directly display the contents of the provider.
+                          // Ignoring linter rule, because Android Studio
+                          // is pissing me off.
+                          // ignore: lines_longer_than_80_chars
                           'Current maximum: ${ref.watch(weatherTempMaxProvider).toStringAsFixed(1)} °C',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
