@@ -13,6 +13,7 @@ class HomeScreenContentsMobileState
     extends ConsumerState<HomeScreenContentsMobile> {
   @override
   Widget build(BuildContext context) {
+    final bool isLightMode = ref.watch(isLightModeProvider);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -30,7 +31,8 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.twitter,
-                        color: Utils.kGunMetal,
+                        color:
+                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: Duration.zero,
                             duration: const Duration(milliseconds: 1000),
@@ -46,7 +48,8 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.github,
-                        color: Utils.kGunMetal,
+                        color:
+                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 500),
                             duration: const Duration(milliseconds: 1000),
@@ -62,7 +65,8 @@ class HomeScreenContentsMobileState
                       },
                       icon: Icon(
                         FontAwesomeIcons.hashnode,
-                        color: Utils.kGunMetal,
+                        color:
+                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 1000),
                             duration: const Duration(milliseconds: 1000),
@@ -83,7 +87,7 @@ class HomeScreenContentsMobileState
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.25,
                       child: Card(
-                        color: Utils.kGunMetal,
+                        color: Utils.kCharcoal,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
@@ -116,36 +120,20 @@ class HomeScreenContentsMobileState
                     back: SizedBox(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.25,
-                      child: Card(
-                        color: Utils.kLightGrey,
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              bottom: 10,
-                              left: 180,
-                              child: Opacity(
-                                opacity: 0.3,
-                                child: Image.asset(
-                                  'assets/icons/plotsklappsicon.png',
-                                  height: 150,
-                                ),
-                              ),
+                      child: const Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Center(
+                            child: Text(
+                              "I'm Jeremy, a Flutter and Ionic developer from "
+                              'the Netherlands. I have completed various '
+                              'courses on Ionic, Dart & Flutter and I am '
+                              'currently learning more about UI/UX design '
+                              "with Figma. Reach out to me if you'd like "
+                              'to know more!',
+                              textAlign: TextAlign.center,
                             ),
-                            const Padding(
-                              padding: EdgeInsets.all(16),
-                              child: Center(
-                                child: Text(
-                                  "I'm Jeremy, a Flutter and Ionic developer from "
-                                  'the Netherlands. I have completed various '
-                                  'courses on Ionic, Dart & Flutter and I am '
-                                  'currently learning more about UI/UX design '
-                                  "with Figma. Reach out to me if you'd like "
-                                  'to know more!',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ).animate().fadeIn(
                             delay: const Duration(milliseconds: 1500),
