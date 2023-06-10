@@ -76,6 +76,7 @@ class HomeScreenContentsMobileState
                 children: <Widget>[
                   FlipCard(
                     speed: 1500,
+                    direction: FlipDirection.VERTICAL,
                     front: SizedBox(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.25,
