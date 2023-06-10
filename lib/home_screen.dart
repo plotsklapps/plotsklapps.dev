@@ -44,7 +44,10 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/images/textlogo.png'),
+        title: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Image.asset('assets/images/textlogo.png'),
+        ),
         centerTitle: true,
       ),
       drawer: Drawer(

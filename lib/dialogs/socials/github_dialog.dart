@@ -34,7 +34,7 @@ Future<void> showGithubDialog(BuildContext context) async {
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.github,
-                    size: 300, color: Color(0xFF6E5494))
+                    size: 232, color: Color(0xFF6E5494))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);

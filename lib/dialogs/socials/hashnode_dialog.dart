@@ -34,7 +34,7 @@ Future<void> showHashnodeDialog(BuildContext context) async {
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.hashnode,
-                    size: 300, color: Color(0xFF2962FF))
+                    size: 232, color: Color(0xFF2962FF))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(
