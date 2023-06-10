@@ -13,7 +13,6 @@ class HomeScreenContentsMobileState
     extends ConsumerState<HomeScreenContentsMobile> {
   @override
   Widget build(BuildContext context) {
-    final bool isLightMode = ref.watch(isLightModeProvider);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -29,10 +28,8 @@ class HomeScreenContentsMobileState
                       onPressed: () async {
                         await showTwitterDialog(context);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.twitter,
-                        color:
-                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: Duration.zero,
                             duration: const Duration(milliseconds: 1000),
@@ -46,10 +43,8 @@ class HomeScreenContentsMobileState
                       onPressed: () async {
                         await showGithubDialog(context);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.github,
-                        color:
-                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 500),
                             duration: const Duration(milliseconds: 1000),
@@ -63,10 +58,8 @@ class HomeScreenContentsMobileState
                       onPressed: () async {
                         await showHashnodeDialog(context);
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         FontAwesomeIcons.hashnode,
-                        color:
-                            isLightMode ? Utils.kGunMetal : Utils.kElectricBlue,
                       ).animate().flip(
                             delay: const Duration(milliseconds: 1000),
                             duration: const Duration(milliseconds: 1000),
@@ -83,11 +76,11 @@ class HomeScreenContentsMobileState
                 children: <Widget>[
                   FlipCard(
                     speed: 1500,
+                    direction: FlipDirection.VERTICAL,
                     front: SizedBox(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.25,
                       child: Card(
-                        color: Utils.kCharcoal,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
@@ -135,11 +128,7 @@ class HomeScreenContentsMobileState
                             ),
                           ),
                         ),
-                      ).animate().fadeIn(
-                            delay: const Duration(milliseconds: 1500),
-                            duration: const Duration(milliseconds: 3000),
-                            curve: Curves.easeInOut,
-                          ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
