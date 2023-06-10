@@ -50,7 +50,7 @@ final StateProvider<ThemeData> flexSchemeLightProvider =
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: true,
       swapLegacyOnMaterial3: true,
-      // To use the playground font, add GoogleFonts package and uncomment
+      // Set the app wide font here.
       fontFamily: GoogleFonts.questrial().fontFamily,
     );
   },
@@ -94,7 +94,8 @@ final StateProvider<ThemeData> flexSchemeDarkProvider =
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: true,
       swapLegacyOnMaterial3: true,
-      fontFamily: GoogleFonts.notoSans().fontFamily,
+      // Set the app wide font here.
+      fontFamily: GoogleFonts.questrial().fontFamily,
     );
   },
 );

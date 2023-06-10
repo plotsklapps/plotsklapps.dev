@@ -128,11 +128,7 @@ class HomeScreenContentsMobileState
                             ),
                           ),
                         ),
-                      ).animate().fadeIn(
-                            delay: const Duration(milliseconds: 1500),
-                            duration: const Duration(milliseconds: 3000),
-                            curve: Curves.easeInOut,
-                          ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
