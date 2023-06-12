@@ -139,11 +139,6 @@ class HomeScreenContentsMobileState
                       const SizedBox(height: 16),
                       const Divider(),
                       const SizedBox(height: 16),
-                      const Text(
-                        'Skills',
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 16),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         // ScrollConfiguration to allow for scrolling on web.
@@ -179,6 +174,14 @@ class HomeScreenContentsMobileState
                                   height: 48,
                                   width: 48,
                                   child: Image.asset(
+                                    'assets/icons/git_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
+                              const SizedBox(width: 16),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
                                     'assets/icons/github_logo.png',
                                     fit: BoxFit.contain,
                                   )),
@@ -191,15 +194,13 @@ class HomeScreenContentsMobileState
                                     fit: BoxFit.contain,
                                   )),
                               const SizedBox(width: 16),
-                              const Icon(
-                                FontAwesomeIcons.five,
-                                size: 36,
-                              ),
-                              const SizedBox(width: 16),
-                              const Icon(
-                                FontAwesomeIcons.six,
-                                size: 36,
-                              ),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/vscode_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
                               const SizedBox(width: 16),
                               const Icon(
                                 FontAwesomeIcons.seven,
