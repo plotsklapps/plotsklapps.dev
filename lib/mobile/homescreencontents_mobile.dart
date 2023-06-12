@@ -218,10 +218,13 @@ class HomeScreenContentsMobileState
                                     fit: BoxFit.contain,
                                   )),
                               const SizedBox(width: 16),
-                              const Icon(
-                                FontAwesomeIcons.nine,
-                                size: 36,
-                              ),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/openai_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
                             ],
                           ),
                         ),
