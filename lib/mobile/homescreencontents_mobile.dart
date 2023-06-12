@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:portfolio/all_imports.dart';
 
 class HomeScreenContentsMobile extends ConsumerStatefulWidget {
@@ -137,67 +139,88 @@ class HomeScreenContentsMobileState
                       const SizedBox(height: 16),
                       const Divider(),
                       const SizedBox(height: 16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Skills'),
-                        ],
+                      const Text(
+                        'Skills',
+                        textAlign: TextAlign.center,
                       ),
-                      SizedBox(width: 16),
+                      const SizedBox(height: 16),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.one,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.two,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.three,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.four,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.five,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.six,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.seven,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.eight,
-                              size: 36,
-                            ),
-                            SizedBox(width: 16),
-                            Icon(
-                              FontAwesomeIcons.nine,
-                              size: 36,
-                            ),
-                          ],
+                        // ScrollConfiguration to allow for scrolling on web.
+                        child: ScrollConfiguration(
+                          behavior: const ScrollBehavior().copyWith(
+                            dragDevices: <PointerDeviceKind>{
+                              PointerDeviceKind.mouse,
+                              PointerDeviceKind.touch,
+                              PointerDeviceKind.trackpad,
+                              PointerDeviceKind.stylus,
+                            },
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/dart_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
+                              const SizedBox(width: 16),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/firebase_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
+                              const SizedBox(width: 16),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/github_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
+                              const SizedBox(width: 16),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/androidstudio_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
+                              const SizedBox(width: 16),
+                              const Icon(
+                                FontAwesomeIcons.five,
+                                size: 36,
+                              ),
+                              const SizedBox(width: 16),
+                              const Icon(
+                                FontAwesomeIcons.six,
+                                size: 36,
+                              ),
+                              const SizedBox(width: 16),
+                              const Icon(
+                                FontAwesomeIcons.seven,
+                                size: 36,
+                              ),
+                              const SizedBox(width: 16),
+                              const Icon(
+                                FontAwesomeIcons.eight,
+                                size: 36,
+                              ),
+                              const SizedBox(width: 16),
+                              const Icon(
+                                FontAwesomeIcons.nine,
+                                size: 36,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      SizedBox(width: 16),
-                      Divider(),
+                      const SizedBox(height: 16),
+                      const Divider(),
                     ],
                   ),
                 ],

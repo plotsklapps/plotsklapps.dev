@@ -79,6 +79,7 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                               PointerDeviceKind.mouse,
                               PointerDeviceKind.touch,
                               PointerDeviceKind.trackpad,
+                              PointerDeviceKind.stylus,
                             },
                           ),
                           child: PageView.builder(
