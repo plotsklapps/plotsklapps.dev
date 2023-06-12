@@ -202,15 +202,21 @@ class HomeScreenContentsMobileState
                                     fit: BoxFit.contain,
                                   )),
                               const SizedBox(width: 16),
-                              const Icon(
-                                FontAwesomeIcons.seven,
-                                size: 36,
-                              ),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/linux_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
                               const SizedBox(width: 16),
-                              const Icon(
-                                FontAwesomeIcons.eight,
-                                size: 36,
-                              ),
+                              SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    'assets/icons/windows_logo.png',
+                                    fit: BoxFit.contain,
+                                  )),
                               const SizedBox(width: 16),
                               const Icon(
                                 FontAwesomeIcons.nine,
