@@ -4,6 +4,7 @@ final Uri hashnodeURL = Uri.parse('https://hashnode.com/@plotsklapps');
 
 Future<void> showHashnodeDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
+    useRootNavigator: true,
     context: context,
     builder: (BuildContext context) {
       return Container(

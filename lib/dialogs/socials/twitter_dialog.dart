@@ -4,6 +4,7 @@ final Uri twitterURL = Uri.parse('https://twitter.com/plotsklapps');
 
 Future<void> showTwitterDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
+    useRootNavigator: true,
     context: context,
     builder: (BuildContext context) {
       return Container(

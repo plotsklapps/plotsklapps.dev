@@ -4,6 +4,7 @@ final Uri githubURL = Uri.parse('https://github.com/plotsklapps');
 
 Future<void> showGithubDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
+    useRootNavigator: true,
     context: context,
     builder: (BuildContext context) {
       return Container(

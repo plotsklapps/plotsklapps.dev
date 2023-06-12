@@ -72,7 +72,7 @@ class HomeScreenContentsMobileState
             const SizedBox(height: 16),
             Expanded(
               child: ListView(
-                children: [
+                children: <Widget>[
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -137,6 +137,67 @@ class HomeScreenContentsMobileState
                       const SizedBox(height: 16),
                       const Divider(),
                       const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Skills'),
+                        ],
+                      ),
+                      SizedBox(width: 16),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.one,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.two,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.three,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.four,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.five,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.six,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.seven,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.eight,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.nine,
+                              size: 36,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Divider(),
                     ],
                   ),
                 ],
