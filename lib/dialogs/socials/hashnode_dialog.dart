@@ -4,6 +4,7 @@ final Uri hashnodeURL = Uri.parse('https://hashnode.com/@plotsklapps');
 
 Future<void> showHashnodeDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
+    useRootNavigator: true,
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -34,7 +35,7 @@ Future<void> showHashnodeDialog(BuildContext context) async {
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.hashnode,
-                    size: 232, color: Color(0xFF2962FF))
+                    size: 224, color: Color(0xFF2962FF))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(

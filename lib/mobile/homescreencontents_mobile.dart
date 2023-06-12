@@ -16,127 +16,194 @@ class HomeScreenContentsMobileState
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              // Row of social media icons.
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Column(
+          children: <Widget>[
+            // Row of social media icons.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Expanded(
+                  child: IconButton(
+                    onPressed: () async {
+                      await showTwitterDialog(context);
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.twitter,
+                    ).animate().flip(
+                          delay: Duration.zero,
+                          duration: const Duration(milliseconds: 1000),
+                          curve: Curves.easeInOut,
+                        ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: IconButton(
+                    onPressed: () async {
+                      await showGithubDialog(context);
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.github,
+                    ).animate().flip(
+                          delay: const Duration(milliseconds: 500),
+                          duration: const Duration(milliseconds: 1000),
+                          curve: Curves.easeInOut,
+                        ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: IconButton(
+                    onPressed: () async {
+                      await showHashnodeDialog(context);
+                    },
+                    icon: const Icon(
+                      FontAwesomeIcons.hashnode,
+                    ).animate().flip(
+                          delay: const Duration(milliseconds: 1000),
+                          duration: const Duration(milliseconds: 1000),
+                          curve: Curves.easeInOut,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+            const Divider(),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView(
                 children: <Widget>[
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showTwitterDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.twitter,
-                      ).animate().flip(
-                            delay: Duration.zero,
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showGithubDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.github,
-                      ).animate().flip(
-                            delay: const Duration(milliseconds: 500),
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showHashnodeDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.hashnode,
-                      ).animate().flip(
-                            delay: const Duration(milliseconds: 1000),
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
-              const Divider(),
-              const SizedBox(height: 16),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  FlipCard(
-                    speed: 1500,
-                    direction: FlipDirection.VERTICAL,
-                    front: SizedBox(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      child: Card(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            const FlutterLogo(
-                              size: 75,
-                              style: FlutterLogoStyle.markOnly,
-                            ).animate(
-                              onPlay: (AnimationController controller) {
-                                controller.repeat();
-                              },
-                            ).shimmer(
-                              delay: Duration.zero,
-                              duration: const Duration(seconds: 4),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      // Flippable Card with some background info
+                      FlipCard(
+                        speed: 1500,
+                        direction: FlipDirection.VERTICAL,
+                        front: SizedBox(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          child: Card(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                const FlutterLogo(
+                                  size: 75,
+                                  style: FlutterLogoStyle.markOnly,
+                                ).animate(
+                                  onPlay: (AnimationController controller) {
+                                    controller.repeat();
+                                  },
+                                ).shimmer(
+                                  delay: Duration.zero,
+                                  duration: const Duration(seconds: 4),
+                                ),
+                                Image.asset(
+                                  'assets/images/ioniclogo.png',
+                                  height: 75,
+                                ).animate(
+                                  onPlay: (AnimationController controller) {
+                                    controller.repeat();
+                                  },
+                                ).shimmer(
+                                  delay: const Duration(seconds: 2),
+                                  duration: const Duration(seconds: 4),
+                                ),
+                              ],
                             ),
-                            Image.asset(
-                              'assets/images/ioniclogo.png',
-                              height: 75,
-                            ).animate(
-                              onPlay: (AnimationController controller) {
-                                controller.repeat();
-                              },
-                            ).shimmer(
-                              delay: const Duration(seconds: 2),
-                              duration: const Duration(seconds: 4),
+                          ),
+                        ),
+                        back: SizedBox(
+                          width: double.infinity,
+                          height: MediaQuery.of(context).size.height * 0.25,
+                          child: const Card(
+                            child: Padding(
+                              padding: EdgeInsets.all(16),
+                              child: Center(
+                                child: Text(
+                                  "I'm Jeremy, a Flutter and Ionic developer from "
+                                  'the Netherlands. I have completed various '
+                                  'courses on Ionic, Dart & Flutter and I am '
+                                  'currently learning more about UI/UX design '
+                                  "with Figma. Reach out to me if you'd like "
+                                  'to know more!',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      const Divider(),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Skills'),
+                        ],
+                      ),
+                      SizedBox(width: 16),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.one,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.two,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.three,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.four,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.five,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.six,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.seven,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.eight,
+                              size: 36,
+                            ),
+                            SizedBox(width: 16),
+                            Icon(
+                              FontAwesomeIcons.nine,
+                              size: 36,
                             ),
                           ],
                         ),
                       ),
-                    ),
-                    back: SizedBox(
-                      width: double.infinity,
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      child: const Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(16),
-                          child: Center(
-                            child: Text(
-                              "I'm Jeremy, a Flutter and Ionic developer from "
-                              'the Netherlands. I have completed various '
-                              'courses on Ionic, Dart & Flutter and I am '
-                              'currently learning more about UI/UX design '
-                              "with Figma. Reach out to me if you'd like "
-                              'to know more!',
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                      SizedBox(width: 16),
+                      Divider(),
+                    ],
                   ),
-                  const SizedBox(height: 16),
-                  const Divider(),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

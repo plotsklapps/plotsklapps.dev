@@ -4,6 +4,7 @@ final Uri twitterURL = Uri.parse('https://twitter.com/plotsklapps');
 
 Future<void> showTwitterDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
+    useRootNavigator: true,
     context: context,
     builder: (BuildContext context) {
       return Container(
@@ -34,7 +35,7 @@ Future<void> showTwitterDialog(BuildContext context) async {
             ),
             const SizedBox(height: 16),
             const Icon(FontAwesomeIcons.twitter,
-                    size: 232, color: Color(0xFF00ACEE))
+                    size: 224, color: Color(0xFF00ACEE))
                 .animate(
                   onPlay: (AnimationController controller) {
                     controller.repeat(reverse: true);
