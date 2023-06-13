@@ -72,7 +72,7 @@ class HomeScreenContentsMobileState
             ),
             const Divider(),
             const SizedBox(height: 16),
-            Expanded(
+            SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -140,63 +140,104 @@ class HomeScreenContentsMobileState
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       // ScrollConfiguration to allow for scrolling on web.
                       child: ScrollConfiguration(
                         behavior: const ScrollBehavior().copyWith(
+                          scrollbars: false,
                           dragDevices: <PointerDeviceKind>{
                             PointerDeviceKind.mouse,
-                            PointerDeviceKind.touch,
                             PointerDeviceKind.trackpad,
+                            PointerDeviceKind.touch,
                             PointerDeviceKind.stylus,
                           },
                         ),
-                        child: PageView.builder(
+                        child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          itemCount:
-                              // Get the length of the skillsIcons
-                              // list.
-                              ref
-                                  .watch(skillsIconsProvider.notifier)
-                                  .skillsIconsList
-                                  .length,
-                          onPageChanged: (int index) {
-                            // Update the skillsIconsProvider int.
-                            ref
-                                .read(skillsIconsProvider.notifier)
-                                .setCurrentSkillsIconsIndex(index);
-                          },
-                          itemBuilder: (BuildContext context, int index) {
-                            return Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    // Set the image to the current index from the
-                                    // onPageChanged.
-                                    ref
-                                        .watch(
-                                          skillsIconsProvider.notifier,
-                                        )
-                                        .skillsIconsList[index],
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: ListTile(
-                                    title: Text(ref
-                                        .watch(skillsIconsProvider.notifier)
-                                        .skillsTitlesList[index]),
-                                    subtitle: Text(ref
-                                        .watch(skillsIconsProvider.notifier)
-                                        .skillsSubtitlesList[index]),
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+                          child: Row(
+                            children: <Widget>[
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[0],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 0);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[1],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 1);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[2],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 2);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[3],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 3);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[4],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 4);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[5],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 5);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[6],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 6);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[7],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 7);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[8],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 8);
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -211,4 +252,70 @@ class HomeScreenContentsMobileState
       ),
     );
   }
+}
+
+class SkillsIcon extends StatelessWidget {
+  final String icon;
+  final VoidCallback onTap;
+
+  const SkillsIcon({
+    super.key,
+    required this.icon,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: SizedBox(
+        height: 48,
+        width: 48,
+        child: Image.asset(
+          icon,
+        ),
+      ),
+    );
+  }
+}
+
+Future<void> showSkillsIconDialog(BuildContext context, int index) async {
+  await showModalBottomSheet<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return Consumer(builder: (
+          BuildContext context,
+          WidgetRef ref,
+          Widget? child,
+        ) {
+          return Container(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: <Widget>[
+                SizedBox(
+                  height: 72,
+                  width: 72,
+                  child: Image.asset(
+                    ref
+                        .watch(skillsIconsProvider.notifier)
+                        .skillsIconsList[index],
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: Text(ref
+                        .watch(skillsIconsProvider.notifier)
+                        .skillsTitlesList[index]),
+                    subtitle: Text(
+                      ref
+                          .watch(skillsIconsProvider.notifier)
+                          .skillsSubtitlesList[index],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        });
+      });
 }
