@@ -73,166 +73,136 @@ class HomeScreenContentsMobileState
             const Divider(),
             const SizedBox(height: 16),
             Expanded(
-              child: ListView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      // Flippable Card with some background info
-                      FlipCard(
-                        speed: 1500,
-                        direction: FlipDirection.VERTICAL,
-                        front: SizedBox(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: Card(
-                            child: Row(
+                  // Flippable Card with some background info
+                  FlipCard(
+                    speed: 1500,
+                    direction: FlipDirection.VERTICAL,
+                    front: SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      child: Card(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            const FlutterLogo(
+                              size: 75,
+                              style: FlutterLogoStyle.markOnly,
+                            ).animate(
+                              onPlay: (AnimationController controller) {
+                                controller.repeat();
+                              },
+                            ).shimmer(
+                              delay: Duration.zero,
+                              duration: const Duration(seconds: 4),
+                            ),
+                            Image.asset(
+                              'assets/images/ioniclogo.png',
+                              height: 75,
+                            ).animate(
+                              onPlay: (AnimationController controller) {
+                                controller.repeat();
+                              },
+                            ).shimmer(
+                              delay: const Duration(seconds: 2),
+                              duration: const Duration(seconds: 4),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    back: SizedBox(
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      child: const Card(
+                        child: Padding(
+                          padding: EdgeInsets.all(16),
+                          child: Center(
+                            child: Text(
+                              "I'm Jeremy, a Flutter and Ionic developer from "
+                              'the Netherlands. I have completed various '
+                              'courses on Ionic, Dart & Flutter and I am '
+                              'currently learning more about UI/UX design '
+                              "with Figma. Reach out to me if you'd like "
+                              'to know more!',
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  const SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      // ScrollConfiguration to allow for scrolling on web.
+                      child: ScrollConfiguration(
+                        behavior: const ScrollBehavior().copyWith(
+                          dragDevices: <PointerDeviceKind>{
+                            PointerDeviceKind.mouse,
+                            PointerDeviceKind.touch,
+                            PointerDeviceKind.trackpad,
+                            PointerDeviceKind.stylus,
+                          },
+                        ),
+                        child: PageView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount:
+                              // Get the length of the skillsIcons
+                              // list.
+                              ref
+                                  .watch(skillsIconsProvider.notifier)
+                                  .skillsIconsList
+                                  .length,
+                          onPageChanged: (int index) {
+                            // Update the skillsIconsProvider int.
+                            ref
+                                .read(skillsIconsProvider.notifier)
+                                .setCurrentSkillsIconsIndex(index);
+                          },
+                          itemBuilder: (BuildContext context, int index) {
+                            return Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                const FlutterLogo(
-                                  size: 75,
-                                  style: FlutterLogoStyle.markOnly,
-                                ).animate(
-                                  onPlay: (AnimationController controller) {
-                                    controller.repeat();
-                                  },
-                                ).shimmer(
-                                  delay: Duration.zero,
-                                  duration: const Duration(seconds: 4),
+                              children: [
+                                SizedBox(
+                                  height: 48,
+                                  width: 48,
+                                  child: Image.asset(
+                                    // Set the image to the current index from the
+                                    // onPageChanged.
+                                    ref
+                                        .watch(
+                                          skillsIconsProvider.notifier,
+                                        )
+                                        .skillsIconsList[index],
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
-                                Image.asset(
-                                  'assets/images/ioniclogo.png',
-                                  height: 75,
-                                ).animate(
-                                  onPlay: (AnimationController controller) {
-                                    controller.repeat();
-                                  },
-                                ).shimmer(
-                                  delay: const Duration(seconds: 2),
-                                  duration: const Duration(seconds: 4),
+                                Expanded(
+                                  child: ListTile(
+                                    title: Text(ref
+                                        .watch(skillsIconsProvider.notifier)
+                                        .skillsTitlesList[index]),
+                                    subtitle: Text(ref
+                                        .watch(skillsIconsProvider.notifier)
+                                        .skillsSubtitlesList[index]),
+                                  ),
                                 ),
                               ],
-                            ),
-                          ),
-                        ),
-                        back: SizedBox(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.25,
-                          child: const Card(
-                            child: Padding(
-                              padding: EdgeInsets.all(16),
-                              child: Center(
-                                child: Text(
-                                  "I'm Jeremy, a Flutter and Ionic developer from "
-                                  'the Netherlands. I have completed various '
-                                  'courses on Ionic, Dart & Flutter and I am '
-                                  'currently learning more about UI/UX design '
-                                  "with Figma. Reach out to me if you'd like "
-                                  'to know more!',
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ),
-                          ),
+                            );
+                          },
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      const Divider(),
-                      const SizedBox(height: 16),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        // ScrollConfiguration to allow for scrolling on web.
-                        child: ScrollConfiguration(
-                          behavior: const ScrollBehavior().copyWith(
-                            dragDevices: <PointerDeviceKind>{
-                              PointerDeviceKind.mouse,
-                              PointerDeviceKind.touch,
-                              PointerDeviceKind.trackpad,
-                              PointerDeviceKind.stylus,
-                            },
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/dart_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/firebase_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/git_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/github_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/androidstudio_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/vscode_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/linux_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/windows_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                              const SizedBox(width: 16),
-                              SizedBox(
-                                  height: 48,
-                                  width: 48,
-                                  child: Image.asset(
-                                    'assets/icons/openai_logo.png',
-                                    fit: BoxFit.contain,
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      const Divider(),
-                    ],
+                    ),
                   ),
+                  const SizedBox(height: 16),
+                  const Divider(),
                 ],
               ),
             ),
