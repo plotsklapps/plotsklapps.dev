@@ -20,14 +20,23 @@ Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/portfolio': (BuildContext context) {
     return const PortfolioScreenContentsMobile();
   },
-  '/dicee': (BuildContext context) {
+  '/diceemobile': (BuildContext context) {
     return const DiceeScreenMobile();
   },
-  '/xylophone': (BuildContext context) {
+  '/diceedesktop': (BuildContext context) {
+    return const DiceeScreenDesktop();
+  },
+  '/xylophonemobile': (BuildContext context) {
     return const XylophoneScreenMobile();
   },
-  '/bmicalc': (BuildContext context) {
+  '/xylophonedesktop': (BuildContext context) {
+    return const XylophoneScreenDesktop();
+  },
+  '/bmicalcmobile': (BuildContext context) {
     return const BMICalcScreenMobile();
+  },
+  '/bmicalcdesktop': (BuildContext context) {
+    return const BMICalcScreenDesktop();
   },
   '/weather': (BuildContext context) {
     return const WeatherLoadingScreenMobile();

@@ -5,13 +5,21 @@ class ResponsiveLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    if (screenWidth > 1024) {
-      return const HomeScreenDesktop();
-    } else if (screenWidth > 720 && screenWidth <= 1024) {
-      return const HomeScreenDesktop();
-    } else {
-      return const HomeScreenMobile();
-    }
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final double screenWidth = constraints.maxWidth;
+
+        if (screenWidth >= 1200) {
+          // Render desktop version
+          return const HomeScreenDesktop();
+        } else if (screenWidth >= 720) {
+          // Render tablet version
+          return const HomeScreenDesktop();
+        } else {
+          // Render mobile version
+          return const HomeScreenMobile();
+        }
+      },
+    );
   }
 }

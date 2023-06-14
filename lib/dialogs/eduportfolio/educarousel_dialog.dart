@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:portfolio/all_imports.dart';
 
 Future<void> showEduCarouselDialog(BuildContext context) async {
+  final double screenWidth = MediaQuery.of(context).size.width;
   await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
@@ -33,12 +34,18 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          if (currentIndex == 0) {
-                            Navigator.pushNamed(context, '/dicee');
-                          } else if (currentIndex == 1) {
-                            Navigator.pushNamed(context, '/xylophone');
-                          } else if (currentIndex == 2) {
-                            Navigator.pushNamed(context, '/bmicalc');
+                          if (currentIndex == 0 && screenWidth < 720) {
+                            Navigator.pushNamed(context, '/diceemobile');
+                          } else if (currentIndex == 0 && screenWidth >= 720) {
+                            Navigator.pushNamed(context, '/diceedesktop');
+                          } else if (currentIndex == 1 && screenWidth < 720) {
+                            Navigator.pushNamed(context, '/xylophonemobile');
+                          } else if (currentIndex == 1 && screenWidth >= 720) {
+                            Navigator.pushNamed(context, '/xylophonedesktop');
+                          } else if (currentIndex == 2 && screenWidth < 720) {
+                            Navigator.pushNamed(context, '/bmicalcmobile');
+                          } else if (currentIndex == 2 && screenWidth >= 720) {
+                            Navigator.pushNamed(context, '/bmicalcdesktop');
                           } else if (currentIndex == 3) {
                             Navigator.pushNamed(context, '/weather');
                           } else {

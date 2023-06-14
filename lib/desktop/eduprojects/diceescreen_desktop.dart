@@ -1,7 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-class HomeScreenDesktop extends StatelessWidget {
-  const HomeScreenDesktop({super.key});
+class DiceeScreenDesktop extends StatelessWidget {
+  const DiceeScreenDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,17 +9,23 @@ class HomeScreenDesktop extends StatelessWidget {
       backgroundColor: Utils.kElectricBlue,
       body: Center(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            SizedBox(
-              height: 250,
-              width: 250,
-              child: Image.asset(
-                'assets/images/stackedlogo.png',
-                fit: BoxFit.contain,
+            const SizedBox(
+              height: 480,
+              width: 240,
+              child: Column(
+                children: [
+                  Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(width: 64),
             Container(
               // Set up width and height for the 'smartphone'.
               width: 400,
@@ -49,7 +55,7 @@ class HomeScreenDesktop extends StatelessWidget {
                   ),
                   child: ColoredBox(
                     color: Utils.kLightGrey,
-                    child: const HomeScreenMobile(),
+                    child: const DiceeScreenMobile(),
                   ),
                 ),
               ),

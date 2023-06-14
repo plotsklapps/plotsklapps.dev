@@ -47,8 +47,8 @@ class RoundIconButton extends StatelessWidget {
       onPressed: onPressed,
       onLongPress: onLongPressed,
       constraints: const BoxConstraints.tightFor(
-        width: 56,
-        height: 56,
+        width: 40,
+        height: 40,
       ),
       shape: const CircleBorder(),
       fillColor: kBackGroundGrey,
@@ -75,7 +75,7 @@ class IconContent extends StatelessWidget {
       children: <Widget>[
         Icon(
           icon,
-          size: 90,
+          size: 72,
           color: color,
         ),
         const SizedBox(

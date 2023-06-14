@@ -17,7 +17,7 @@ TextStyle kLabelTextStyle = TextStyle(
 );
 
 TextStyle kNumberTextStyle = TextStyle(
-  fontSize: 50,
+  fontSize: 40,
   fontWeight: FontWeight.w900,
   color: kGreyGunmetal,
 );

@@ -113,6 +113,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
             ),
             Expanded(
               child: ReusableCard(
+                onPress: () {},
                 color: kActiveCardColour,
                 cardChild: Padding(
                   padding: const EdgeInsets.all(8),
@@ -145,10 +146,10 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                           thumbColor: kOrangeFlame,
                           overlayColor: kBackGroundGrey,
                           thumbShape: const RoundSliderThumbShape(
-                            enabledThumbRadius: 15,
+                            enabledThumbRadius: 12,
                           ),
                           overlayShape:
-                              const RoundSliderOverlayShape(overlayRadius: 30),
+                              const RoundSliderOverlayShape(overlayRadius: 24),
                         ),
                         child: Slider(
                           value: height.toDouble(),
@@ -164,7 +165,6 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                     ],
                   ),
                 ),
-                onPress: () {},
               ),
             ),
             Expanded(
