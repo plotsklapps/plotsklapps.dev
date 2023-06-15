@@ -36,7 +36,8 @@ Future<Position> determinePosition() async {
   if (permission == LocationPermission.deniedForever) {
     // Permissions are denied forever, handle appropriately.
     return Future<Position>.error(
-      'Location permissions are permanently denied, we cannot request permissions.',
+      '''
+Location permissions are permanently denied, we cannot request permissions.''',
     );
   }
 
@@ -110,7 +111,8 @@ class WeatherModel {
     await location.getCurrentLocation();
 
     final NetworkHelper networkHelper = NetworkHelper(
-      '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric',
+      '$openWeatherMapURL?lat=${location.latitude}&lon=${location.longitude}&'
+      'appid=$apiKey&units=metric',
     );
 
     final dynamic weatherData = await networkHelper.getData();

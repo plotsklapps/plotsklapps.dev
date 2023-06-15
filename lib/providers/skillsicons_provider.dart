@@ -37,12 +37,14 @@ class SkillsIconsNotifier extends StateNotifier<int> {
 
 // List of Subtitles to display in the carousel.
   final List<String> skillsSubtitlesList = <String>[
-    'The official programming for Flutter.',
+    'The official programming language for Flutter.',
     'Authenticating users and storing data.',
     'Command line controlled distributed version control system.',
     'Online platform for Git repositories.',
-    'Integrated Development Environment providing tools for developing (Flutter) apps.',
-    'Cross-platform, extensible code editor that offers various features for developing (Flutter) apps.',
+    '''
+Integrated Development Environment providing tools for developing (Flutter) apps.''',
+    '''
+Cross-platform, extensible code editor that offers various features for developing (Flutter) apps.''',
     'Open source operating system, based on Unix operating system.',
     'Operating system by Microsoft.',
     'Artificial Intelligence research lab, developing and promoting AI.',

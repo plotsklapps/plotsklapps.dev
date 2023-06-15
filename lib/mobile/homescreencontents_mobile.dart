@@ -18,62 +18,63 @@ class HomeScreenContentsMobileState
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          children: <Widget>[
-            // Row of social media icons.
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Expanded(
-                  child: IconButton(
-                    onPressed: () async {
-                      await showTwitterDialog(context);
-                    },
-                    icon: const Icon(
-                      FontAwesomeIcons.twitter,
-                    ).animate().flip(
-                          delay: Duration.zero,
-                          duration: const Duration(milliseconds: 1000),
-                          curve: Curves.easeInOut,
-                        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: <Widget>[
+              // Row of social media icons.
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () async {
+                        await showTwitterDialog(context);
+                      },
+                      icon: const Icon(
+                        FontAwesomeIcons.twitter,
+                      ).animate().flip(
+                            delay: Duration.zero,
+                            duration: const Duration(milliseconds: 1000),
+                            curve: Curves.easeInOut,
+                          ),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () async {
-                      await showGithubDialog(context);
-                    },
-                    icon: const Icon(
-                      FontAwesomeIcons.github,
-                    ).animate().flip(
-                          delay: const Duration(milliseconds: 500),
-                          duration: const Duration(milliseconds: 1000),
-                          curve: Curves.easeInOut,
-                        ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () async {
+                        await showGithubDialog(context);
+                      },
+                      icon: const Icon(
+                        FontAwesomeIcons.github,
+                      ).animate().flip(
+                            delay: const Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 1000),
+                            curve: Curves.easeInOut,
+                          ),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: IconButton(
-                    onPressed: () async {
-                      await showHashnodeDialog(context);
-                    },
-                    icon: const Icon(
-                      FontAwesomeIcons.hashnode,
-                    ).animate().flip(
-                          delay: const Duration(milliseconds: 1000),
-                          duration: const Duration(milliseconds: 1000),
-                          curve: Curves.easeInOut,
-                        ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () async {
+                        await showHashnodeDialog(context);
+                      },
+                      icon: const Icon(
+                        FontAwesomeIcons.hashnode,
+                      ).animate().flip(
+                            delay: const Duration(milliseconds: 1000),
+                            duration: const Duration(milliseconds: 1000),
+                            curve: Curves.easeInOut,
+                          ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            const Divider(),
-            const SizedBox(height: 16),
-            SingleChildScrollView(
-              child: Column(
+                ],
+              ),
+              const Divider(),
+              const SizedBox(height: 16),
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   // Flippable Card with some background info
@@ -246,8 +247,8 @@ class HomeScreenContentsMobileState
                   const Divider(),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
