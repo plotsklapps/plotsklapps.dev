@@ -37,6 +37,7 @@ export 'package:portfolio/mobile/eduprojects/weather/weather_services.dart';
 export 'package:portfolio/mobile/eduprojects/xylophonescreen_mobile.dart';
 export 'package:portfolio/mobile/homescreencontents_mobile.dart';
 export 'package:portfolio/mobile/portfolioscreencontents_mobile.dart';
+export 'package:portfolio/providers/bmicalc_provider.dart';
 export 'package:portfolio/providers/eduportfoliocarousel_provider.dart';
 export 'package:portfolio/providers/skillsicons_provider.dart';
 export 'package:portfolio/providers/weather_provider.dart';

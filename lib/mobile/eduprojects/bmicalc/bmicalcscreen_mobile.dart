@@ -1,47 +1,11 @@
 import 'package:portfolio/all_imports.dart';
 
-class CalculatorBrain {
-  CalculatorBrain({required this.height, required this.weight});
-
-  final int height;
-  final int weight;
-
-  late double _bmi;
-
-  String calculateBMI() {
-    _bmi = weight / pow(height / 100, 2);
-    return _bmi.toStringAsFixed(1);
-  }
-
-  String getResult() {
-    if (_bmi >= 25) {
-      return 'Overweight';
-    } else if (_bmi > 18.5) {
-      return 'Normal';
-    } else {
-      return 'Underweight';
-    }
-  }
-
-  String getInterpretation() {
-    if (_bmi >= 25) {
-      return 'You have a higher than normal body weight. '
-          'Are you THAT muscular?.';
-    } else if (_bmi >= 18.5) {
-      return 'You have a normal body weight. You must look really good!';
-    } else {
-      return 'You have a lower than normal body weight. Try to eat more and '
-          'work out more often :)';
-    }
-  }
-}
-
 enum Gender {
   male,
   female,
 }
 
-class BMICalcScreenMobile extends StatefulWidget {
+class BMICalcScreenMobile extends ConsumerStatefulWidget {
   const BMICalcScreenMobile({super.key});
 
   @override
@@ -50,14 +14,12 @@ class BMICalcScreenMobile extends StatefulWidget {
   }
 }
 
-class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
+class BMICalcScreenMobileState extends ConsumerState<BMICalcScreenMobile> {
   Gender selectedGender = Gender.male;
-  int height = 180;
-  int weight = 60;
-  int age = 20;
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI Calculator'),
@@ -130,7 +92,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                         textBaseline: TextBaseline.alphabetic,
                         children: <Widget>[
                           Text(
-                            height.toString(),
+                            ref.watch(userHeightProvider).toString(),
                             style: kNumberTextStyle,
                           ),
                           Text(
@@ -152,13 +114,13 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               const RoundSliderOverlayShape(overlayRadius: 24),
                         ),
                         child: Slider(
-                          value: height.toDouble(),
+                          value: ref.watch(userHeightProvider).toDouble(),
                           min: 120,
                           max: 220,
-                          onChanged: (double newValue) {
-                            setState(() {
-                              height = newValue.round();
-                            });
+                          onChanged: (double newValue) async {
+                            await ref
+                                .read(userHeightProvider.notifier)
+                                .setHeight(newValue.toInt());
                           },
                         ),
                       ),
@@ -186,7 +148,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             textBaseline: TextBaseline.alphabetic,
                             children: <Text>[
                               Text(
-                                weight.toString(),
+                                ref.watch(userWeightProvider).toString(),
                                 style: kNumberTextStyle,
                               ),
                               Text(
@@ -201,14 +163,14 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  setState(() {
-                                    weight--;
-                                  });
+                                  ref
+                                      .read(userWeightProvider.notifier)
+                                      .decreaseOne();
                                 },
                                 onLongPressed: () {
-                                  setState(() {
-                                    weight -= 10;
-                                  });
+                                  ref
+                                      .read(userWeightProvider.notifier)
+                                      .decreaseTen();
                                 },
                               ),
                               const SizedBox(
@@ -217,14 +179,14 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  setState(() {
-                                    weight++;
-                                  });
+                                  ref
+                                      .read(userWeightProvider.notifier)
+                                      .increaseOne();
                                 },
                                 onLongPressed: () {
-                                  setState(() {
-                                    weight += 10;
-                                  });
+                                  ref
+                                      .read(userWeightProvider.notifier)
+                                      .increaseTen();
                                 },
                               ),
                             ],
@@ -250,7 +212,7 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                             textBaseline: TextBaseline.alphabetic,
                             children: <Text>[
                               Text(
-                                age.toString(),
+                                ref.watch(userAgeProvider).toString(),
                                 style: kNumberTextStyle,
                               ),
                               Text(
@@ -265,16 +227,14 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  setState(
-                                    () {
-                                      age--;
-                                    },
-                                  );
+                                  ref
+                                      .read(userAgeProvider.notifier)
+                                      .decreaseOne();
                                 },
                                 onLongPressed: () {
-                                  setState(() {
-                                    age -= 10;
-                                  });
+                                  ref
+                                      .read(userAgeProvider.notifier)
+                                      .decreaseTen();
                                 },
                               ),
                               const SizedBox(
@@ -283,14 +243,14 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  setState(() {
-                                    age++;
-                                  });
+                                  ref
+                                      .read(userAgeProvider.notifier)
+                                      .increaseOne();
                                 },
                                 onLongPressed: () {
-                                  setState(() {
-                                    age += 10;
-                                  });
+                                  ref
+                                      .read(userAgeProvider.notifier)
+                                      .increaseTen();
                                 },
                               )
                             ],
@@ -304,25 +264,37 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
               ),
             ),
             BottomButton(
-              buttonTitle: 'CALCULATE',
-              onTap: () async {
-                final CalculatorBrain calc = CalculatorBrain(
-                  height: height,
-                  weight: weight,
-                );
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) =>
-                        BMICalcOutputScreenMobile(
-                      bmiResult: calc.calculateBMI(),
-                      resultText: calc.getResult(),
-                      interpretation: calc.getInterpretation(),
-                    ),
-                  ),
-                );
-              },
-            ),
+                buttonTitle: 'CALCULATE',
+                onTap: () async {
+                  await ref.read(userBMIProvider.notifier).calculateBMI(
+                        ref,
+                        ref.watch(userHeightProvider),
+                        ref.watch(userWeightProvider),
+                      );
+                  await ref.read(userBMIProvider.notifier).getResult(
+                        ref,
+                        ref.watch(userBMIProvider),
+                      );
+                  await ref
+                      .read(userBMIProvider.notifier)
+                      .getInterpretation(
+                        ref,
+                        ref.watch(userBMIProvider),
+                      )
+                      .then((_) async {
+                    if (screenWidth < 720) {
+                      await Navigator.push(context, MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) {
+                        return const BMICalcOutputScreenMobile();
+                      }));
+                    } else {
+                      await Navigator.push(context, MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) {
+                        return const BMICalcOutputScreenDesktop();
+                      }));
+                    }
+                  });
+                }),
           ],
         ),
       ),
@@ -330,19 +302,13 @@ class BMICalcScreenMobileState extends State<BMICalcScreenMobile> {
   }
 }
 
-class BMICalcOutputScreenMobile extends StatelessWidget {
+class BMICalcOutputScreenMobile extends ConsumerWidget {
   const BMICalcOutputScreenMobile({
-    required this.bmiResult,
-    required this.resultText,
-    required this.interpretation,
     super.key,
   });
-  final String bmiResult;
-  final String resultText;
-  final String interpretation;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -367,11 +333,11 @@ class BMICalcOutputScreenMobile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      resultText.toUpperCase(),
+                      ref.watch(userResultProvider).toUpperCase(),
                       style: kResultTextStyle,
                     ),
                     Text(
-                      bmiResult,
+                      ref.watch(userBMIProvider),
                       style: kBMITextStyle,
                     ),
                     Padding(
@@ -380,7 +346,7 @@ class BMICalcOutputScreenMobile extends StatelessWidget {
                         right: 24,
                       ),
                       child: Text(
-                        interpretation,
+                        ref.watch(userInterpretationProvider),
                         textAlign: TextAlign.center,
                         style: kBodyTextStyle,
                       ),
@@ -396,6 +362,76 @@ class BMICalcOutputScreenMobile extends StatelessWidget {
                 Navigator.pop(context);
               },
             )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BMICalcOutputScreenDesktop extends StatelessWidget {
+  const BMICalcOutputScreenDesktop({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Utils.kElectricBlue,
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            const SizedBox(
+              height: 480,
+              width: 240,
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    '''
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              // Set up width and height for the 'smartphone'.
+              width: 400,
+              height: 700,
+              decoration: BoxDecoration(
+                borderRadius:
+                    // Phones have rounded corners.
+                    BorderRadius.circular(40),
+                // Phone body color.
+                color: Utils.kGunMetal,
+                boxShadow: <BoxShadow>[
+                  // This creates a shadow effect to give some 3D appearance
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 10,
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(
+                    25.0), // This gives the edge around the screen
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(24),
+                  ),
+                  child: ColoredBox(
+                    color: Utils.kLightGrey,
+                    child: const BMICalcOutputScreenMobile(),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
