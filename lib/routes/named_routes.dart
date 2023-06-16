@@ -3,14 +3,14 @@ import 'package:portfolio/mobile/eduprojects/weather/weatherloading_screen.dart'
 
 Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/': (BuildContext context) {
-    return const ResponsiveLayout();
+    return const HomeScreen();
   },
   '/desktop': (BuildContext context) {
     return const HomeScreenDesktop();
   },
-  // '/tablet': (BuildContext context) {
-  // TODO(plotsklapps): Add tablet version.
-  // },
+  '/tablet': (BuildContext context) {
+    return const HomeScreenTablet();
+  },
   '/home': (BuildContext context) {
     return const HomeScreenContentsMobile();
   },

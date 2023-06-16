@@ -1,23 +1,27 @@
 import 'package:portfolio/all_imports.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  const ResponsiveLayout({super.key});
+  const ResponsiveLayout({
+    super.key,
+    required this.mobileContents,
+    required this.tabletContents,
+    required this.desktopContents,
+  });
+
+  final Widget mobileContents;
+  final Widget tabletContents;
+  final Widget desktopContents;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final double screenWidth = constraints.maxWidth;
-
-        if (screenWidth >= 1200) {
-          // Render desktop version
-          return const HomeScreenDesktop();
-        } else if (screenWidth >= 720) {
-          // Render tablet version
-          return const HomeScreenDesktop();
+        if (constraints.maxWidth < 600) {
+          return mobileContents;
+        } else if (constraints.maxWidth < 1200) {
+          return tabletContents;
         } else {
-          // Render mobile version
-          return const HomeScreenMobile();
+          return desktopContents;
         }
       },
     );
