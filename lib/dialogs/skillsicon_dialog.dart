@@ -3,7 +3,6 @@ import 'package:portfolio/all_imports.dart';
 Future<void> showSkillsIconDialog(BuildContext context, int index) async {
   await showModalBottomSheet<void>(
       context: context,
-      useRootNavigator: true,
       builder: (BuildContext context) {
         return Consumer(builder: (
           BuildContext context,
