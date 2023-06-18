@@ -34,20 +34,14 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () {
-                          if (currentIndex == 0 && screenWidth < 720) {
+                          if (currentIndex == 0) {
                             Navigator.pushNamed(context, '/diceemobile');
-                          } else if (currentIndex == 0 && screenWidth >= 720) {
-                            Navigator.pushNamed(context, '/diceedesktop');
-                          } else if (currentIndex == 1 && screenWidth < 720) {
+                          } else if (currentIndex == 1) {
                             Navigator.pushNamed(context, '/xylophonemobile');
-                          } else if (currentIndex == 1 && screenWidth >= 720) {
-                            Navigator.pushNamed(context, '/xylophonedesktop');
-                          } else if (currentIndex == 2 && screenWidth < 720) {
+                          } else if (currentIndex == 2) {
                             Navigator.pushNamed(context, '/bmicalcmobile');
-                          } else if (currentIndex == 2 && screenWidth >= 720) {
-                            Navigator.pushNamed(context, '/bmicalcdesktop');
                           } else if (currentIndex == 3) {
-                            Navigator.pushNamed(context, '/weather');
+                            Navigator.pushNamed(context, '/weathermobile');
                           } else {
                             return;
                           }
