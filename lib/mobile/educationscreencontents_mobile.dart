@@ -1,4 +1,5 @@
 import 'package:portfolio/all_imports.dart';
+import 'package:portfolio/dialogs/certificate_dialog.dart';
 
 class EducationScreenContentsMobile extends StatefulWidget {
   const EducationScreenContentsMobile({super.key});
@@ -27,7 +28,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Diploma and Grades',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showIonicNHADialog(context);
+                  await showCertificateDialog(context, 0);
                 },
               ),
               FlipCardCertificate(
@@ -38,7 +39,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showFlutterBootcamp2021Dialog(context);
+                  await showCertificateDialog(context, 1);
                 },
               ),
               FlipCardCertificate(
@@ -49,7 +50,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showDartNoviceToExpertDialog(context);
+                  await showCertificateDialog(context, 2);
                 },
               ),
               FlipCardCertificate(
@@ -60,7 +61,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showDartBeginnersDialog(context);
+                  await showCertificateDialog(context, 3);
                 },
               ),
               FlipCardCertificate(
@@ -71,7 +72,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showFlutterBeginnersDialog(context);
+                  await showCertificateDialog(context, 4);
                 },
               ),
               FlipCardCertificate(
@@ -82,7 +83,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showDartIntermediateDialog(context);
+                  await showCertificateDialog(context, 5);
                 },
               ),
               FlipCardCertificate(
@@ -93,7 +94,7 @@ class EducationScreenContentsMobileState
                 titleBack: 'See Certificate',
                 iconBack: FontAwesomeIcons.certificate,
                 onPressed: () async {
-                  await showFlutterIntermediateDialog(context);
+                  await showCertificateDialog(context, 6);
                 },
               ),
               FlipCardCertificate(
@@ -107,7 +108,7 @@ class EducationScreenContentsMobileState
               ),
               FlipCardCertificate(
                 context: context,
-                titleFront: 'Flutter Intermediate',
+                titleFront: 'Flutter Advanced',
                 subtitleFront: 'Waitinglist - Udemy - Bryan Cairns',
                 iconFront: FontAwesomeIcons.solidCircleXmark,
                 titleBack: 'Soon',
