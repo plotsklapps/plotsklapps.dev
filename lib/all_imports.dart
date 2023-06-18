@@ -48,3 +48,4 @@ export 'package:portfolio/tablet/homescreen_tablet.dart';
 export 'package:portfolio/theme/flex_scheme.dart';
 export 'package:portfolio/utils/utils.dart';
 export 'package:url_launcher/url_launcher.dart';
+export 'package:portfolio/dialogs/skillsicon_dialog.dart';
