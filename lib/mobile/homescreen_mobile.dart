@@ -15,16 +15,16 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   int selectedIndex = 0;
   late PageController pageController;
 
-  void onIconTapped(int index) {
+  Future<void> onIconTapped(int index) async {
     setState(() {
       selectedIndex = index;
-      unawaited(pageController.animateToPage(
+      pageController.animateToPage(
         index,
         duration: const Duration(
           seconds: 1,
         ),
         curve: Curves.bounceOut,
-      ));
+      );
     });
   }
 
@@ -51,21 +51,24 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
         centerTitle: true,
       ),
       drawer: const CustomDrawer(),
-      body: Center(
-        child: PageView(
-          controller: pageController,
-          onPageChanged: (int index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-          children: const <Widget>[
-            HomeScreenContentsMobile(),
-            EducationScreenContentsMobile(),
-            PortfolioScreenContentsMobile(),
-            CustomDrawer(),
-          ],
-        ),
+      body: Stack(
+        children: <Widget>[
+          Center(
+            child: PageView(
+              controller: pageController,
+              onPageChanged: (int index) async {
+                setState(() {
+                  selectedIndex = index;
+                });
+              },
+              children: const <Widget>[
+                HomeScreenContentsMobile(),
+                EducationScreenContentsMobile(),
+                PortfolioScreenContentsMobile(),
+              ],
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
@@ -86,10 +89,6 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
           BottomNavigationBarItem(
             icon: Icon(FontAwesomeIcons.solidEnvelope),
             label: 'Contact',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.burger),
-            label: 'Menu',
           ),
         ],
       ),
