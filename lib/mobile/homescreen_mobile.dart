@@ -44,8 +44,8 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(16),
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.5,
           child: Image.asset('assets/images/textlogo.png'),
         ),
         centerTitle: true,
@@ -73,21 +73,33 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: onIconTapped,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.houseChimneyWindow),
+            icon: const Icon(FontAwesomeIcons.house),
+            activeIcon: const Icon(FontAwesomeIcons.houseCircleCheck)
+                .animate()
+                .flip(duration: const Duration(seconds: 1)),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.graduationCap),
+            icon: const Icon(FontAwesomeIcons.school),
+            activeIcon: const Icon(FontAwesomeIcons.schoolCircleCheck)
+                .animate()
+                .flip(duration: const Duration(seconds: 1)),
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.briefcase),
+            icon: const Icon(FontAwesomeIcons.solidFile),
+            activeIcon: const Icon(FontAwesomeIcons.fileCircleCheck)
+                .animate()
+                .flip(duration: const Duration(seconds: 1)),
             label: 'Portfolio',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.solidEnvelope),
+            icon: const Icon(FontAwesomeIcons.solidEnvelope),
+            activeIcon: const Icon(FontAwesomeIcons.envelopeCircleCheck)
+                .animate()
+                .flip(duration: const Duration(seconds: 1)),
             label: 'Contact',
           ),
         ],

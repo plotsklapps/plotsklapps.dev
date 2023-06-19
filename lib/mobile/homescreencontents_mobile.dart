@@ -19,7 +19,6 @@ class HomeScreenContentsMobileState
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
           child: Column(
             children: <Widget>[
               // Row of social media icons.
