@@ -2,6 +2,12 @@ import 'dart:async';
 
 import 'package:portfolio/all_imports.dart';
 
+// Provider to keep track of the current page index.
+final StateProvider<int> pageIndexProvider =
+    StateProvider<int>((StateProviderRef<int> ref) {
+  return 0;
+});
+
 class HomeScreenMobile extends ConsumerStatefulWidget {
   const HomeScreenMobile({super.key});
 
@@ -12,20 +18,19 @@ class HomeScreenMobile extends ConsumerStatefulWidget {
 }
 
 class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
-  int selectedIndex = 0;
   late PageController pageController;
 
   Future<void> onIconTapped(int index) async {
-    setState(() {
-      selectedIndex = index;
-      pageController.animateToPage(
-        index,
-        duration: const Duration(
-          seconds: 1,
-        ),
-        curve: Curves.bounceOut,
-      );
-    });
+    // Set the pageIndexProvider to the new int value and animate the page
+    // transition.
+    ref.read(pageIndexProvider.notifier).state = index;
+    await pageController.animateToPage(
+      index,
+      duration: const Duration(
+        seconds: 1,
+      ),
+      curve: Curves.bounceOut,
+    );
   }
 
   @override
@@ -36,6 +41,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
 
   @override
   void dispose() {
+    // Kill the page controller when the widget is disposed.
     pageController.dispose();
     super.dispose();
   }
@@ -44,36 +50,35 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: SizedBox(
+        title: Image.asset(
+          'assets/images/textlogo.png',
           width: MediaQuery.of(context).size.width * 0.5,
-          child: Image.asset('assets/images/textlogo.png'),
         ),
         centerTitle: true,
       ),
       drawer: const CustomDrawer(),
-      body: Stack(
-        children: <Widget>[
-          Center(
-            child: PageView(
-              controller: pageController,
-              onPageChanged: (int index) async {
-                setState(() {
-                  selectedIndex = index;
-                });
-              },
-              children: const <Widget>[
-                HomeScreenContentsMobile(),
-                EducationScreenContentsMobile(),
-                PortfolioScreenContentsMobile(),
-              ],
-            ),
-          ),
-        ],
+      body: Center(
+        child: PageView(
+          controller: pageController,
+          onPageChanged: (int index) async {
+            // Store the new int value for index on page change in the
+            // pageIndexProvider.
+            ref.read(pageIndexProvider.notifier).state = index;
+          },
+          children: const <Widget>[
+            // The contents of the pages are in their own files.
+            HomeScreenContentsMobile(),
+            EducationScreenContentsMobile(),
+            PortfolioScreenContentsMobile(),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
+        // The currentIndex is read from the pageIndexProvider.
+        currentIndex: ref.watch(pageIndexProvider),
         onTap: onIconTapped,
         items: <BottomNavigationBarItem>[
+          // Icons animate on tap and receive a checkmark.
           BottomNavigationBarItem(
             icon: const Icon(FontAwesomeIcons.house),
             activeIcon: const Icon(FontAwesomeIcons.houseCircleCheck)
