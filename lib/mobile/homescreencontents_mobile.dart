@@ -21,53 +21,32 @@ class HomeScreenContentsMobileState
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              // Row of social media icons.
+              // Row of social media icons that show a ModalBottomsheet.
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showTwitterDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.twitter,
-                      ).animate().flip(
-                            delay: Duration.zero,
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
+                  SocialsIcon(
+                    icon: FontAwesomeIcons.twitter,
+                    delay: Duration.zero,
+                    onPressed: () async {
+                      await showTwitterDialog(context);
+                    },
                   ),
                   const SizedBox(width: 16),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showGithubDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.github,
-                      ).animate().flip(
-                            delay: const Duration(milliseconds: 500),
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
+                  SocialsIcon(
+                    icon: FontAwesomeIcons.github,
+                    delay: const Duration(milliseconds: 500),
+                    onPressed: () async {
+                      await showGithubDialog(context);
+                    },
                   ),
                   const SizedBox(width: 16),
-                  Expanded(
-                    child: IconButton(
-                      onPressed: () async {
-                        await showHashnodeDialog(context);
-                      },
-                      icon: const Icon(
-                        FontAwesomeIcons.hashnode,
-                      ).animate().flip(
-                            delay: const Duration(milliseconds: 1000),
-                            duration: const Duration(milliseconds: 1000),
-                            curve: Curves.easeInOut,
-                          ),
-                    ),
+                  SocialsIcon(
+                    icon: FontAwesomeIcons.hashnode,
+                    delay: const Duration(milliseconds: 1000),
+                    onPressed: () async {
+                      await showHashnodeDialog(context);
+                    },
                   ),
                 ],
               ),
@@ -249,6 +228,35 @@ class HomeScreenContentsMobileState
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SocialsIcon extends StatelessWidget {
+  final IconData icon;
+  final Duration delay;
+  final VoidCallback onPressed;
+
+  const SocialsIcon({
+    super.key,
+    required this.icon,
+    required this.delay,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(
+          icon,
+        ).animate().flip(
+              delay: delay,
+              duration: const Duration(milliseconds: 1000),
+              curve: Curves.easeInOut,
+            ),
       ),
     );
   }
