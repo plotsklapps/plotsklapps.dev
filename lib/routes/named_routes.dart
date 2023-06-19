@@ -5,7 +5,7 @@ Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
     return const HomeScreenMobile();
   },
   '/home': (BuildContext context) {
-    return const HomeScreenContentsMobile();
+    return const PersonalScreenContentsMobile();
   },
   '/education': (BuildContext context) {
     return const EducationScreenContentsMobile();

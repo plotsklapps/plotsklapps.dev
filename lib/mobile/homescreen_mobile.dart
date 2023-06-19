@@ -67,7 +67,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
           },
           children: const <Widget>[
             // The contents of the pages are in their own files.
-            HomeScreenContentsMobile(),
+            PersonalScreenContentsMobile(),
             EducationScreenContentsMobile(),
             PortfolioScreenContentsMobile(),
           ],
@@ -80,31 +80,31 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
         items: <BottomNavigationBarItem>[
           // Icons animate on tap and receive a checkmark.
           BottomNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.house),
-            activeIcon: const Icon(FontAwesomeIcons.houseCircleCheck)
+            icon: Utils.kIconPerson,
+            activeIcon: Utils.kIconPersonCheck
                 .animate()
-                .flip(duration: const Duration(seconds: 1)),
-            label: 'Home',
+                .flip(duration: const Duration(milliseconds: 1000)),
+            label: 'Profile',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.school),
-            activeIcon: const Icon(FontAwesomeIcons.schoolCircleCheck)
+            icon: Utils.kIconEducation,
+            activeIcon: Utils.kIconEducationCheck
                 .animate()
-                .flip(duration: const Duration(seconds: 1)),
+                .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Education',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.solidFile),
-            activeIcon: const Icon(FontAwesomeIcons.fileCircleCheck)
+            icon: Utils.kIconPortfolio,
+            activeIcon: Utils.kIconPortfolioCheck
                 .animate()
-                .flip(duration: const Duration(seconds: 1)),
+                .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Portfolio',
           ),
           BottomNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.solidEnvelope),
-            activeIcon: const Icon(FontAwesomeIcons.envelopeCircleCheck)
+            icon: Utils.kIconContact,
+            activeIcon: Utils.kIconContactCheck
                 .animate()
-                .flip(duration: const Duration(seconds: 1)),
+                .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Contact',
           ),
         ],
@@ -129,8 +129,8 @@ class CustomDrawer extends ConsumerWidget {
               title: const Text('Current theme mode:'),
               // Icon always displays the current theme mode.
               trailing: ref.watch(isLightModeProvider)
-                  ? const Icon(FontAwesomeIcons.sun)
-                  : const Icon(FontAwesomeIcons.moon),
+                  ? Utils.kIconSun
+                  : Utils.kIconMoon,
               onTap: () {
                 // Tapping the icon will change the boolean back and forth
                 // and change the icon.

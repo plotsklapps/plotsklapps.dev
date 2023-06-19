@@ -24,9 +24,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Programming apps with Ionic',
                 subtitleFront: 'May 2021 - NHA',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Diploma and Grades',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 0);
                 },
@@ -35,9 +35,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Flutter Bootcamp',
                 subtitleFront: 'Sep 2021 - Udemy - Angela Yu',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 1);
                 },
@@ -46,9 +46,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Dart from Novice to Expert',
                 subtitleFront: 'Nov 2021 - Udemy - Tiberiu Potec',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 2);
                 },
@@ -57,9 +57,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Dart Beginners',
                 subtitleFront: 'Nov 2021 - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 3);
                 },
@@ -68,9 +68,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Flutter Beginners',
                 subtitleFront: 'Dec 2021 - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 4);
                 },
@@ -79,9 +79,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Dart Intermediate',
                 subtitleFront: 'Jan 2022 - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 5);
                 },
@@ -90,9 +90,9 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Flutter Intermediate',
                 subtitleFront: 'Sep 2022 - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleCheck,
+                iconFront: Utils.kIconCircleCheck,
                 titleBack: 'See Certificate',
-                iconBack: FontAwesomeIcons.certificate,
+                iconBack: Utils.kIconCertificate,
                 onPressed: () async {
                   await showCertificateDialog(context, 6);
                 },
@@ -101,18 +101,18 @@ class EducationScreenContentsMobileState
                 context: context,
                 titleFront: 'Dart Advanced',
                 subtitleFront: 'In Progress - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleXmark,
+                iconFront: Utils.kIconCircleXMark,
                 titleBack: 'Soon',
-                iconBack: FontAwesomeIcons.solidCircleXmark,
+                iconBack: Utils.kIconCircleXMark,
                 onPressed: () {},
               ),
               FlipCardCertificate(
                 context: context,
                 titleFront: 'Flutter Advanced',
                 subtitleFront: 'Waitinglist - Udemy - Bryan Cairns',
-                iconFront: FontAwesomeIcons.solidCircleXmark,
+                iconFront: Utils.kIconCircleXMark,
                 titleBack: 'Soon',
-                iconBack: FontAwesomeIcons.solidCircleXmark,
+                iconBack: Utils.kIconCircleXMark,
                 onPressed: () {},
               ),
             ],
@@ -136,8 +136,8 @@ class FlipCardCertificate extends StatelessWidget {
   });
 
   final BuildContext context;
-  final IconData iconFront;
-  final IconData iconBack;
+  final Icon iconFront;
+  final Icon iconBack;
   final String titleFront;
   final String subtitleFront;
   final String titleBack;
@@ -149,7 +149,7 @@ class FlipCardCertificate extends StatelessWidget {
       direction: FlipDirection.VERTICAL,
       front: Card(
         child: ListTile(
-          trailing: Icon(iconFront),
+          trailing: iconFront,
           title: Text(
             titleFront,
             style: const TextStyle(fontWeight: FontWeight.bold),
@@ -168,7 +168,7 @@ class FlipCardCertificate extends StatelessWidget {
               ),
               IconButton(
                 onPressed: onPressed,
-                icon: Icon(iconBack),
+                icon: iconBack,
               ),
             ],
           ),

@@ -26,7 +26,7 @@ export 'package:portfolio/mobile/eduprojects/weather/weather_services.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weatherloading_screen.dart';
 export 'package:portfolio/mobile/eduprojects/xylophonescreen_mobile.dart';
 export 'package:portfolio/mobile/homescreen_mobile.dart';
-export 'package:portfolio/mobile/homescreencontents_mobile.dart';
+export 'package:portfolio/mobile/personalscreencontents_mobile.dart';
 export 'package:portfolio/mobile/portfolioscreencontents_mobile.dart';
 export 'package:portfolio/providers/bmicalc_provider.dart';
 export 'package:portfolio/providers/certificateimages_provider.dart';

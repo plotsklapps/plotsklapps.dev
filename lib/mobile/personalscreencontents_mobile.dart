@@ -2,17 +2,17 @@ import 'dart:ui';
 
 import 'package:portfolio/all_imports.dart';
 
-class HomeScreenContentsMobile extends ConsumerStatefulWidget {
-  const HomeScreenContentsMobile({super.key});
+class PersonalScreenContentsMobile extends ConsumerStatefulWidget {
+  const PersonalScreenContentsMobile({super.key});
 
   @override
-  ConsumerState<HomeScreenContentsMobile> createState() {
-    return HomeScreenContentsMobileState();
+  ConsumerState<PersonalScreenContentsMobile> createState() {
+    return PersonalScreenContentsMobileState();
   }
 }
 
-class HomeScreenContentsMobileState
-    extends ConsumerState<HomeScreenContentsMobile> {
+class PersonalScreenContentsMobileState
+    extends ConsumerState<PersonalScreenContentsMobile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +26,7 @@ class HomeScreenContentsMobileState
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   SocialsIcon(
-                    icon: FontAwesomeIcons.twitter,
+                    icon: Utils.kIconTwitter,
                     delay: Duration.zero,
                     onPressed: () async {
                       await showTwitterDialog(context);
@@ -34,7 +34,7 @@ class HomeScreenContentsMobileState
                   ),
                   const SizedBox(width: 16),
                   SocialsIcon(
-                    icon: FontAwesomeIcons.github,
+                    icon: Utils.kIconGithub,
                     delay: const Duration(milliseconds: 500),
                     onPressed: () async {
                       await showGithubDialog(context);
@@ -42,7 +42,7 @@ class HomeScreenContentsMobileState
                   ),
                   const SizedBox(width: 16),
                   SocialsIcon(
-                    icon: FontAwesomeIcons.hashnode,
+                    icon: Utils.kIconHashnode,
                     delay: const Duration(milliseconds: 1000),
                     onPressed: () async {
                       await showHashnodeDialog(context);
@@ -64,7 +64,8 @@ class HomeScreenContentsMobileState
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.1,
-                      // ScrollConfiguration to allow for scrolling on web.
+                      // ScrollConfiguration to allow for scrolling on web
+                      // with various input devices.
                       child: ScrollConfiguration(
                         behavior: const ScrollBehavior().copyWith(
                           scrollbars: false,
@@ -79,6 +80,8 @@ class HomeScreenContentsMobileState
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: <Widget>[
+                              // Row of skill icons that show a
+                              // ModalBottomsheet.
                               SkillsIcon(
                                 icon: ref
                                     .watch(skillsIconsProvider.notifier)
@@ -240,7 +243,7 @@ class FlipCardHomeScreen extends StatelessWidget {
 }
 
 class SocialsIcon extends StatelessWidget {
-  final IconData icon;
+  final Icon icon;
   final Duration delay;
   final VoidCallback onPressed;
 
@@ -256,9 +259,7 @@ class SocialsIcon extends StatelessWidget {
     return Expanded(
       child: IconButton(
         onPressed: onPressed,
-        icon: Icon(
-          icon,
-        ).animate().flip(
+        icon: icon.animate().flip(
               delay: delay,
               duration: const Duration(milliseconds: 1000),
               curve: Curves.easeInOut,
