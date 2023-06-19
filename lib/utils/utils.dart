@@ -34,4 +34,8 @@ class Utils {
   static Color kElectricBlue = const Color(0xFF526E7F);
   static Color kFlame = const Color(0xFFD35A27);
   static Color kLightGrey = const Color(0xFFDEDEDE);
+
+  // Strings used in the app.
+  static String kFlipCardHomeScreen =
+      "I'm Jeremy, a Flutter and Ionic developer from the Netherlands. I have completed various courses on Ionic, Dart & Flutter and I am currently learning more about UI/UX design with Figma. Reach out to me if you'd like to know more!";
 }
