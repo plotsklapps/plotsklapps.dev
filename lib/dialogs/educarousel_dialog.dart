@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:portfolio/all_imports.dart';
 
 Future<void> showEduCarouselDialog(BuildContext context) async {
-  final double screenWidth = MediaQuery.of(context).size.width;
   await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
