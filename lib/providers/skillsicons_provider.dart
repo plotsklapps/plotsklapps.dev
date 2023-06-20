@@ -52,8 +52,10 @@ Cross-platform, extensible code editor that offers various features for developi
     'Open source operating system, based on Unix operating system.',
     'Operating system by Microsoft.',
     'Artificial Intelligence research lab, developing and promoting AI.',
-    'UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
-    'Framework for building cross-platform mobile, web, and desktop applications.'
+    '''
+UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.''',
+    '''
+Framework for building cross-platform mobile, web, and desktop applications.'''
   ];
 
   // Method to set the current INDEX of the carousel

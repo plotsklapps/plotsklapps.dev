@@ -2,9 +2,9 @@ import 'package:portfolio/all_imports.dart';
 
 Map<String, WidgetBuilder> customRoutes = <String, WidgetBuilder>{
   '/': (BuildContext context) {
-    return const HomeScreenMobile();
+    return const ResponsiveLayout();
   },
-  '/home': (BuildContext context) {
+  '/personal': (BuildContext context) {
     return const PersonalScreenContentsMobile();
   },
   '/education': (BuildContext context) {
