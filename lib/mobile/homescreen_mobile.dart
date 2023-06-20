@@ -52,7 +52,7 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
       appBar: AppBar(
         title: Image.asset(
           'assets/images/textlogo.png',
-          width: MediaQuery.of(context).size.width * 0.5,
+          height: kToolbarHeight * 0.8,
         ),
         centerTitle: true,
       ),

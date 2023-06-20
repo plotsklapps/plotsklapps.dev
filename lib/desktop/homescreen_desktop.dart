@@ -5,8 +5,6 @@ class HomeScreenDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.sizeOf(context).width * 0.4;
-    final double screenHeight = MediaQuery.sizeOf(context).height * 0.8;
     return Scaffold(
       body: Row(
         children: <Widget>[
@@ -14,8 +12,8 @@ class HomeScreenDesktop extends StatelessWidget {
           Expanded(
             child: Center(
               child: Container(
-                width: screenWidth,
-                height: screenHeight,
+                width: MediaQuery.sizeOf(context).width * 0.4,
+                height: MediaQuery.sizeOf(context).height * 0.8,
                 decoration: BoxDecoration(
                   color: Utils.kGunMetal,
                   borderRadius: BorderRadius.circular(24),
