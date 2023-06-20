@@ -170,6 +170,21 @@ class PersonalScreenContentsMobileState
                   ),
                   const SizedBox(height: 16),
                   const Divider(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Opacity(
+                        opacity: 0.8,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(120),
+                          child: Image.asset(
+                            'assets/images/plotsklapps_waving.png',
+                            scale: 1.6,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],
@@ -229,11 +244,23 @@ class FlipCardHomeScreen extends StatelessWidget {
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(16),
-            child: Center(
-              child: Text(
-                Utils.kFlipCardHomeScreen,
-                textAlign: TextAlign.center,
-              ),
+            child: Row(
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(24),
+                  child: Image.asset(
+                    'assets/littleplotsklapps.gif',
+                    width: 96,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Text(
+                    Utils.kFlipCardHomeScreen,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
