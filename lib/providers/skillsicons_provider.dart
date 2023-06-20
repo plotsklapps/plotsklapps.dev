@@ -20,6 +20,8 @@ class SkillsIconsNotifier extends StateNotifier<int> {
     'assets/icons/skillsicons/linux_logo.png',
     'assets/icons/skillsicons/windows_logo.png',
     'assets/icons/skillsicons/openai_logo.png',
+    'assets/icons/skillsicons/flutter_logo.png',
+    'assets/icons/skillsicons/ionic_logo.png',
   ];
 
 // List of Titles to display in the carousel.
@@ -32,7 +34,9 @@ class SkillsIconsNotifier extends StateNotifier<int> {
     'VSCODE',
     'LINUX',
     'WINDOWS',
-    'OPEN AI'
+    'OPEN AI',
+    'FLUTTER',
+    'IONIC',
   ];
 
 // List of Subtitles to display in the carousel.
@@ -48,6 +52,8 @@ Cross-platform, extensible code editor that offers various features for developi
     'Open source operating system, based on Unix operating system.',
     'Operating system by Microsoft.',
     'Artificial Intelligence research lab, developing and promoting AI.',
+    'UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.',
+    'Framework for building cross-platform mobile, web, and desktop applications.'
   ];
 
   // Method to set the current INDEX of the carousel

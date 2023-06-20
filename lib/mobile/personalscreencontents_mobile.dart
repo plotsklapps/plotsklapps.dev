@@ -85,6 +85,24 @@ class PersonalScreenContentsMobileState
                               SkillsIcon(
                                 icon: ref
                                     .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[9],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 9);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
+                                    .skillsIconsList[10],
+                                onTap: () async {
+                                  await showSkillsIconDialog(context, 10);
+                                },
+                              ),
+                              const SizedBox(width: 16),
+                              SkillsIcon(
+                                icon: ref
+                                    .watch(skillsIconsProvider.notifier)
                                     .skillsIconsList[0],
                                 onTap: () async {
                                   await showSkillsIconDialog(context, 0);
@@ -170,21 +188,6 @@ class PersonalScreenContentsMobileState
                   ),
                   const SizedBox(height: 16),
                   const Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Opacity(
-                        opacity: 0.8,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(120),
-                          child: Image.asset(
-                            'assets/images/plotsklapps_waving.png',
-                            scale: 1.6,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ],
               ),
             ],
@@ -204,35 +207,36 @@ class FlipCardHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlipCard(
       speed: 1500,
-      direction: FlipDirection.VERTICAL,
       front: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.25,
         child: Card(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              const FlutterLogo(
-                size: 75,
-                style: FlutterLogoStyle.markOnly,
-              ).animate(
-                onPlay: (AnimationController controller) {
-                  controller.repeat();
-                },
-              ).shimmer(
-                delay: Duration.zero,
-                duration: const Duration(seconds: 4),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Image.asset(
+                      'assets/images/plotsklapps_waving.png',
+                    ),
+                  ),
+                ],
               ),
-              Image.asset(
-                'assets/images/ioniclogo.png',
-                height: 75,
-              ).animate(
-                onPlay: (AnimationController controller) {
-                  controller.repeat();
-                },
-              ).shimmer(
-                delay: const Duration(seconds: 2),
-                duration: const Duration(seconds: 4),
+              const Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Hello World!',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
