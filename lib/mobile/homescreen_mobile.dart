@@ -73,36 +73,38 @@ class HomeScreenMobileState extends ConsumerState<HomeScreenMobile> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) async {
+          await onIconTapped(index);
+        },
         // The currentIndex is read from the pageIndexProvider.
-        currentIndex: ref.watch(pageIndexProvider),
-        onTap: onIconTapped,
-        items: <BottomNavigationBarItem>[
+        selectedIndex: ref.watch(pageIndexProvider),
+        destinations: <Widget>[
           // Icons animate on tap and receive a checkmark.
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Utils.kIconPerson,
-            activeIcon: Utils.kIconPersonCheck
+            selectedIcon: Utils.kIconPersonCheck
                 .animate()
                 .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Profile',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Utils.kIconEducation,
-            activeIcon: Utils.kIconEducationCheck
+            selectedIcon: Utils.kIconEducationCheck
                 .animate()
                 .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Education',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Utils.kIconPortfolio,
-            activeIcon: Utils.kIconPortfolioCheck
+            selectedIcon: Utils.kIconPortfolioCheck
                 .animate()
                 .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Portfolio',
           ),
-          BottomNavigationBarItem(
+          NavigationDestination(
             icon: Utils.kIconContact,
-            activeIcon: Utils.kIconContactCheck
+            selectedIcon: Utils.kIconContactCheck
                 .animate()
                 .flip(duration: const Duration(milliseconds: 1000)),
             label: 'Contact',
