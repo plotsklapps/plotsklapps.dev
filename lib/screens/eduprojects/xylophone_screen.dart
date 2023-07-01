@@ -40,13 +40,34 @@ class XylophoneScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            buildNotekey(color: Colors.red, soundNumber: 1),
-            buildNotekey(color: Colors.orange, soundNumber: 2),
-            buildNotekey(color: Colors.yellow, soundNumber: 3),
-            buildNotekey(color: Colors.green, soundNumber: 4),
-            buildNotekey(color: Colors.teal, soundNumber: 5),
-            buildNotekey(color: Colors.blue, soundNumber: 6),
-            buildNotekey(color: Colors.purple, soundNumber: 7),
+            buildNotekey(color: Colors.red, soundNumber: 1)
+                .animate()
+                .fade(delay: 0.ms, duration: 1000.ms)
+                .move(delay: 500.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.orange, soundNumber: 2)
+                .animate()
+                .fade(delay: 500.ms, duration: 1000.ms)
+                .move(delay: 1000.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.yellow, soundNumber: 3)
+                .animate()
+                .fade(delay: 1000.ms, duration: 1000.ms)
+                .move(delay: 1500.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.green, soundNumber: 4)
+                .animate()
+                .fade(delay: 1500.ms, duration: 1000.ms)
+                .move(delay: 2000.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.teal, soundNumber: 5)
+                .animate()
+                .fade(delay: 2000.ms, duration: 1000.ms)
+                .move(delay: 2500.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.blue, soundNumber: 6)
+                .animate()
+                .fade(delay: 2500.ms, duration: 1000.ms)
+                .move(delay: 3000.ms, duration: 1000.ms),
+            buildNotekey(color: Colors.purple, soundNumber: 7)
+                .animate()
+                .fade(delay: 3000.ms, duration: 1000.ms)
+                .move(delay: 3500.ms, duration: 1000.ms),
           ],
         ),
       ),
