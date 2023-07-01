@@ -2,19 +2,11 @@ import 'dart:ui';
 
 import 'package:portfolio/all_imports.dart';
 
-class PersonalScreenContentsMobile extends ConsumerStatefulWidget {
-  const PersonalScreenContentsMobile({super.key});
+class PersonalScreen extends ConsumerWidget {
+  const PersonalScreen({super.key});
 
   @override
-  ConsumerState<PersonalScreenContentsMobile> createState() {
-    return PersonalScreenContentsMobileState();
-  }
-}
-
-class PersonalScreenContentsMobileState
-    extends ConsumerState<PersonalScreenContentsMobile> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -66,7 +58,7 @@ class PersonalScreenContentsMobileState
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     // Flippable Card with some background info
-                    const FlipCardHomeScreen(),
+                    const CustomFlipCard(),
                     const SizedBox(height: 16),
                     const Divider(),
                     const SizedBox(height: 16),
@@ -270,133 +262,6 @@ class PersonalScreenContentsMobileState
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class FlipCardHomeScreen extends StatelessWidget {
-  const FlipCardHomeScreen({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FlipCard(
-      speed: 1500,
-      front: SizedBox(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.25,
-        child: Card(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/plotsklapps_waving.png',
-                    ),
-                  ),
-                ],
-              ),
-              const Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Hello World!',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      back: SizedBox(
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.25,
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
-                  child: Image.asset(
-                    'assets/littleplotsklapps.gif',
-                    width: 96,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Text(
-                    Utils.kFlipCardHomeScreen,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class SocialsIcon extends StatelessWidget {
-  final Icon icon;
-  final Duration delay;
-  final VoidCallback onPressed;
-
-  const SocialsIcon({
-    super.key,
-    required this.icon,
-    required this.delay,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: IconButton(
-        onPressed: onPressed,
-        icon: icon.animate().flip(
-              delay: delay,
-              duration: const Duration(milliseconds: 1000),
-              curve: Curves.easeInOut,
-            ),
-      ),
-    );
-  }
-}
-
-class SkillsIcon extends StatelessWidget {
-  final String icon;
-  final VoidCallback onTap;
-
-  const SkillsIcon({
-    super.key,
-    required this.icon,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: SizedBox(
-        height: 48,
-        width: 48,
-        child: Image.asset(
-          icon,
         ),
       ),
     );

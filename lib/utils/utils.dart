@@ -6,7 +6,7 @@ class Utils {
 
   // URL to the Dicee app source code.
   static Uri diceeURL = Uri.parse(
-    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/diceescreen_mobile.dart',
+    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/dice_screen.dart',
   );
 
   // URL to the Xylophone app source code.

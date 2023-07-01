@@ -1,27 +1,29 @@
 import 'package:portfolio/all_imports.dart';
 
-class DiceeScreenMobile extends StatefulWidget {
-  const DiceeScreenMobile({super.key});
+// Riverpod int Provider for the left dice.
+final StateProvider<int> leftDiceProvider =
+    StateProvider<int>((StateProviderRef<int> ref) {
+  return 1;
+});
+
+// Riverpod int Provider for the right dice.
+final StateProvider<int> rightDiceProvider =
+    StateProvider<int>((StateProviderRef<int> ref) {
+  return 1;
+});
+
+class DiceScreen extends ConsumerWidget {
+  const DiceScreen({super.key});
 
   @override
-  DiceeScreenMobileState createState() {
-    return DiceeScreenMobileState();
-  }
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Function to change the state of the Riverpod Providers randomly between
+    // 1 and 6.
+    void rollDice() {
+      ref.read(leftDiceProvider.notifier).state = Random().nextInt(6) + 1;
+      ref.read(rightDiceProvider.notifier).state = Random().nextInt(6) + 1;
+    }
 
-class DiceeScreenMobileState extends State<DiceeScreenMobile> {
-  int leftDiceNumber = 1;
-  int rightDiceNumber = 1;
-
-  void changeDiceFace() {
-    setState(() {
-      leftDiceNumber = Random().nextInt(6) + 1;
-      rightDiceNumber = Random().nextInt(6) + 1;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dicee'),
@@ -36,14 +38,14 @@ class DiceeScreenMobileState extends State<DiceeScreenMobile> {
               children: <Widget>[
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: changeDiceFace,
+                    onPressed: rollDice,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: FlexColor.outerSpaceDarkPrimary,
+                      backgroundColor: FlexColor.outerSpaceLightPrimary,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Image.asset(
-                        'assets/images/dicee/dice$leftDiceNumber.png',
+                        'assets/images/dice/dice${ref.watch(leftDiceProvider)}.png',
                       ),
                     ),
                   ),
@@ -53,14 +55,14 @@ class DiceeScreenMobileState extends State<DiceeScreenMobile> {
                 ),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: changeDiceFace,
+                    onPressed: rollDice,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: FlexColor.outerSpaceDarkPrimary,
+                      backgroundColor: FlexColor.outerSpaceLightPrimary,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
                       child: Image.asset(
-                        'assets/images/dicee/dice$rightDiceNumber.png',
+                        'assets/images/dice/dice${ref.watch(rightDiceProvider)}.png',
                       ),
                     ),
                   ),

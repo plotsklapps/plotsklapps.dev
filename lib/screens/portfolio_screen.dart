@@ -1,7 +1,7 @@
 import 'package:portfolio/all_imports.dart';
 
-class PortfolioScreenContentsMobile extends StatelessWidget {
-  const PortfolioScreenContentsMobile({super.key});
+class PortfolioScreen extends StatelessWidget {
+  const PortfolioScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

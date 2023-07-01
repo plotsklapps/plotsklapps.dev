@@ -34,7 +34,11 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                       ElevatedButton(
                         onPressed: () {
                           if (currentIndex == 0) {
-                            Navigator.pushNamed(context, '/diceemobile');
+                            Navigator.of(context).push(
+                                MaterialPageRoute<Widget>(
+                                    builder: (BuildContext context) {
+                              return const DiceScreen();
+                            }));
                           } else if (currentIndex == 1) {
                             Navigator.pushNamed(context, '/xylophonemobile');
                           } else if (currentIndex == 2) {

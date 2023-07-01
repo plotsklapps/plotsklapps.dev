@@ -24,8 +24,7 @@ class MainEntry extends ConsumerWidget {
       theme: ref.watch(flexSchemeLightProvider),
       darkTheme: ref.watch(flexSchemeDarkProvider),
       themeMode: ref.watch(themeModeProvider),
-      initialRoute: '/',
-      routes: customRoutes,
+      home: const ResponsiveLayout(),
     );
   }
 }
