@@ -5,6 +5,21 @@ import 'package:portfolio/all_imports.dart';
 class ProCarousel extends ConsumerWidget {
   const ProCarousel({super.key});
 
+  Future<void> buildTimelappsDialog(BuildContext context, String image) {
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Image.asset(
+                image,
+              ),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -12,6 +27,19 @@ class ProCarousel extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          GestureDetector(
+            onTap: () async {
+              await launchUrl(Utils.timelappsURL);
+            },
+            child: const Text(
+              'TIMELAPPS',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
             // ScrollConfiguration to allow for scrolling on web
@@ -32,45 +60,62 @@ class ProCarousel extends ConsumerWidget {
                   children: <Widget>[
                     GestureDetector(
                       onTap: () async {
-                        await launchUrl(Utils.timelappsURL);
+                        await buildTimelappsDialog(
+                            context, 'assets/images/timelapps/timelapps_1.png');
                       },
-                      child: const Text(
-                        'TIMELAPPS',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                            'assets/images/timelapps/timelapps_1.png'),
                       ),
                     ),
                     const SizedBox(width: 16),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                          'assets/images/timelapps/timelapps_screenshot1.png'),
+                    GestureDetector(
+                      onTap: () async {
+                        await buildTimelappsDialog(
+                            context, 'assets/images/timelapps/timelapps_2.png');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                            'assets/images/timelapps/timelapps_2.png'),
+                      ),
                     ),
                     const SizedBox(width: 16),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                          'assets/images/timelapps/timelapps_screenshot2.png'),
+                    GestureDetector(
+                      onTap: () async {
+                        await buildTimelappsDialog(
+                            context, 'assets/images/timelapps/timelapps_3.png');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                            'assets/images/timelapps/timelapps_3.png'),
+                      ),
                     ),
                     const SizedBox(width: 16),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                          'assets/images/timelapps/timelapps_screenshot3.png'),
+                    GestureDetector(
+                      onTap: () async {
+                        await buildTimelappsDialog(
+                            context, 'assets/images/timelapps/timelapps_4.png');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                            'assets/images/timelapps/timelapps_4.png'),
+                      ),
                     ),
                     const SizedBox(width: 16),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                          'assets/images/timelapps/timelapps_screenshot4.png'),
-                    ),
-                    const SizedBox(width: 16),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(24),
-                      child: Image.asset(
-                          'assets/images/timelapps/timelapps_screenshot5.png'),
+                    GestureDetector(
+                      onTap: () async {
+                        await buildTimelappsDialog(
+                            context, 'assets/images/timelapps/timelapps_5.png');
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.asset(
+                            'assets/images/timelapps/timelapps_5.png'),
+                      ),
                     ),
                     const SizedBox(width: 16),
                   ],
@@ -78,6 +123,8 @@ class ProCarousel extends ConsumerWidget {
               ),
             ),
           ),
+          const SizedBox(height: 16),
+          const Divider(),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
             // ScrollConfiguration to allow for scrolling on web
