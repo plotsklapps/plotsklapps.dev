@@ -1,7 +1,9 @@
 import 'package:portfolio/all_imports.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  const ResponsiveLayout({super.key});
+  final Widget screen;
+
+  const ResponsiveLayout({super.key, required this.screen});
 
   @override
   Widget build(BuildContext context) {
@@ -9,13 +11,25 @@ class ResponsiveLayout extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         if (constraints.maxWidth < 680) {
           // Mobile screen route
-          return const MobileScreen();
+          return screen;
         } else if (constraints.maxWidth >= 680 && constraints.maxWidth < 1200) {
           // Tablet screen route
-          return const TabletScreen();
+          return Scaffold(
+            body: Center(
+              child: PhoneContainer(
+                child: screen,
+              ),
+            ),
+          );
         } else {
           // Desktop screen route
-          return const DesktopScreen();
+          return Scaffold(
+            body: Center(
+              child: PhoneContainer(
+                child: screen,
+              ),
+            ),
+          );
         }
       },
     );

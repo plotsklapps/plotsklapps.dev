@@ -37,7 +37,9 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                             Navigator.of(context).push(
                                 MaterialPageRoute<Widget>(
                                     builder: (BuildContext context) {
-                              return const DiceScreen();
+                              return const ResponsiveLayout(
+                                screen: DiceScreen(),
+                              );
                             }));
                           } else if (currentIndex == 1) {
                             Navigator.pushNamed(context, '/xylophonemobile');
