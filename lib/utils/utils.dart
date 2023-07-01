@@ -2,7 +2,9 @@ import 'package:portfolio/all_imports.dart';
 
 class Utils {
   // URL that leads to the BOKSklapps webapp.
-  static Uri boksklappsURL = Uri.parse('https://boksklapps.web.app');
+  static Uri boksklappsURL = Uri.parse(
+    'https://boksklapps.app',
+  );
 
   // URL to the Dicee app source code.
   static Uri diceeURL = Uri.parse(
@@ -17,6 +19,11 @@ class Utils {
   //URL to the BMI Calculator app source code.
   static Uri bmicalcURL = Uri.parse(
     'https://github.com/plotsklapps/plotsklapps.dev/tree/master/lib/mobile/eduprojects/bmicalc',
+  );
+
+  // URL to the Timelapps PWA.
+  static Uri timelappsURL = Uri.parse(
+    'https://timelapps.app',
   );
 
   // Method to launch the user's email app to send an email to the developer.

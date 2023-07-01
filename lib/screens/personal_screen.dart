@@ -10,6 +10,8 @@ class PersonalScreen extends ConsumerWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
+        // ScrollConfiguration to allow for scrolling on web
+        // with various input devices.
         child: ScrollConfiguration(
           behavior: const ScrollBehavior().copyWith(
             scrollbars: false,
@@ -182,73 +184,6 @@ class PersonalScreen extends ConsumerWidget {
                                     await showSkillsIconDialog(context, 8);
                                   },
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    const Divider(),
-                    const SizedBox(height: 16),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        // ScrollConfiguration to allow for scrolling on web
-                        // with various input devices.
-                        child: ScrollConfiguration(
-                          behavior: const ScrollBehavior().copyWith(
-                            scrollbars: false,
-                            dragDevices: <PointerDeviceKind>{
-                              PointerDeviceKind.mouse,
-                              PointerDeviceKind.trackpad,
-                              PointerDeviceKind.touch,
-                              PointerDeviceKind.stylus,
-                            },
-                          ),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: <Widget>[
-                                const Text(
-                                  'TIMELAPPS',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(24),
-                                  child: Image.asset(
-                                      'assets/images/timelapps/timelapps_screenshot1.png'),
-                                ),
-                                const SizedBox(width: 16),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(24),
-                                  child: Image.asset(
-                                      'assets/images/timelapps/timelapps_screenshot2.png'),
-                                ),
-                                const SizedBox(width: 16),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(24),
-                                  child: Image.asset(
-                                      'assets/images/timelapps/timelapps_screenshot3.png'),
-                                ),
-                                const SizedBox(width: 16),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(24),
-                                  child: Image.asset(
-                                      'assets/images/timelapps/timelapps_screenshot4.png'),
-                                ),
-                                const SizedBox(width: 16),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(24),
-                                  child: Image.asset(
-                                      'assets/images/timelapps/timelapps_screenshot5.png'),
-                                ),
-                                const SizedBox(width: 16),
                               ],
                             ),
                           ),

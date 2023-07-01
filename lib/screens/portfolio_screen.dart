@@ -45,13 +45,16 @@ class PortfolioScreen extends StatelessWidget {
                 Divider(),
                 SizedBox(height: 16),
                 Card(
-                  child: ListTile(
-                    trailing: Icon(FontAwesomeIcons.store),
+                  child: ExpansionTile(
+                    trailing: Icon(FontAwesomeIcons.graduationCap),
                     title: Text(
                       'Professional Portfolio',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text('Live apps in the Stores'),
+                    subtitle: Text('Live apps created for clients'),
+                    children: <Widget>[
+                      ProCarousel(),
+                    ],
                   ),
                 ),
               ],
