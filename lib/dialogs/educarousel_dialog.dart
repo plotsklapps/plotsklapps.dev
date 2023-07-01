@@ -3,6 +3,17 @@ import 'dart:ui';
 import 'package:portfolio/all_imports.dart';
 
 Future<void> showEduCarouselDialog(BuildContext context) async {
+  // Function to navigate to the selected educational project. This is used to
+  // avoid cluttering the UI code.
+  Future<void> navigateToEduProject(Widget child) async {
+    await Navigator.of(context)
+        .push(MaterialPageRoute<Widget>(builder: (BuildContext context) {
+      return ResponsiveLayout(
+        screen: child,
+      );
+    }));
+  }
+
   await showModalBottomSheet<void>(
     context: context,
     builder: (BuildContext context) {
@@ -34,21 +45,9 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                       ElevatedButton(
                         onPressed: () {
                           if (currentIndex == 0) {
-                            Navigator.of(context).push(
-                                MaterialPageRoute<Widget>(
-                                    builder: (BuildContext context) {
-                              return const ResponsiveLayout(
-                                screen: DiceScreen(),
-                              );
-                            }));
+                            navigateToEduProject(const DiceScreen());
                           } else if (currentIndex == 1) {
-                            Navigator.of(context).push(
-                                MaterialPageRoute<Widget>(
-                                    builder: (BuildContext context) {
-                              return const ResponsiveLayout(
-                                screen: XylophoneScreen(),
-                              );
-                            }));
+                            navigateToEduProject(const XylophoneScreen());
                           } else if (currentIndex == 2) {
                             Navigator.pushNamed(context, '/bmicalcmobile');
                           } else if (currentIndex == 3) {

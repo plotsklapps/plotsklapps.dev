@@ -49,7 +49,7 @@ class DiceScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
-                ),
+                ).animate().flip(delay: 0.ms, duration: 1000.ms),
                 const SizedBox(
                   width: 16,
                 ),
@@ -66,7 +66,7 @@ class DiceScreen extends ConsumerWidget {
                       ),
                     ),
                   ),
-                ),
+                ).animate().flip(delay: 1000.ms, duration: 1000.ms),
               ],
             ),
           ],
