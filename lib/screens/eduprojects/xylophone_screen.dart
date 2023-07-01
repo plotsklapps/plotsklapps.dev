@@ -31,10 +31,8 @@ class XylophoneScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Xylophone',
-            style: TextStyle(color: FlexColor.outerSpaceDarkPrimary)),
+        title: const Text('Xylophone'),
         centerTitle: true,
-        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: Column(
