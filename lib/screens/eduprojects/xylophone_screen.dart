@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:portfolio/all_imports.dart';
 
-class XylophoneScreenMobile extends StatelessWidget {
-  const XylophoneScreenMobile({super.key});
+class XylophoneScreen extends StatelessWidget {
+  const XylophoneScreen({super.key});
 
   Future<void> playSound(int soundNumber) async {
     // Use the just_audio package to first load the sound and then play it.
@@ -31,8 +31,10 @@ class XylophoneScreenMobile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Xylophone'),
+        title: const Text('Xylophone',
+            style: TextStyle(color: FlexColor.outerSpaceDarkPrimary)),
         centerTitle: true,
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: Column(

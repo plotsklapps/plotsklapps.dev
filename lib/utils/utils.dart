@@ -11,7 +11,7 @@ class Utils {
 
   // URL to the Xylophone app source code.
   static Uri xylophoneURL = Uri.parse(
-    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/xylophonescreen_mobile.dart',
+    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/mobile/xylophone_screen.dart',
   );
 
   //URL to the BMI Calculator app source code.

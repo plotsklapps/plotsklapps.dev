@@ -42,7 +42,13 @@ Future<void> showEduCarouselDialog(BuildContext context) async {
                               );
                             }));
                           } else if (currentIndex == 1) {
-                            Navigator.pushNamed(context, '/xylophonemobile');
+                            Navigator.of(context).push(
+                                MaterialPageRoute<Widget>(
+                                    builder: (BuildContext context) {
+                              return const ResponsiveLayout(
+                                screen: XylophoneScreen(),
+                              );
+                            }));
                           } else if (currentIndex == 2) {
                             Navigator.pushNamed(context, '/bmicalcmobile');
                           } else if (currentIndex == 3) {
