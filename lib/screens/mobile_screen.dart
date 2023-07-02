@@ -10,17 +10,21 @@ class MobileScreen extends ConsumerStatefulWidget {
 }
 
 class MobileScreenState extends ConsumerState<MobileScreen> {
+  // Instantiate a PageController to have access to animations during
+  // navigation.
   late PageController pageController;
 
   @override
   void initState() {
     super.initState();
+    // Starting index = always 0.
     pageController =
         PageController(initialPage: ref.read(currentPageIndexProvider));
   }
 
   @override
   void dispose() {
+    // Kill the PageController.
     pageController.dispose();
     super.dispose();
   }
@@ -31,23 +35,27 @@ class MobileScreenState extends ConsumerState<MobileScreen> {
       appBar: AppBar(
         title: Image.asset(
           'assets/images/textlogo.png',
+          // Get the height of the AppBar so the logo is never too
+          // big or too small.
           height: kToolbarHeight * 0.8,
         ),
         centerTitle: true,
       ),
       drawer: const CustomDrawer(),
-      body: Center(
-        child: PageView(
-          controller: pageController,
-          children: const <Widget>[
-            PersonalScreen(),
-            EducationScreen(),
-            PortfolioScreen(),
-          ],
-        ),
+      body: PageView(
+        controller: pageController,
+        children: const <Widget>[
+          PersonalScreen(),
+          EducationScreen(),
+          PortfolioScreen(),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) async {
+          // This is where we needed the PageController for. First, we
+          // set the new page index to the Riverpod Provider.
+          // Second, we use that new index to navigate to the
+          // corresponding widget in the PageView with a nice animation.
           ref.read(currentPageIndexProvider.notifier).state = index;
           await pageController.animateToPage(
             ref.watch(currentPageIndexProvider),
