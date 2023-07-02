@@ -10,15 +10,15 @@ Welcome to my portfolio Progressive Web Application (PWA) built with Flutter & D
 
 ## Screens
 
-### Personal Screen
+### - Personal Screen
 
 The personal screen provides information about me and my skills. It highlights my background, expertise, and any other relevant information.
 
-### Education Screen
+### - Education Screen
 
 The education screen showcases my certificates and educational achievements. It provides details about my educational journey, courses, and certifications.
 
-### Portfolio Screen
+### - Portfolio Screen
 
 The portfolio screen displays information about my educational and professional projects. It includes descriptions, screenshots, and links to the respective projects.
 
