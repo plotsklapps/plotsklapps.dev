@@ -44,7 +44,7 @@ flutter run
 ```
 This command will launch the portfolio PWA in a development environment.
 
-Customize the content:
+### - Customize the content:
 
 Replace the personal, education, and portfolio screens with your own information and projects.
 Update the images, descriptions, and links as needed.
