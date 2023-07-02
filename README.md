@@ -61,7 +61,7 @@ large and to the detriment of my heirs and successors. I intend this
 dedication to be an overt act of relinquishment in perpetuity of all
 present and future rights to this software under copyright law.
 ```
-## License
+## (Un)License
 
 This project is licensed under the Unlicense:
 
