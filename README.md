@@ -27,30 +27,32 @@ The portfolio screen displays information about my educational and professional 
 To use this portfolio PWA locally or deploy it to your own server, follow these steps:
 
 1. Clone the repository:
-
-   ```git clone https://github.com/plotsklapps/plotsklapps.dev.git
-
+   ```bash
+   git clone https://github.com/plotsklapps/plotsklapps.dev.git
+   ```
 2. Change into the project directory:
-
-  ```cd repo
-
+  ```bash
+   cd repo
+   ```
 3. Install dependencies:
-
-flutter pub get
-
+   ```bash
+   flutter pub get
+   ```
 4. Run the application:
-
-  '''bash
-  flutter run
-
+   ```bash
+   flutter run
+   ```
 This command will launch the portfolio PWA in a development environment.
 
 Customize the content:
 
 Replace the personal, education, and portfolio screens with your own information and projects.
 Update the images, descriptions, and links as needed.
-Contributing
+
+## Contributing
+
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to submit a pull request or open an issue on the repository.
 
-License
+## License
+
 This project is licensed under the MIT License.
