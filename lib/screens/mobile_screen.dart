@@ -50,7 +50,7 @@ class MobileScreenState extends ConsumerState<MobileScreen> {
           PortfolioScreen(),
         ],
       ),
-      bottomNavigationBar: buildNavigationBar(ref, pageController),
+      bottomNavigationBar: CustomNavBar(pageController),
     );
   }
 }
