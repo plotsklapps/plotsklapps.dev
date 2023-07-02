@@ -30,13 +30,6 @@ NavigationBar buildNavigationBar(WidgetRef ref) {
             .flip(duration: const Duration(milliseconds: 1000)),
         label: 'Portfolio',
       ),
-      NavigationDestination(
-        icon: Utils.kIconContact,
-        selectedIcon: Utils.kIconContactCheck
-            .animate()
-            .flip(duration: const Duration(milliseconds: 1000)),
-        label: 'Contact',
-      ),
     ],
   );
 }
