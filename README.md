@@ -32,7 +32,7 @@ git clone https://github.com/plotsklapps/plotsklapps.dev.git
 ```
 2. Change into the project directory:
 ```bash
-cd repo
+cd plotsklapps.dev
 ```
 3. Install dependencies:
 ```bash
