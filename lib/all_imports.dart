@@ -30,7 +30,6 @@ export 'package:portfolio/mobile/eduprojects/bmicalc/bmicalc_customwidgets.dart'
 export 'package:portfolio/mobile/eduprojects/weather/weather_screen.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weather_services.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weatherloading_screen.dart';
-export 'package:portfolio/providers/bmicalc_provider.dart';
 export 'package:portfolio/providers/certificateimages_provider.dart';
 export 'package:portfolio/providers/eduportfoliocarousel_provider.dart';
 export 'package:portfolio/providers/navigation_provider.dart';
@@ -39,6 +38,7 @@ export 'package:portfolio/providers/weather_provider.dart';
 export 'package:portfolio/responsive_layout.dart';
 export 'package:portfolio/screens/desktop_screen.dart';
 export 'package:portfolio/screens/education_screen.dart';
+export 'package:portfolio/screens/eduprojects/bmicalc_provider.dart';
 export 'package:portfolio/screens/eduprojects/bmicalc_screen.dart';
 export 'package:portfolio/screens/eduprojects/dice_screen.dart';
 export 'package:portfolio/screens/eduprojects/xylophone_screen.dart';

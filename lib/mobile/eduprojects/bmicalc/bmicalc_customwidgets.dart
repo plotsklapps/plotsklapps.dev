@@ -51,7 +51,7 @@ class RoundIconButton extends StatelessWidget {
         height: 40,
       ),
       shape: const CircleBorder(),
-      fillColor: kBackGroundGrey,
+      fillColor: UtilsColor.kBackGroundGrey,
       child: Icon(icon),
     );
   }
@@ -107,9 +107,9 @@ class BottomButton extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.only(bottom: 8),
-        decoration: BoxDecoration(
-          color: kOrangeFlame,
-          borderRadius: const BorderRadius.only(
+        decoration: const BoxDecoration(
+          color: UtilsColor.kOrangeFlame,
+          borderRadius: BorderRadius.only(
             topLeft: Radius.circular(24),
             topRight: Radius.circular(24),
           ),

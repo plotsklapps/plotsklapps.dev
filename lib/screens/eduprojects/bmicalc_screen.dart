@@ -1,20 +1,15 @@
 import 'package:portfolio/all_imports.dart';
 
-final StateProvider<bool> isMaleProvider =
-    StateProvider<bool>((StateProviderRef<bool> ref) {
-  return true;
-});
-
 class BMICalcScreen extends ConsumerStatefulWidget {
   const BMICalcScreen({super.key});
 
   @override
-  BMICalcScreenMobileState createState() {
-    return BMICalcScreenMobileState();
+  BMICalcScreenState createState() {
+    return BMICalcScreenState();
   }
 }
 
-class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
+class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -36,14 +31,14 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                         ref.read(isMaleProvider.notifier).state = true;
                       },
                       color: ref.watch(isMaleProvider)
-                          ? kActiveCardColour
-                          : kInactiveCardColour,
+                          ? UtilsColor.kGreyElectricBlue
+                          : UtilsColor.kGreyGunmetal,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
                         color: ref.watch(isMaleProvider)
-                            ? kOrangeFlame
-                            : kBackGroundGrey,
+                            ? UtilsColor.kOrangeFlame
+                            : UtilsColor.kBackGroundGrey,
                       ),
                     ),
                   ),
@@ -55,14 +50,14 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                         });
                       },
                       color: !ref.watch(isMaleProvider)
-                          ? kActiveCardColour
-                          : kInactiveCardColour,
+                          ? UtilsColor.kGreyElectricBlue
+                          : UtilsColor.kGreyGunmetal,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
                         color: !ref.watch(isMaleProvider)
-                            ? kOrangeFlame
-                            : kBackGroundGrey,
+                            ? UtilsColor.kOrangeFlame
+                            : UtilsColor.kBackGroundGrey,
                       ),
                     ),
                   ),
@@ -72,7 +67,7 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
             Expanded(
               child: ReusableCard(
                 onPress: () {},
-                color: kActiveCardColour,
+                color: UtilsColor.kGreyElectricBlue,
                 cardChild: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Column(
@@ -88,7 +83,7 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                         textBaseline: TextBaseline.alphabetic,
                         children: <Widget>[
                           Text(
-                            ref.watch(userHeightProvider).toString(),
+                            ref.watch(userHeightProvider).toStringAsFixed(0),
                             style: kNumberTextStyle,
                           ),
                           Text(
@@ -99,10 +94,10 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          inactiveTrackColor: kGreyCharcoal,
-                          activeTrackColor: kBackGroundGrey,
-                          thumbColor: kOrangeFlame,
-                          overlayColor: kBackGroundGrey,
+                          inactiveTrackColor: UtilsColor.kGreyCharcoal,
+                          activeTrackColor: UtilsColor.kBackGroundGrey,
+                          thumbColor: UtilsColor.kOrangeFlame,
+                          overlayColor: UtilsColor.kBackGroundGrey,
                           thumbShape: const RoundSliderThumbShape(
                             enabledThumbRadius: 12,
                           ),
@@ -110,13 +105,12 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                               const RoundSliderOverlayShape(overlayRadius: 24),
                         ),
                         child: Slider(
-                          value: ref.watch(userHeightProvider).toDouble(),
+                          value: ref.watch(userHeightProvider),
                           min: 120,
                           max: 220,
-                          onChanged: (double newValue) async {
-                            await ref
-                                .read(userHeightProvider.notifier)
-                                .setHeight(newValue.toInt());
+                          onChanged: (double newValue) {
+                            ref.read(userHeightProvider.notifier).state =
+                                newValue;
                           },
                         ),
                       ),
@@ -130,7 +124,7 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableCard(
-                      color: kActiveCardColour,
+                      color: UtilsColor.kGreyElectricBlue,
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -194,7 +188,7 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                   ),
                   Expanded(
                     child: ReusableCard(
-                      color: kActiveCardColour,
+                      color: UtilsColor.kGreyElectricBlue,
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -264,7 +258,7 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
                 onTap: () async {
                   await ref.read(userBMIProvider.notifier).calculateBMI(
                         ref,
-                        ref.watch(userHeightProvider),
+                        ref.watch(userHeightProvider).toInt(),
                         ref.watch(userWeightProvider),
                       );
                   await ref.read(userBMIProvider.notifier).getResult(
@@ -324,7 +318,7 @@ class BMICalcOutputScreenMobile extends ConsumerWidget {
             Expanded(
               flex: 5,
               child: ReusableCard(
-                color: kActiveCardColour,
+                color: UtilsColor.kGreyElectricBlue,
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[

@@ -1,31 +1,30 @@
 import 'package:portfolio/all_imports.dart';
 
-Color kOrangeFlame = const Color(0xFFD35A27);
-Color kGreyGunmetal = const Color(0xff172734);
-Color kGreyCharcoal = const Color(0xff32434f);
-Color kGreyElectricBlue = const Color(0xff526e7f);
-Color kBackGroundGrey = const Color(0xffdedede);
+class UtilsColor {
+  static const Color kOrangeFlame = Color(0xFFD35A27);
+  static const Color kGreyGunmetal = Color(0xff172734);
+  static const Color kGreyCharcoal = Color(0xff32434f);
+  static const Color kGreyElectricBlue = Color(0xff526e7f);
+  static const Color kBackGroundGrey = Color(0xffdedede);
+}
 
 const double kBottomContainerHeight = 80.0;
 
-Color kActiveCardColour = kGreyElectricBlue;
-Color kInactiveCardColour = kGreyGunmetal;
-
-TextStyle kLabelTextStyle = TextStyle(
+TextStyle kLabelTextStyle = const TextStyle(
   fontSize: 18,
-  color: kBackGroundGrey,
+  color: UtilsColor.kBackGroundGrey,
 );
 
-TextStyle kNumberTextStyle = TextStyle(
+TextStyle kNumberTextStyle = const TextStyle(
   fontSize: 40,
   fontWeight: FontWeight.w900,
-  color: kGreyGunmetal,
+  color: UtilsColor.kGreyGunmetal,
 );
 
-TextStyle kLargeButtonTextStyle = TextStyle(
+TextStyle kLargeButtonTextStyle = const TextStyle(
   fontSize: 25,
   fontWeight: FontWeight.bold,
-  color: kGreyGunmetal,
+  color: UtilsColor.kGreyGunmetal,
 );
 
 const TextStyle kTitleTextStyle = TextStyle(
@@ -33,8 +32,8 @@ const TextStyle kTitleTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-TextStyle kResultTextStyle = TextStyle(
-  color: kOrangeFlame,
+TextStyle kResultTextStyle = const TextStyle(
+  color: UtilsColor.kOrangeFlame,
   fontSize: 48,
   fontWeight: FontWeight.bold,
 );
@@ -44,7 +43,7 @@ const TextStyle kBMITextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-TextStyle kBodyTextStyle = TextStyle(
+TextStyle kBodyTextStyle = const TextStyle(
   fontSize: 22,
-  color: kBackGroundGrey,
+  color: UtilsColor.kBackGroundGrey,
 );

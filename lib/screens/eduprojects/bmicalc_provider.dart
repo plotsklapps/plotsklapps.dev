@@ -1,18 +1,13 @@
 import 'package:portfolio/all_imports.dart';
 
-final StateNotifierProvider<UserHeightNotifier, int> userHeightProvider =
-    StateNotifierProvider<UserHeightNotifier, int>(
-        (StateNotifierProviderRef<UserHeightNotifier, int> ref) {
-  return UserHeightNotifier();
+final StateProvider<bool> isMaleProvider =
+    StateProvider<bool>((StateProviderRef<bool> ref) {
+  return true;
 });
 
-class UserHeightNotifier extends StateNotifier<int> {
-  UserHeightNotifier() : super(180);
-
-  Future<void> setHeight(int height) async {
-    state = height;
-  }
-}
+final StateProvider<double> userHeightProvider = StateProvider<double>((ref) {
+  return 180.0;
+});
 
 final StateNotifierProvider<UserWeightNotifier, int> userWeightProvider =
     StateNotifierProvider<UserWeightNotifier, int>(
