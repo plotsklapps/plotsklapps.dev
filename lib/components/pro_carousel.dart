@@ -7,17 +7,24 @@ class ProCarousel extends ConsumerWidget {
 
   Future<void> buildTimelappsDialog(BuildContext context, String image) {
     return showDialog<void>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            content: ClipRRect(
-              borderRadius: BorderRadius.circular(24),
-              child: Image.asset(
-                image,
+      context: context,
+      builder: (BuildContext context) {
+        return GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: ColoredBox(
+            color: Colors.transparent,
+            child: Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(24),
+                child: Image.asset(image),
               ),
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   @override

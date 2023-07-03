@@ -1,12 +1,12 @@
 import 'package:portfolio/all_imports.dart';
 
-enum Gender {
-  male,
-  female,
-}
+final StateProvider<bool> isMaleProvider =
+    StateProvider<bool>((StateProviderRef<bool> ref) {
+  return true;
+});
 
-class BMICalcScreenMobile extends ConsumerStatefulWidget {
-  const BMICalcScreenMobile({super.key});
+class BMICalcScreen extends ConsumerStatefulWidget {
+  const BMICalcScreen({super.key});
 
   @override
   BMICalcScreenMobileState createState() {
@@ -14,9 +14,7 @@ class BMICalcScreenMobile extends ConsumerStatefulWidget {
   }
 }
 
-class BMICalcScreenMobileState extends ConsumerState<BMICalcScreenMobile> {
-  Gender selectedGender = Gender.male;
-
+class BMICalcScreenMobileState extends ConsumerState<BMICalcScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -35,17 +33,15 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreenMobile> {
                   Expanded(
                     child: ReusableCard(
                       onPress: () {
-                        setState(() {
-                          selectedGender = Gender.male;
-                        });
+                        ref.read(isMaleProvider.notifier).state = true;
                       },
-                      color: selectedGender == Gender.male
+                      color: ref.watch(isMaleProvider)
                           ? kActiveCardColour
                           : kInactiveCardColour,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
-                        color: selectedGender == Gender.male
+                        color: ref.watch(isMaleProvider)
                             ? kOrangeFlame
                             : kBackGroundGrey,
                       ),
@@ -55,16 +51,16 @@ class BMICalcScreenMobileState extends ConsumerState<BMICalcScreenMobile> {
                     child: ReusableCard(
                       onPress: () {
                         setState(() {
-                          selectedGender = Gender.female;
+                          ref.read(isMaleProvider.notifier).state = false;
                         });
                       },
-                      color: selectedGender == Gender.female
+                      color: !ref.watch(isMaleProvider)
                           ? kActiveCardColour
                           : kInactiveCardColour,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
-                        color: selectedGender == Gender.female
+                        color: !ref.watch(isMaleProvider)
                             ? kOrangeFlame
                             : kBackGroundGrey,
                       ),
