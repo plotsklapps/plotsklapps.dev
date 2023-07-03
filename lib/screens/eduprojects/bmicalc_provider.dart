@@ -5,7 +5,8 @@ final StateProvider<bool> isMaleProvider =
   return true;
 });
 
-final StateProvider<double> userHeightProvider = StateProvider<double>((ref) {
+final StateProvider<double> userHeightProvider =
+    StateProvider<double>((StateProviderRef<double> ref) {
   return 180.0;
 });
 

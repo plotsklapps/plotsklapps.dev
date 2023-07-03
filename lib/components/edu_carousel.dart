@@ -10,12 +10,15 @@ class EduCarousel extends ConsumerWidget {
     // Function to navigate to the selected educational project. This is used to
     // avoid cluttering the UI code.
     Future<void> navigateToEduProject(Widget child) async {
-      await Navigator.of(context)
-          .push(MaterialPageRoute<Widget>(builder: (BuildContext context) {
-        return ResponsiveLayout(
-          screen: child,
-        );
-      }));
+      await Navigator.of(context).push(
+        MaterialPageRoute<Widget>(
+          builder: (BuildContext context) {
+            return ResponsiveLayout(
+              screen: child,
+            );
+          },
+        ),
+      );
     }
 
     final int currentIndex = ref.watch(eduPortfolioCarouselProvider);

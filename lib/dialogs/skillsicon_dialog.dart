@@ -2,9 +2,10 @@ import 'package:portfolio/all_imports.dart';
 
 Future<void> showSkillsIconDialog(BuildContext context, int index) async {
   await showModalBottomSheet<void>(
-      context: context,
-      builder: (BuildContext context) {
-        return Consumer(builder: (
+    context: context,
+    builder: (BuildContext context) {
+      return Consumer(
+        builder: (
           BuildContext context,
           WidgetRef ref,
           Widget? child,
@@ -24,9 +25,11 @@ Future<void> showSkillsIconDialog(BuildContext context, int index) async {
                 ),
                 Expanded(
                   child: ListTile(
-                    title: Text(ref
-                        .watch(skillsIconsProvider.notifier)
-                        .skillsTitlesList[index]),
+                    title: Text(
+                      ref
+                          .watch(skillsIconsProvider.notifier)
+                          .skillsTitlesList[index],
+                    ),
                     subtitle: Text(
                       ref
                           .watch(skillsIconsProvider.notifier)
@@ -37,6 +40,8 @@ Future<void> showSkillsIconDialog(BuildContext context, int index) async {
               ],
             ),
           );
-        });
-      });
+        },
+      );
+    },
+  );
 }

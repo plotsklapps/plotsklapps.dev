@@ -68,60 +68,75 @@ class ProCarousel extends ConsumerWidget {
                     GestureDetector(
                       onTap: () async {
                         await buildTimelappsDialog(
-                            context, 'assets/images/timelapps/timelapps_1.png');
+                          context,
+                          'assets/images/timelapps/timelapps_1.png',
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: Image.asset(
-                            'assets/images/timelapps/timelapps_1.png'),
+                          'assets/images/timelapps/timelapps_1.png',
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),
                     GestureDetector(
                       onTap: () async {
                         await buildTimelappsDialog(
-                            context, 'assets/images/timelapps/timelapps_2.png');
+                          context,
+                          'assets/images/timelapps/timelapps_2.png',
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: Image.asset(
-                            'assets/images/timelapps/timelapps_2.png'),
+                          'assets/images/timelapps/timelapps_2.png',
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),
                     GestureDetector(
                       onTap: () async {
                         await buildTimelappsDialog(
-                            context, 'assets/images/timelapps/timelapps_3.png');
+                          context,
+                          'assets/images/timelapps/timelapps_3.png',
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: Image.asset(
-                            'assets/images/timelapps/timelapps_3.png'),
+                          'assets/images/timelapps/timelapps_3.png',
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),
                     GestureDetector(
                       onTap: () async {
                         await buildTimelappsDialog(
-                            context, 'assets/images/timelapps/timelapps_4.png');
+                          context,
+                          'assets/images/timelapps/timelapps_4.png',
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: Image.asset(
-                            'assets/images/timelapps/timelapps_4.png'),
+                          'assets/images/timelapps/timelapps_4.png',
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),
                     GestureDetector(
                       onTap: () async {
                         await buildTimelappsDialog(
-                            context, 'assets/images/timelapps/timelapps_5.png');
+                          context,
+                          'assets/images/timelapps/timelapps_5.png',
+                        );
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(24),
                         child: Image.asset(
-                            'assets/images/timelapps/timelapps_5.png'),
+                          'assets/images/timelapps/timelapps_5.png',
+                        ),
                       ),
                     ),
                     const SizedBox(width: 16),

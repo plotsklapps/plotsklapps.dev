@@ -12,7 +12,6 @@ class BMICalcScreen extends ConsumerStatefulWidget {
 class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI Calculator'),
@@ -101,8 +100,9 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                           thumbShape: const RoundSliderThumbShape(
                             enabledThumbRadius: 12,
                           ),
-                          overlayShape:
-                              const RoundSliderOverlayShape(overlayRadius: 24),
+                          overlayShape: const RoundSliderOverlayShape(
+                            overlayRadius: 24,
+                          ),
                         ),
                         child: Slider(
                           value: ref.watch(userHeightProvider),
@@ -254,37 +254,35 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
               ),
             ),
             BottomButton(
-                buttonTitle: 'CALCULATE',
-                onTap: () async {
-                  await ref.read(userBMIProvider.notifier).calculateBMI(
-                        ref,
-                        ref.watch(userHeightProvider).toInt(),
-                        ref.watch(userWeightProvider),
-                      );
-                  await ref.read(userBMIProvider.notifier).getResult(
-                        ref,
-                        ref.watch(userBMIProvider),
-                      );
-                  await ref
-                      .read(userBMIProvider.notifier)
-                      .getInterpretation(
-                        ref,
-                        ref.watch(userBMIProvider),
-                      )
-                      .then((_) async {
-                    if (screenWidth < 720) {
-                      await Navigator.push(context, MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) {
+              buttonTitle: 'CALCULATE',
+              onTap: () async {
+                await ref.read(userBMIProvider.notifier).calculateBMI(
+                      ref,
+                      ref.watch(userHeightProvider).toInt(),
+                      ref.watch(userWeightProvider),
+                    );
+                await ref.read(userBMIProvider.notifier).getResult(
+                      ref,
+                      ref.watch(userBMIProvider),
+                    );
+                await ref
+                    .read(userBMIProvider.notifier)
+                    .getInterpretation(
+                      ref,
+                      ref.watch(userBMIProvider),
+                    )
+                    .then((_) async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) {
                         return const BMICalcOutputScreenMobile();
-                      }));
-                    } else {
-                      await Navigator.push(context, MaterialPageRoute<Widget>(
-                          builder: (BuildContext context) {
-                        return const BMICalcOutputScreenDesktop();
-                      }));
-                    }
-                  });
-                }),
+                      },
+                    ),
+                  );
+                });
+              },
+            )
           ],
         ),
       ),
@@ -410,7 +408,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
               ),
               child: Padding(
                 padding: const EdgeInsets.all(
-                    25.0), // This gives the edge around the screen
+                  25.0,
+                ), // This gives the edge around the screen
                 child: ClipRRect(
                   borderRadius: const BorderRadius.all(
                     Radius.circular(24),
