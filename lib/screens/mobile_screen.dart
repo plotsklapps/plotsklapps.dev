@@ -40,8 +40,24 @@ class MobileScreenState extends ConsumerState<MobileScreen> {
           height: kToolbarHeight * 0.8,
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: ref.watch(isLightModeProvider)
+                ? Utils.kIconSun
+                : Utils.kIconMoon,
+            onPressed: () {
+              // Tapping the icon will change the boolean back and forth
+              // and change the icon.
+              ref.read(isLightModeProvider.notifier).state =
+                  !ref.read(isLightModeProvider.notifier).state;
+              // Change the actual theme mode based on the boolean.
+              ref.watch(isLightModeProvider)
+                  ? ref.read(themeModeProvider.notifier).state = ThemeMode.light
+                  : ref.read(themeModeProvider.notifier).state = ThemeMode.dark;
+            },
+          ),
+        ],
       ),
-      drawer: const CustomDrawer(),
       body: PageView(
         controller: pageController,
         children: const <Widget>[
