@@ -48,7 +48,8 @@ class EduCarousel extends ConsumerWidget {
                     } else if (currentIndex == 2) {
                       await navigateToEduProject(const BMICalcScreen());
                     } else if (currentIndex == 3) {
-                      await Navigator.pushNamed(context, '/weathermobile');
+                      await navigateToEduProject(
+                          const WeatherLoadingScreenMobile());
                     } else {
                       return;
                     }
