@@ -72,7 +72,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'HEIGHT',
                         style: BMICalcUtils.kLabelTextStyle,
                       ),
@@ -85,7 +85,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                             ref.watch(userHeightProvider).toStringAsFixed(0),
                             style: BMICalcUtils.kNumberTextStyle,
                           ),
-                          Text(
+                          const Text(
                             'cm',
                             style: BMICalcUtils.kLabelTextStyle,
                           ),
@@ -128,7 +128,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             'WEIGHT',
                             style: BMICalcUtils.kLabelTextStyle,
                           ),
@@ -141,7 +141,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                                 ref.watch(userWeightProvider).toString(),
                                 style: BMICalcUtils.kNumberTextStyle,
                               ),
-                              Text(
+                              const Text(
                                 'kg',
                                 style: BMICalcUtils.kLabelTextStyle,
                               ),
@@ -153,14 +153,12 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  ref
-                                      .read(userWeightProvider.notifier)
-                                      .decreaseOne();
+                                  ref.read(userWeightProvider.notifier).state -=
+                                      1;
                                 },
                                 onLongPressed: () {
-                                  ref
-                                      .read(userWeightProvider.notifier)
-                                      .decreaseTen();
+                                  ref.read(userWeightProvider.notifier).state -=
+                                      10;
                                 },
                               ),
                               const SizedBox(
@@ -169,14 +167,12 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  ref
-                                      .read(userWeightProvider.notifier)
-                                      .increaseOne();
+                                  ref.read(userWeightProvider.notifier).state +=
+                                      1;
                                 },
                                 onLongPressed: () {
-                                  ref
-                                      .read(userWeightProvider.notifier)
-                                      .increaseTen();
+                                  ref.read(userWeightProvider.notifier).state +=
+                                      10;
                                 },
                               ),
                             ],
@@ -192,7 +188,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
+                          const Text(
                             'AGE',
                             style: BMICalcUtils.kLabelTextStyle,
                           ),
@@ -205,7 +201,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                                 ref.watch(userAgeProvider).toString(),
                                 style: BMICalcUtils.kNumberTextStyle,
                               ),
-                              Text(
+                              const Text(
                                 'yr',
                                 style: BMICalcUtils.kLabelTextStyle,
                               ),

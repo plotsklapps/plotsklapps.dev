@@ -10,35 +10,9 @@ final StateProvider<double> userHeightProvider =
   return 180.0;
 });
 
-final StateNotifierProvider<UserWeightNotifier, int> userWeightProvider =
-    StateNotifierProvider<UserWeightNotifier, int>(
-        (StateNotifierProviderRef<UserWeightNotifier, int> ref) {
-  return UserWeightNotifier();
+final StateProvider<int> userWeightProvider = StateProvider<int>((ref) {
+  return 70;
 });
-
-class UserWeightNotifier extends StateNotifier<int> {
-  UserWeightNotifier() : super(70);
-
-  Future<void> setWeight(int weight) async {
-    state = weight;
-  }
-
-  void increaseOne() {
-    state++;
-  }
-
-  void increaseTen() {
-    state += 10;
-  }
-
-  void decreaseOne() {
-    state--;
-  }
-
-  void decreaseTen() {
-    state -= 10;
-  }
-}
 
 final StateNotifierProvider<UserAgeNotifier, int> userAgeProvider =
     StateNotifierProvider<UserAgeNotifier, int>(
