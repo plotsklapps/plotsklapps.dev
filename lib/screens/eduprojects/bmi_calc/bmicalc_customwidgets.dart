@@ -51,7 +51,7 @@ class RoundIconButton extends StatelessWidget {
         height: 40,
       ),
       shape: const CircleBorder(),
-      fillColor: UtilsColor.kBackGroundGrey,
+      fillColor: BMICalcUtils.kBackGroundGrey,
       child: Icon(icon),
     );
   }
@@ -83,7 +83,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: kLabelTextStyle,
+          style: BMICalcUtils.kLabelTextStyle,
         )
       ],
     );
@@ -108,18 +108,18 @@ class BottomButton extends StatelessWidget {
         margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.only(bottom: 8),
         decoration: const BoxDecoration(
-          color: UtilsColor.kOrangeFlame,
+          color: BMICalcUtils.kOrangeFlame,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(24),
             topRight: Radius.circular(24),
           ),
         ),
         width: double.infinity,
-        height: kBottomContainerHeight,
+        height: BMICalcUtils.kBottomContainerHeight,
         child: Center(
           child: Text(
             buttonTitle,
-            style: kLargeButtonTextStyle,
+            style: BMICalcUtils.kLargeButtonTextStyle,
           ),
         ),
       ),

@@ -30,14 +30,14 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                         ref.read(isMaleProvider.notifier).state = true;
                       },
                       color: ref.watch(isMaleProvider)
-                          ? UtilsColor.kGreyElectricBlue
-                          : UtilsColor.kGreyGunmetal,
+                          ? BMICalcUtils.kGreyElectricBlue
+                          : BMICalcUtils.kGreyGunmetal,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
                         color: ref.watch(isMaleProvider)
-                            ? UtilsColor.kOrangeFlame
-                            : UtilsColor.kBackGroundGrey,
+                            ? BMICalcUtils.kOrangeFlame
+                            : BMICalcUtils.kBackGroundGrey,
                       ),
                     ),
                   ),
@@ -49,14 +49,14 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                         });
                       },
                       color: !ref.watch(isMaleProvider)
-                          ? UtilsColor.kGreyElectricBlue
-                          : UtilsColor.kGreyGunmetal,
+                          ? BMICalcUtils.kGreyElectricBlue
+                          : BMICalcUtils.kGreyGunmetal,
                       cardChild: IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
                         color: !ref.watch(isMaleProvider)
-                            ? UtilsColor.kOrangeFlame
-                            : UtilsColor.kBackGroundGrey,
+                            ? BMICalcUtils.kOrangeFlame
+                            : BMICalcUtils.kBackGroundGrey,
                       ),
                     ),
                   ),
@@ -66,7 +66,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
             Expanded(
               child: ReusableCard(
                 onPress: () {},
-                color: UtilsColor.kGreyElectricBlue,
+                color: BMICalcUtils.kGreyElectricBlue,
                 cardChild: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Column(
@@ -74,7 +74,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                     children: <Widget>[
                       Text(
                         'HEIGHT',
-                        style: kLabelTextStyle,
+                        style: BMICalcUtils.kLabelTextStyle,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -83,20 +83,20 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                         children: <Widget>[
                           Text(
                             ref.watch(userHeightProvider).toStringAsFixed(0),
-                            style: kNumberTextStyle,
+                            style: BMICalcUtils.kNumberTextStyle,
                           ),
                           Text(
                             'cm',
-                            style: kLabelTextStyle,
+                            style: BMICalcUtils.kLabelTextStyle,
                           ),
                         ],
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          inactiveTrackColor: UtilsColor.kGreyCharcoal,
-                          activeTrackColor: UtilsColor.kBackGroundGrey,
-                          thumbColor: UtilsColor.kOrangeFlame,
-                          overlayColor: UtilsColor.kBackGroundGrey,
+                          inactiveTrackColor: BMICalcUtils.kGreyCharcoal,
+                          activeTrackColor: BMICalcUtils.kBackGroundGrey,
+                          thumbColor: BMICalcUtils.kOrangeFlame,
+                          overlayColor: BMICalcUtils.kBackGroundGrey,
                           thumbShape: const RoundSliderThumbShape(
                             enabledThumbRadius: 12,
                           ),
@@ -124,13 +124,13 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableCard(
-                      color: UtilsColor.kGreyElectricBlue,
+                      color: BMICalcUtils.kGreyElectricBlue,
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
                             'WEIGHT',
-                            style: kLabelTextStyle,
+                            style: BMICalcUtils.kLabelTextStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -139,11 +139,11 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                             children: <Text>[
                               Text(
                                 ref.watch(userWeightProvider).toString(),
-                                style: kNumberTextStyle,
+                                style: BMICalcUtils.kNumberTextStyle,
                               ),
                               Text(
                                 'kg',
-                                style: kLabelTextStyle,
+                                style: BMICalcUtils.kLabelTextStyle,
                               ),
                             ],
                           ),
@@ -188,13 +188,13 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                   ),
                   Expanded(
                     child: ReusableCard(
-                      color: UtilsColor.kGreyElectricBlue,
+                      color: BMICalcUtils.kGreyElectricBlue,
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
                             'AGE',
-                            style: kLabelTextStyle,
+                            style: BMICalcUtils.kLabelTextStyle,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -203,11 +203,11 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                             children: <Text>[
                               Text(
                                 ref.watch(userAgeProvider).toString(),
-                                style: kNumberTextStyle,
+                                style: BMICalcUtils.kNumberTextStyle,
                               ),
                               Text(
                                 'yr',
-                                style: kLabelTextStyle,
+                                style: BMICalcUtils.kLabelTextStyle,
                               ),
                             ],
                           ),
@@ -309,24 +309,24 @@ class BMICalcOutputScreenMobile extends ConsumerWidget {
                 alignment: Alignment.bottomLeft,
                 child: const Text(
                   'Your Result',
-                  style: kTitleTextStyle,
+                  style: BMICalcUtils.kTitleTextStyle,
                 ),
               ),
             ),
             Expanded(
               flex: 5,
               child: ReusableCard(
-                color: UtilsColor.kGreyElectricBlue,
+                color: BMICalcUtils.kGreyElectricBlue,
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
                       ref.watch(userResultProvider).toUpperCase(),
-                      style: kResultTextStyle,
+                      style: BMICalcUtils.kResultTextStyle,
                     ),
                     Text(
                       ref.watch(userBMIProvider),
-                      style: kBMITextStyle,
+                      style: BMICalcUtils.kBMITextStyle,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
@@ -336,7 +336,7 @@ class BMICalcOutputScreenMobile extends ConsumerWidget {
                       child: Text(
                         ref.watch(userInterpretationProvider),
                         textAlign: TextAlign.center,
-                        style: kBodyTextStyle,
+                        style: BMICalcUtils.kBodyTextStyle,
                       ),
                     ),
                   ],
@@ -350,77 +350,6 @@ class BMICalcOutputScreenMobile extends ConsumerWidget {
                 Navigator.pop(context);
               },
             )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BMICalcOutputScreenDesktop extends StatelessWidget {
-  const BMICalcOutputScreenDesktop({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Utils.kElectricBlue,
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            const SizedBox(
-              height: 480,
-              width: 240,
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    '''
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.''',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              // Set up width and height for the 'smartphone'.
-              width: 400,
-              height: 700,
-              decoration: BoxDecoration(
-                borderRadius:
-                    // Phones have rounded corners.
-                    BorderRadius.circular(40),
-                // Phone body color.
-                color: Utils.kGunMetal,
-                boxShadow: <BoxShadow>[
-                  // This creates a shadow effect to give some 3D appearance
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 10,
-                    blurRadius: 10,
-                    offset: const Offset(0, 5),
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(
-                  25.0,
-                ), // This gives the edge around the screen
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(24),
-                  ),
-                  child: ColoredBox(
-                    color: Utils.kLightGrey,
-                    child: const BMICalcOutputScreenMobile(),
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
