@@ -28,8 +28,10 @@ class WeatherLoadingScreenMobileState
         context,
         MaterialPageRoute<Widget>(
           builder: (BuildContext context) {
-            return WeatherScreenMobile(
-              locationWeather: weatherData,
+            return ResponsiveLayout(
+              screen: WeatherScreenMobile(
+                locationWeather: weatherData,
+              ),
             );
           },
         ),
