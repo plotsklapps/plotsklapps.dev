@@ -10,39 +10,15 @@ final StateProvider<double> userHeightProvider =
   return 180.0;
 });
 
-final StateProvider<int> userWeightProvider = StateProvider<int>((ref) {
+final StateProvider<int> userWeightProvider =
+    StateProvider<int>((StateProviderRef<int> ref) {
   return 70;
 });
 
-final StateNotifierProvider<UserAgeNotifier, int> userAgeProvider =
-    StateNotifierProvider<UserAgeNotifier, int>(
-        (StateNotifierProviderRef<UserAgeNotifier, int> ref) {
-  return UserAgeNotifier();
+final StateProvider<int> userAgeProvider =
+    StateProvider<int>((StateProviderRef<int> ref) {
+  return 25;
 });
-
-class UserAgeNotifier extends StateNotifier<int> {
-  UserAgeNotifier() : super(20);
-
-  Future<void> setAge(int age) async {
-    state = age;
-  }
-
-  void increaseOne() {
-    state++;
-  }
-
-  void increaseTen() {
-    state += 10;
-  }
-
-  void decreaseOne() {
-    state--;
-  }
-
-  void decreaseTen() {
-    state -= 10;
-  }
-}
 
 final StateProvider<String> userResultProvider =
     StateProvider<String>((StateProviderRef<String> ref) {

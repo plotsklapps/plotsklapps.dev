@@ -213,14 +213,11 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  ref
-                                      .read(userAgeProvider.notifier)
-                                      .decreaseOne();
+                                  ref.read(userAgeProvider.notifier).state -= 1;
                                 },
                                 onLongPressed: () {
-                                  ref
-                                      .read(userAgeProvider.notifier)
-                                      .decreaseTen();
+                                  ref.read(userAgeProvider.notifier).state -=
+                                      10;
                                 },
                               ),
                               const SizedBox(
@@ -229,14 +226,11 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  ref
-                                      .read(userAgeProvider.notifier)
-                                      .increaseOne();
+                                  ref.read(userAgeProvider.notifier).state += 1;
                                 },
                                 onLongPressed: () {
-                                  ref
-                                      .read(userAgeProvider.notifier)
-                                      .increaseTen();
+                                  ref.read(userAgeProvider.notifier).state +=
+                                      10;
                                 },
                               )
                             ],
