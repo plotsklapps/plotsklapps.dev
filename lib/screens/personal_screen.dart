@@ -85,25 +85,10 @@ class PersonalScreen extends ConsumerWidget {
                             child: Row(
                               children: <Widget>[
                                 // Row of skill icons that show a
-                                // ModalBottomsheet.
-                                SkillsIcon(
-                                  icon: ref
-                                      .watch(skillsIconsProvider.notifier)
-                                      .skillsIconsList[9],
-                                  onTap: () async {
-                                    await showSkillsIconDialog(context, 9);
-                                  },
-                                ),
-                                const SizedBox(width: 16),
-                                SkillsIcon(
-                                  icon: ref
-                                      .watch(skillsIconsProvider.notifier)
-                                      .skillsIconsList[10],
-                                  onTap: () async {
-                                    await showSkillsIconDialog(context, 10);
-                                  },
-                                ),
-                                const SizedBox(width: 16),
+                                // ModalBottomsheet. Riverpod providers are
+                                // used to get the icons and titles.
+                                // Ctrl+click on the provider to see how this
+                                // is done.
                                 SkillsIcon(
                                   icon: ref
                                       .watch(skillsIconsProvider.notifier)
@@ -182,6 +167,24 @@ class PersonalScreen extends ConsumerWidget {
                                       .skillsIconsList[8],
                                   onTap: () async {
                                     await showSkillsIconDialog(context, 8);
+                                  },
+                                ),
+                                const SizedBox(width: 16),
+                                SkillsIcon(
+                                  icon: ref
+                                      .watch(skillsIconsProvider.notifier)
+                                      .skillsIconsList[9],
+                                  onTap: () async {
+                                    await showSkillsIconDialog(context, 9);
+                                  },
+                                ),
+                                const SizedBox(width: 16),
+                                SkillsIcon(
+                                  icon: ref
+                                      .watch(skillsIconsProvider.notifier)
+                                      .skillsIconsList[10],
+                                  onTap: () async {
+                                    await showSkillsIconDialog(context, 10);
                                   },
                                 ),
                               ],

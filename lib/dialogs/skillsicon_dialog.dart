@@ -12,7 +12,9 @@ Future<void> showSkillsIconDialog(BuildContext context, int index) async {
         ) {
           return Container(
             padding: const EdgeInsets.all(16),
-            child: Row(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
                   height: 72,
@@ -23,17 +25,40 @@ Future<void> showSkillsIconDialog(BuildContext context, int index) async {
                         .skillsIconsList[index],
                   ),
                 ),
-                Expanded(
-                  child: ListTile(
-                    title: Text(
-                      ref
-                          .watch(skillsIconsProvider.notifier)
-                          .skillsTitlesList[index],
-                    ),
-                    subtitle: Text(
-                      ref
-                          .watch(skillsIconsProvider.notifier)
-                          .skillsSubtitlesList[index],
+                const SizedBox(height: 16.0),
+                Text(
+                  ref
+                      .watch(skillsIconsProvider.notifier)
+                      .skillsTitlesList[index],
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  ref
+                      .watch(skillsIconsProvider.notifier)
+                      .skillsSubtitlesList[index],
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16.0),
+                GestureDetector(
+                  onTap: () {
+                    if (index == 0) {
+                      launchUrl(Utils.flutterURL);
+                    } else if (index == 1) {
+                      launchUrl(Utils.ionicURL);
+                    } else if (index == 2) {
+                      launchUrl(Utils.dartURL);
+                    }
+                  },
+                  child: Text(
+                    ref
+                        .watch(skillsIconsProvider.notifier)
+                        .skillsUrlsList[index],
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

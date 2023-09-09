@@ -26,6 +26,61 @@ class Utils {
     'https://timelapps.app',
   );
 
+  // URL to flutter.dev website.
+  static Uri flutterURL = Uri.parse(
+    'https://flutter.dev',
+  );
+
+  //URL to ionicframework.com website.
+  static Uri ionicURL = Uri.parse(
+    'https://ionicframework.com',
+  );
+
+  //URL to dart.dev website.
+  static Uri dartURL = Uri.parse(
+    'https://dart.dev',
+  );
+
+  //URL to Firebase website.
+  static Uri firebaseURL = Uri.parse(
+    'https://firebase.google.com',
+  );
+
+  //URL to Git website.
+  static Uri gitURL = Uri.parse(
+    'https://git-scm.com',
+  );
+
+  //URL to Github website.
+  static Uri githubURL = Uri.parse(
+    'https://github.com',
+  );
+
+  //URL to Android Studio website.
+  static Uri androidstudioURL = Uri.parse(
+    'https://developer.android.com/studio',
+  );
+
+  //URL to VSCode website.
+  static Uri vscodeURL = Uri.parse(
+    'https://code.visualstudio.com/',
+  );
+
+  //URL to Linux website.
+  static Uri linuxURL = Uri.parse(
+    'https://www.linuxfoundation.org/',
+  );
+
+  //URL to Microsoft Windows website.
+  static Uri windowsURL = Uri.parse(
+    'https://www.microsoft.com/en-us/windows',
+  );
+
+  //URL to OpenAI ChatGPT website.
+  static Uri openaiURL = Uri.parse(
+    'https://openai.com',
+  );
+
   // Method to launch the user's email app to send an email to the developer.
   static Future<void> launchEmail() async {
     final Uri emailLaunchUri = Uri(

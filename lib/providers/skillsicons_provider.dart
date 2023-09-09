@@ -11,6 +11,8 @@ class SkillsIconsNotifier extends StateNotifier<int> {
 
 // List of icons to display in the carousel.
   final List<String> skillsIconsList = <String>[
+    'assets/icons/skillsicons/flutter_logo.png',
+    'assets/icons/skillsicons/ionic_logo.png',
     'assets/icons/skillsicons/dart_logo.png',
     'assets/icons/skillsicons/firebase_logo.png',
     'assets/icons/skillsicons/git_logo.png',
@@ -20,12 +22,12 @@ class SkillsIconsNotifier extends StateNotifier<int> {
     'assets/icons/skillsicons/linux_logo.png',
     'assets/icons/skillsicons/windows_logo.png',
     'assets/icons/skillsicons/openai_logo.png',
-    'assets/icons/skillsicons/flutter_logo.png',
-    'assets/icons/skillsicons/ionic_logo.png',
   ];
 
 // List of Titles to display in the carousel.
   final List<String> skillsTitlesList = <String>[
+    'FLUTTER',
+    'IONIC',
     'DART',
     'FIREBASE',
     'GIT',
@@ -35,33 +37,37 @@ class SkillsIconsNotifier extends StateNotifier<int> {
     'LINUX',
     'WINDOWS',
     'OPEN AI',
-    'FLUTTER',
-    'IONIC',
   ];
 
 // List of Subtitles to display in the carousel.
   final List<String> skillsSubtitlesList = <String>[
-    'The official programming language for Flutter.',
-    'Authenticating users and storing data.',
+    '''UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.''',
+    '''Framework for building cross-platform mobile, web, and desktop applications.''',
+    '''Open-source, general-purpose programming language, characterized by its strong typing and object-oriented approach, designed for building web, server, and mobile applications, and can be compiled to native code or JavaScript, known especially for its usage in the Flutter framework for developing natively compiled applications.''',
+    '''App development platform that includes services for hosting, database storage, user authentication, machine learning, static hosting, and many more, aimed to simplify the development process by providing serverless solutions.''',
     'Command line controlled distributed version control system.',
     'Online platform for Git repositories.',
     '''
-Integrated Development Environment providing tools for developing (Flutter) apps.''',
+Official integrated development environment (IDE) for Android development, offering powerful code editing, debugging, and testing tools for building robust apps for apps on all platforms.''',
     '''
-Cross-platform, extensible code editor that offers various features for developing (Flutter) apps.''',
+Cross-platform, extensible code editor that offers debuggers, terminal integration, source control, and a large array of tools and functionalities for developing (Flutter) apps.''',
     'Open source operating system, based on Unix operating system.',
     'Operating system by Microsoft.',
     'Artificial Intelligence research lab, developing and promoting AI.',
-    '''
-UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.''',
-    '''
-Framework for building cross-platform mobile, web, and desktop applications.'''
   ];
 
-  // Method to set the current INDEX of the carousel
-  // Usage: ref.read(skillsIconsProvider.notifier)
-  // .setCurrentSkillsIconsIndex(index);
-  int setCurrentSkillsIconsIndex(int index) {
-    return state = index;
-  }
+  // List of URLs to display in the carousel.
+  final List<String> skillsUrlsList = <String>[
+    'https://flutter.dev/',
+    'https://ionicframework.com/',
+    'https://dart.dev/',
+    'https://firebase.google.com/',
+    'https://git-scm.com/',
+    'https://github.com',
+    'https://developer.android.com/studio',
+    'https://code.visualstudio.com/',
+    'https://www.linux.org/',
+    'https://www.microsoft.com/en-us/windows',
+    'https://openai.com/',
+  ];
 }
