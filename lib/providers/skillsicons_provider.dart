@@ -41,16 +41,23 @@ class SkillsIconsNotifier extends StateNotifier<int> {
 
 // List of Subtitles to display in the carousel.
   final List<String> skillsSubtitlesList = <String>[
-    '''UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.''',
-    '''Framework for building cross-platform mobile, web, and desktop applications.''',
-    '''Open-source, general-purpose programming language, characterized by its strong typing and object-oriented approach, designed for building web, server, and mobile applications, and can be compiled to native code or JavaScript, known especially for its usage in the Flutter framework for developing natively compiled applications.''',
-    '''App development platform that includes services for hosting, database storage, user authentication, machine learning, static hosting, and many more, aimed to simplify the development process by providing serverless solutions.''',
-    'Command line controlled distributed version control system.',
-    'Online platform for Git repositories.',
     '''
-Official integrated development environment (IDE) for Android development, offering powerful code editing, debugging, and testing tools for building robust apps for apps on all platforms.''',
+    UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.''',
     '''
-Cross-platform, extensible code editor that offers debuggers, terminal integration, source control, and a large array of tools and functionalities for developing (Flutter) apps.''',
+    Framework for building cross-platform mobile, web, and desktop applications.''',
+    '''
+    Open-source, general-purpose programming language, characterized by its strong typing and object-oriented approach, designed for building web, server, and mobile applications, and can be compiled to native code or JavaScript, known especially for its usage in the Flutter framework for developing natively compiled applications.''',
+    '''
+    App development platform that includes services for hosting, database storage, user authentication, machine learning, static hosting, and many more, aimed to simplify the development process by providing serverless solutions.''',
+    '''
+    Distributed version control system from the command line, that enables 
+    multiple people to work on a project at the same time without overwriting each other's changes. It tracks and records all changes made to a project, allowing to revert to earlier versions, compare versions, or merge changes with ease. Git is primarily used for source code management in software development, but it can be used to keep track of changes in any set of files.''',
+    '''
+    Web-based hosting service for Git repositories, facilitating version control and collaboration, allowing multiple individuals to work on projects concurrently. Apart from being a repository, it provides several other features like bug tracking, feature requests, task management, and wikis for every project. It has become a central hub for open-source development, with features that encourage social coding, documentation, and project transparency.''',
+    '''
+    Official integrated development environment (IDE) for Android development, offering powerful code editing, debugging, and testing tools for building robust apps for apps on all platforms.''',
+    '''
+    Cross-platform, extensible code editor that offers debuggers, terminal integration, source control, and a large array of tools and functionalities for developing (Flutter) apps.''',
     'Open source operating system, based on Unix operating system.',
     'Operating system by Microsoft.',
     'Artificial Intelligence research lab, developing and promoting AI.',

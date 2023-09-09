@@ -51,6 +51,22 @@ Future<void> showSkillsIconDialog(BuildContext context, int index) async {
                       launchUrl(Utils.ionicURL);
                     } else if (index == 2) {
                       launchUrl(Utils.dartURL);
+                    } else if (index == 3) {
+                      launchUrl(Utils.firebaseURL);
+                    } else if (index == 4) {
+                      launchUrl(Utils.gitURL);
+                    } else if (index == 5) {
+                      launchUrl(Utils.githubURL);
+                    } else if (index == 6) {
+                      launchUrl(Utils.androidstudioURL);
+                    } else if (index == 7) {
+                      launchUrl(Utils.vscodeURL);
+                    } else if (index == 8) {
+                      launchUrl(Utils.linuxURL);
+                    } else if (index == 9) {
+                      launchUrl(Utils.windowsURL);
+                    } else if (index == 10) {
+                      launchUrl(Utils.openaiURL);
                     }
                   },
                   child: Text(
