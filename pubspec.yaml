@@ -22,7 +22,7 @@ dependencies:
   flutter_riverpod: ^2.3.6
   font_awesome_flutter: ^10.4.0
   geolocator: ^10.0.0
-  google_fonts: ^5.0.0
+  google_fonts: ^6.0.0
   http: ^1.0.0
   just_audio: ^0.9.34
   url_launcher: ^6.1.11
