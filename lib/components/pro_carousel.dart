@@ -13,12 +13,15 @@ class ProCarousel extends ConsumerWidget {
           onTap: () {
             Navigator.pop(context);
           },
-          child: ColoredBox(
-            color: Colors.transparent,
-            child: Center(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Image.asset(image),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: ColoredBox(
+              color: Colors.transparent,
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(24),
+                  child: Image.asset(image),
+                ),
               ),
             ),
           ),
@@ -49,100 +52,28 @@ class ProCarousel extends ConsumerWidget {
           const SizedBox(height: 16),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
-            // ScrollConfiguration to allow for scrolling on web
-            // with various input devices.
-            child: ScrollConfiguration(
-              behavior: const ScrollBehavior().copyWith(
-                scrollbars: false,
-                dragDevices: <PointerDeviceKind>{
-                  PointerDeviceKind.mouse,
-                  PointerDeviceKind.trackpad,
-                  PointerDeviceKind.touch,
-                  PointerDeviceKind.stylus,
-                },
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: <Widget>[
-                    GestureDetector(
-                      onTap: () async {
-                        await buildTimelappsDialog(
-                          context,
-                          'assets/images/timelapps/timelapps_1.png',
-                        );
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Image.asset(
-                          'assets/images/timelapps/timelapps_1.png',
-                        ),
-                      ),
+            child: Row(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () async {
+                    await buildTimelappsDialog(
+                      context,
+                      'assets/images/timelapps/timelapps.png',
+                    );
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(24),
+                    child: Image.asset(
+                      'assets/images/timelapps/timelapps.png',
                     ),
-                    const SizedBox(width: 16),
-                    GestureDetector(
-                      onTap: () async {
-                        await buildTimelappsDialog(
-                          context,
-                          'assets/images/timelapps/timelapps_2.png',
-                        );
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Image.asset(
-                          'assets/images/timelapps/timelapps_2.png',
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    GestureDetector(
-                      onTap: () async {
-                        await buildTimelappsDialog(
-                          context,
-                          'assets/images/timelapps/timelapps_3.png',
-                        );
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Image.asset(
-                          'assets/images/timelapps/timelapps_3.png',
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    GestureDetector(
-                      onTap: () async {
-                        await buildTimelappsDialog(
-                          context,
-                          'assets/images/timelapps/timelapps_4.png',
-                        );
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Image.asset(
-                          'assets/images/timelapps/timelapps_4.png',
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    GestureDetector(
-                      onTap: () async {
-                        await buildTimelappsDialog(
-                          context,
-                          'assets/images/timelapps/timelapps_5.png',
-                        );
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Image.asset(
-                          'assets/images/timelapps/timelapps_5.png',
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                  ],
+                  ),
                 ),
-              ),
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Text(
+                      'Timelapps is a time tracking app designed for educational professionals with a focus on simplicity and ease of use.'),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 16),
