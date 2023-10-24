@@ -48,8 +48,8 @@ class MobileScreenState extends ConsumerState<MobileScreen> {
                   ? Utils.kIconSun
                   : Utils.kIconMoon,
               onPressed: () {
-                // Tapping the icon will change the boolean back and forth
-                // and change the icon.
+                // Tapping the icon will change the boolean back
+                // and forth and change the icon.
                 ref.read(isLightModeProvider.notifier).state =
                     !ref.read(isLightModeProvider.notifier).state;
                 // Change the actual theme mode based on the boolean.

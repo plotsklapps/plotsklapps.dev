@@ -24,7 +24,7 @@ class PortfolioScreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Text(
-                  "I've been developing apps since 2021, and I've created a few apps during my courses that are worthwile to show off. Every finished project has a short description and a link to the source code so my coding style can be reviewed/evaluated.",
+                  "I've been developing apps since 2021, and I've created a few apps during my courses that are worthwhile to show off. Every finished project has a short description and a link to the source code so my coding style can be reviewed/evaluated.",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 16),
