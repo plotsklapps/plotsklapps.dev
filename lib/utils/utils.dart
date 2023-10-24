@@ -115,7 +115,7 @@ class Utils {
       const Icon(FontAwesomeIcons.envelopeCircleCheck);
   static Icon kIconSun = const Icon(FontAwesomeIcons.sun);
   static Icon kIconMoon = const Icon(FontAwesomeIcons.moon);
-  static Icon kIconTwitter = const Icon(FontAwesomeIcons.twitter);
+  static Icon kIconX = const Icon(FontAwesomeIcons.xTwitter);
   static Icon kIconGithub = const Icon(FontAwesomeIcons.github);
   static Icon kIconHashnode = const Icon(FontAwesomeIcons.hashnode);
   static Icon kIconCircleCheck = const Icon(FontAwesomeIcons.solidCircleCheck);

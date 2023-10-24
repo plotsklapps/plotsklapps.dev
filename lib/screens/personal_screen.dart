@@ -30,10 +30,10 @@ class PersonalScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     SocialsIcon(
-                      icon: Utils.kIconTwitter,
+                      icon: Utils.kIconX,
                       delay: Duration.zero,
                       onPressed: () async {
-                        await showTwitterDialog(context);
+                        await showXDialog(context);
                       },
                     ),
                     const SizedBox(width: 16),

@@ -1,8 +1,8 @@
 import 'package:portfolio/all_imports.dart';
 
-final Uri twitterURL = Uri.parse('https://twitter.com/plotsklapps');
+final Uri xURL = Uri.parse('https://x.com/plotsklapps');
 
-Future<void> showTwitterDialog(BuildContext context) async {
+Future<void> showXDialog(BuildContext context) async {
   await showModalBottomSheet<void>(
     useRootNavigator: true,
     context: context,
@@ -16,7 +16,7 @@ Future<void> showTwitterDialog(BuildContext context) async {
             ElevatedButton(
               onPressed: () async {
                 try {
-                  await launchUrl(twitterURL);
+                  await launchUrl(xURL);
                 } catch (error) {
                   showCustomSnack(
                     context,
@@ -24,20 +24,20 @@ Future<void> showTwitterDialog(BuildContext context) async {
                   );
                 }
               },
-              child: const ListTile(
-                title: Text('Twitter'),
-                subtitle: Text('Reach out to @plotsklapps'),
+              child: ListTile(
+                title: const Text('X'),
+                subtitle: const Text('Reach out to @plotsklapps'),
                 trailing: Icon(
-                  FontAwesomeIcons.twitter,
-                  color: Color(0xFF00ACEE),
+                  FontAwesomeIcons.xTwitter,
+                  color: Colors.black.withOpacity(0.7),
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            const Icon(
-              FontAwesomeIcons.twitter,
+            Icon(
+              FontAwesomeIcons.xTwitter,
               size: 224,
-              color: Color(0xFF00ACEE),
+              color: Colors.black.withOpacity(0.7),
             )
                 .animate(
                   onPlay: (AnimationController controller) {

@@ -24,7 +24,7 @@ export 'package:portfolio/dialogs/custom_snackbar.dart';
 export 'package:portfolio/dialogs/github_dialog.dart';
 export 'package:portfolio/dialogs/hashnode_dialog.dart';
 export 'package:portfolio/dialogs/skillsicon_dialog.dart';
-export 'package:portfolio/dialogs/twitter_dialog.dart';
+export 'package:portfolio/dialogs/x_dialog.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weather_screen.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weather_services.dart';
 export 'package:portfolio/mobile/eduprojects/weather/weatherloading_screen.dart';
