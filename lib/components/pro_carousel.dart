@@ -71,7 +71,9 @@ class ProCarousel extends ConsumerWidget {
                 const SizedBox(width: 16),
                 const Expanded(
                   child: Text(
-                      'Timelapps is a time tracking app designed for educational professionals with a focus on simplicity and ease of use.'),
+                    '''
+Timelapps is a time tracking app designed for educational professionals with a focus on simplicity and ease of use.''',
+                  ),
                 ),
               ],
             ),

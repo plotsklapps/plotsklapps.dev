@@ -37,6 +37,7 @@ export 'package:portfolio/screens/eduprojects/bmi_calc/bmicalc_customwidgets.dar
 export 'package:portfolio/screens/eduprojects/bmi_calc/bmicalc_provider.dart';
 export 'package:portfolio/screens/eduprojects/bmi_calc/bmicalc_screen.dart';
 export 'package:portfolio/screens/eduprojects/bmi_calc/bmicalc_utils.dart';
+export 'package:portfolio/screens/eduprojects/dadjokes_screen.dart';
 export 'package:portfolio/screens/eduprojects/dice_screen.dart';
 export 'package:portfolio/screens/eduprojects/weather/weather_screen.dart';
 export 'package:portfolio/screens/eduprojects/weather/weather_services.dart';

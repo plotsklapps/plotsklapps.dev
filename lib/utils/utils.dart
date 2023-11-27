@@ -21,6 +21,14 @@ class Utils {
     'https://github.com/plotsklapps/plotsklapps.dev/tree/master/lib/mobile/eduprojects/bmicalc',
   );
 
+  // URL to the Weather app source code.
+  static Uri weatherURL = Uri.parse(
+    'https://github.com/plotsklapps/plotsklapps.dev/tree/master/lib/screens/eduprojects/weather',
+  );
+
+  // URL to the Dad Jokes app source code.
+  static Uri dadjokesURL = Uri.parse('');
+
   // URL to the Timelapps PWA.
   static Uri timelappsURL = Uri.parse(
     'https://timelapps.app',
