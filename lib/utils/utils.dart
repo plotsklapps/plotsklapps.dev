@@ -27,7 +27,9 @@ class Utils {
   );
 
   // URL to the Dad Jokes app source code.
-  static Uri dadjokesURL = Uri.parse('');
+  static Uri dadjokesURL = Uri.parse(
+    'https://github.com/plotsklapps/plotsklapps.dev/blob/master/lib/screens/eduprojects/dadjokes_screen.dart',
+  );
 
   // URL to the Timelapps PWA.
   static Uri timelappsURL = Uri.parse(

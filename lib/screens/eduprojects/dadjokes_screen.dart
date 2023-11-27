@@ -65,7 +65,8 @@ class HomeScreenState extends State<DadJokesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DAD JOKES'),
+        title: const Text('Dad jokes'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

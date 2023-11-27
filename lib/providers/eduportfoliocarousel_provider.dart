@@ -19,6 +19,8 @@ Xylophone is an app that plays sounds when you tap on the colors. It uses the ju
 BMI Calculator is an app that calculates your Body Mass Index. It uses the math package to calculate the BMI.''',
     '''
 Weather app shows the weather of a city. It uses the http package to fetch data from the OpenWeatherMap API.''',
+    '''
+Dad Jokes app is an app that tells... Dad Jokes. It uses the Dad Jokes API to fetch setups and punchlines from RapidAPI.''',
   ];
 
   // List of images to display in the carousel
@@ -26,6 +28,7 @@ Weather app shows the weather of a city. It uses the http package to fetch data 
     'assets/images/eduportfolio_dicee.png',
     'assets/images/eduportfolio_xylophone.png',
     'assets/images/eduportfolio_bmicalc.png',
+    'assets/images/eduportfolio_weather.png',
     'assets/images/eduportfolio_weather.png',
   ];
 
