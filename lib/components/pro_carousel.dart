@@ -71,6 +71,7 @@ class ProCarousel extends ConsumerWidget {
                 const SizedBox(width: 16),
                 const Expanded(
                   child: Text(
+                    // TODO(plotsklapps): See if this is the best way to do this.
                     '''
 Timelapps is a time tracking app designed for educational professionals with a focus on simplicity and ease of use.''',
                   ),
