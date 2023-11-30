@@ -51,6 +51,8 @@ class EduCarousel extends ConsumerWidget {
                       await navigateToEduProject(
                         const WeatherLoadingScreenMobile(),
                       );
+                    } else if (currentIndex == 4) {
+                      await navigateToEduProject(const DadJokesScreen());
                     } else {
                       return;
                     }
@@ -66,6 +68,8 @@ class EduCarousel extends ConsumerWidget {
                       await launchUrl(Utils.xylophoneURL);
                     } else if (currentIndex == 2) {
                       await launchUrl(Utils.bmicalcURL);
+                    } else if (currentIndex == 3) {
+                      await launchUrl(Utils.weatherURL);
                     } else {
                       return;
                     }
