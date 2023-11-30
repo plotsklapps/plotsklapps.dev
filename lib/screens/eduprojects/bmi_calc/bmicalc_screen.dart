@@ -232,9 +232,9 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                                   ref.read(userAgeProvider.notifier).state +=
                                       10;
                                 },
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                       onPress: () {},
@@ -272,7 +272,7 @@ class BMICalcScreenState extends ConsumerState<BMICalcScreen> {
                   );
                 });
               },
-            )
+            ),
           ],
         ),
       ),
@@ -339,7 +339,7 @@ class BMICalcOutputScreenMobile extends ConsumerWidget {
               onTap: () {
                 Navigator.pop(context);
               },
-            )
+            ),
           ],
         ),
       ),

@@ -21,8 +21,8 @@ class MainEntry extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       // Theme, darkTheme and themeMode get their values
       // from Riverpod Providers.
-      theme: ref.watch(flexSchemeLightProvider),
-      darkTheme: ref.watch(flexSchemeDarkProvider),
+      theme: ref.watch(themeLightProvider),
+      darkTheme: ref.watch(themeDarkProvider),
       themeMode: ref.watch(themeModeProvider),
       home: const ResponsiveLayout(
         screen: MobileScreen(),

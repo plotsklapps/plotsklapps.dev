@@ -84,7 +84,7 @@ class IconContent extends StatelessWidget {
         Text(
           label,
           style: BMICalcUtils.kLabelTextStyle,
-        )
+        ),
       ],
     );
   }

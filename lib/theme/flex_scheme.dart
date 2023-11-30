@@ -11,8 +11,7 @@ final StateProvider<ThemeMode> themeModeProvider =
 
 // Light and dark ColorSchemes made by FlexColorScheme v7.0.5.
 // These ColorScheme objects require Flutter 3.7 or later.
-final StateProvider<ThemeData> flexSchemeLightProvider =
-    StateProvider<ThemeData>(
+final StateProvider<ThemeData> themeLightProvider = StateProvider<ThemeData>(
   (StateProviderRef<ThemeData> ref) {
     return FlexThemeData.light(
       scheme: FlexScheme.outerSpace,
@@ -74,8 +73,7 @@ final StateProvider<ThemeData> flexSchemeLightProvider =
   },
 );
 
-final StateProvider<ThemeData> flexSchemeDarkProvider =
-    StateProvider<ThemeData>(
+final StateProvider<ThemeData> themeDarkProvider = StateProvider<ThemeData>(
   (StateProviderRef<ThemeData> ref) {
     return FlexThemeData.dark(
       scheme: FlexScheme.outerSpace,
